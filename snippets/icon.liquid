@@ -1,0 +1,67 @@
+{%- liquid
+  assign s = size | default: 24
+-%}
+{%- case name -%}
+{%- when 'leaf' -%}
+<svg class="icon icon-leaf" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13C4 7 9 3 20 4c1 11-3 16-9 16Z"/><path d="M4 20c4-6 8-9 12-11"/></svg>
+{%- when 'drop' -%}
+<svg class="icon icon-drop" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 1 1-13 0C5.5 10 12 3 12 3Z"/><path d="M9 14.5a3.2 3.2 0 0 0 3 3.5"/></svg>
+{%- when 'heart' -%}
+<svg class="icon icon-heart" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.8 4.5 4.5 0 0 1 8 2.8c0 6.3-8 11-8 11Z"/></svg>
+{%- when 'sparkle' -%}
+<svg class="icon icon-sparkle" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></svg>
+{%- when 'flower' -%}
+<svg class="icon icon-flower" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><path d="M12 9.5a3.5 3.5 0 1 0-3.5-3.5A3.5 3.5 0 0 0 12 9.5Zm0 5a3.5 3.5 0 1 1-3.5 3.5A3.5 3.5 0 0 1 12 14.5Zm2.5-2.5A3.5 3.5 0 1 0 18 8.5A3.5 3.5 0 0 0 14.5 12Zm-5 0A3.5 3.5 0 1 1 6 8.5A3.5 3.5 0 0 1 9.5 12Z"/></svg>
+{%- when 'shield' -%}
+<svg class="icon icon-shield" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+{%- when 'truck' -%}
+<svg class="icon icon-truck" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+{%- when 'lock' -%}
+<svg class="icon icon-lock" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+{%- when 'return' -%}
+<svg class="icon icon-return" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
+{%- when 'rabbit' -%}
+<svg class="icon icon-rabbit" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 16a4 4 0 1 1-6.5-3.1"/><path d="M9.5 9.5C8 6 8.5 3 10 3s3 3.5 3.5 6"/><path d="M13.5 9C13.5 5.5 15 3 16.5 3S19 6.5 17 10"/><path d="M13 16c2.5-2.5 6-3 8-1.5-1 2.5-4 3.5-6.5 3"/><circle cx="10" cy="13" r=".5"/></svg>
+{%- when 'lab' -%}
+<svg class="icon icon-lab" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4"/><path d="M10 3v6L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7.5 15h9"/></svg>
+{%- when 'recycle' -%}
+<svg class="icon icon-recycle" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.5-2.7L5 13"/><path d="M11 19H7l2 3"/><path d="M16.4 8.6l1.1-1.9a1.8 1.8 0 0 1 3.1 0l1.7 3-3.4.6"/><path d="M14 5l-2-3-2.1 3.6"/><path d="M8.6 5.6L6.8 8.7"/><path d="M19 13l1.3 2.3a1.8 1.8 0 0 1-1.5 2.7H16"/></svg>
+{%- when 'star' -%}
+<svg class="icon icon-star" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2.7l2.9 5.8 6.4 1-4.6 4.5 1.1 6.4L12 17.3l-5.8 3 1.1-6.4L2.7 9.5l6.4-1L12 2.7Z"/></svg>
+{%- when 'check' -%}
+<svg class="icon icon-check" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg>
+{%- when 'gift' -%}
+<svg class="icon icon-gift" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4"/><path d="M5 12v8h14v-8"/><path d="M12 8v12"/><path d="M12 8c-4.5 0-5.5-5-2.5-5C11.5 3 12 6 12 8Zm0 0c4.5 0 5.5-5 2.5-5C12.5 3 12 6 12 8Z"/></svg>
+{%- when 'mail' -%}
+<svg class="icon icon-mail" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+{%- when 'cart' -%}
+<svg class="icon icon-cart" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1.5 12.5a1.5 1.5 0 0 1-1.5 1.5H6a1.5 1.5 0 0 1-1.5-1.5L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+{%- when 'search' -%}
+<svg class="icon icon-search" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+{%- when 'account' -%}
+<svg class="icon icon-account" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg>
+{%- when 'menu' -%}
+<svg class="icon icon-menu" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+{%- when 'close' -%}
+<svg class="icon icon-close" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+{%- when 'chevron-down' -%}
+<svg class="icon icon-chevron-down" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+{%- when 'chevron-left' -%}
+<svg class="icon icon-chevron-left" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>
+{%- when 'chevron-right' -%}
+<svg class="icon icon-chevron-right" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6l6 6-6 6"/></svg>
+{%- when 'plus' -%}
+<svg class="icon icon-plus" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+{%- when 'minus' -%}
+<svg class="icon icon-minus" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+{%- when 'instagram' -%}
+<svg class="icon icon-instagram" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".8" fill="currentColor"/></svg>
+{%- when 'tiktok' -%}
+<svg class="icon icon-tiktok" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a4 4 0 1 1-4-4"/><path d="M14 4a5.5 5.5 0 0 0 5.5 5.5"/></svg>
+{%- when 'facebook' -%}
+<svg class="icon icon-facebook" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4.5h-3A4 4 0 0 0 10 8.5V11H7v3.5h3V21h3.5v-6.5h3l.5-3.5h-3.5V9a1 1 0 0 1 1-1Z"/></svg>
+{%- when 'pinterest' -%}
+<svg class="icon icon-pinterest" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M10.5 20l2-8"/><path d="M9 11.5a3.5 3.5 0 1 1 6 2.4c-1.2 1.3-3 1.2-3.7 0"/></svg>
+{%- else -%}
+<svg class="icon" width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>
+{%- endcase -%}

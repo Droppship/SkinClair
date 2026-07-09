@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="page-width">
+    <div class="page-title">
+      <h1>Nos collections</h1>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 24px;">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="collection-card reveal">
+          {%- if collection.featured_image -%}
+            <img
+              src="{{ collection.featured_image | image_url: width: 800 }}"
+              alt="{{ collection.title | escape }}"
+              width="800"
+              height="1000"
+              loading="lazy"
+            >
+          {%- else -%}
+            {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+          <div class="collection-card__content">
+            <h3>{{ collection.title }}</h3>
+            <span>Découvrir</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Liste des collections",
+  "settings": []
+}
+{% endschema %}

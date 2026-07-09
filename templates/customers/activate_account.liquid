@@ -1,0 +1,28 @@
+<section class="section">
+  <div class="page-width">
+    <div class="customer-page">
+      <div class="page-title">
+        <h1>{{ 'customer.activate.title' | t }}</h1>
+        <p>{{ 'customer.activate.subtext' | t }}</p>
+      </div>
+
+      <div class="customer-card">
+        {%- form 'activate_customer_password' -%}
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+          <div class="field">
+            <label for="ActivatePassword">{{ 'customer.activate.password' | t }}</label>
+            <input type="password" id="ActivatePassword" name="customer[password]" class="field__input" autocomplete="new-password" required>
+          </div>
+          <div class="field">
+            <label for="ActivatePasswordConfirm">{{ 'customer.activate.password_confirm' | t }}</label>
+            <input type="password" id="ActivatePasswordConfirm" name="customer[password_confirmation]" class="field__input" autocomplete="new-password" required>
+          </div>
+          <button type="submit" class="btn btn--full">{{ 'customer.activate.submit' | t }}</button>
+          <button type="submit" name="decline" class="btn btn--secondary btn--full" style="margin-top: 10px;">{{ 'customer.activate.decline' | t }}</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>

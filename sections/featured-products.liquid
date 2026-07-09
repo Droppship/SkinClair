@@ -1,0 +1,99 @@
+<section class="section section--surface">
+  <div class="page-width">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p>{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="product-slider" data-slider>
+      <div class="slider-arrows">
+        <button class="slider-arrow" data-slider-prev aria-label="{{ 'general.pagination.previous' | t }}">{% render 'icon', name: 'chevron-left', size: 18 %}</button>
+        <button class="slider-arrow" data-slider-next aria-label="{{ 'general.pagination.next' | t }}">{% render 'icon', name: 'chevron-right', size: 18 %}</button>
+      </div>
+      <div class="product-slider__track" data-slider-track>
+        {%- liquid
+          assign collection = section.settings.collection
+          assign limit = section.settings.products_count
+        -%}
+        {%- if collection != blank and collection.products.size > 0 -%}
+          {%- for product in collection.products limit: limit -%}
+            {% render 'product-card', card_product: product %}
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..4) -%}
+            <article class="product-card">
+              <div class="product-card__media">
+                {{ 'product-apparel-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">Votre produit vedette</h3>
+                <p class="product-card__subtitle">Sélectionnez une collection</p>
+                <div class="price price--card"><span class="price__current">29,90&nbsp;€</span></div>
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.button_label != blank and collection != blank -%}
+      <div style="text-align: center; margin-top: 12px;">
+        <a href="{{ collection.url }}" class="link-arrow">{{ section.settings.button_label }} {% render 'icon', name: 'chevron-right', size: 14 %}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produits vedettes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Les indispensables"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Nos best-sellers"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sous-texte",
+      "default": "Les soins préférés de nos clientes, approuvés au quotidien."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "Nombre de produits",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Lien « voir tout »",
+      "default": "Voir toute la collection"
+    }
+  ],
+  "presets": [
+    { "name": "Produits vedettes" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+<section class="section">
+  <div class="page-width">
+    <div class="customer-page">
+      <div class="page-title">
+        <h1>{{ 'customer.login.title' | t }}</h1>
+      </div>
+
+      <div class="customer-card">
+        {%- form 'customer_login' -%}
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+          <div class="field">
+            <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+            <input type="email" id="CustomerEmail" name="customer[email]" class="field__input" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+            <input type="password" id="CustomerPassword" name="customer[password]" class="field__input" autocomplete="current-password" required>
+          </div>
+          <button type="submit" class="btn btn--full">{{ 'customer.login.submit' | t }}</button>
+          <p class="customer-links" style="margin-top: 14px;">
+            <a href="#recover" onclick="document.getElementById('RecoverForm').hidden = false; this.closest('.customer-card').querySelector('form').hidden = true; return false;">{{ 'customer.login.forgot' | t }}</a>
+          </p>
+        {%- endform -%}
+
+        <div id="RecoverForm" hidden>
+          <h2 class="h3" style="margin-bottom: 8px;">{{ 'customer.recover.title' | t }}</h2>
+          <p class="text-muted" style="font-size: 1.4rem; margin-bottom: 18px;">{{ 'customer.recover.subtext' | t }}</p>
+          {%- form 'recover_customer_password' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="form-message form-message--success">{{ 'customer.recover.success' | t }}</p>
+            {%- endif -%}
+            {%- if form.errors -%}
+              <div class="form-message form-message--error">{{ form.errors | default_errors }}</div>
+            {%- endif -%}
+            <div class="field">
+              <label for="RecoverEmail">{{ 'customer.login.email' | t }}</label>
+              <input type="email" id="RecoverEmail" name="email" class="field__input" autocomplete="email" required>
+            </div>
+            <button type="submit" class="btn btn--full">{{ 'customer.recover.submit' | t }}</button>
+          {%- endform -%}
+        </div>
+      </div>
+
+      <p class="customer-links">
+        {{ 'customer.login.no_account' | t }}
+        <a href="{{ routes.account_register_url }}">{{ 'customer.login.create_account' | t }}</a>
+      </p>
+
+      {%- if shop.checkout.guest_login -%}
+        <div class="customer-card" style="margin-top: 20px; text-align: center;">
+          <h2 class="h3">{{ 'customer.login.guest_title' | t }}</h2>
+          {%- form 'guest_login' -%}
+            <button type="submit" class="btn btn--secondary" style="margin-top: 12px;">{{ 'customer.login.guest_continue' | t }}</button>
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% elsif section.settings.background == 'surface' %} section--surface{% endif %}">
+  <div class="page-width">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p>{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div data-slider>
+      <div class="testimonials__track" data-slider-track>
+        {%- for block in section.blocks -%}
+          <figure class="testimonial-card reveal" {{ block.shopify_attributes }}>
+            <span class="stars" role="img" aria-label="{{ block.settings.rating }} étoiles sur 5">
+              {%- for i in (1..block.settings.rating) -%}
+                {% render 'icon', name: 'star', size: 16 %}
+              {%- endfor -%}
+            </span>
+            <blockquote class="testimonial-card__quote">« {{ block.settings.quote }} »</blockquote>
+            <figcaption class="testimonial-card__author">
+              {{ block.settings.author }}
+              {%- if block.settings.verified -%}
+                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} Achat vérifié</span>
+              {%- endif -%}
+            </figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Témoignages",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Elles nous font confiance"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Ce que disent nos clientes"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sous-texte"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Fond",
+      "options": [
+        { "value": "default", "label": "Ivoire" },
+        { "value": "soft", "label": "Rose doux" },
+        { "value": "surface", "label": "Blanc" }
+      ],
+      "default": "soft"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Témoignage",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Note",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Citation",
+          "default": "Ma peau n'a jamais été aussi douce. Je vois une vraie différence après trois semaines d'utilisation."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Prénom",
+          "default": "Camille L."
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Achat vérifié",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Témoignages",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial", "settings": { "quote": "Enfin une marque qui tient ses promesses. Textures divines, parfums délicats, et une livraison ultra rapide.", "author": "Sarah M." } },
+        { "type": "testimonial", "settings": { "quote": "J'ai remplacé toute ma routine. Le sérum est devenu mon indispensable du matin.", "author": "Inès B." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

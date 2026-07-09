@@ -1,0 +1,81 @@
+<section class="section">
+  <div class="page-width">
+    <div class="customer-page customer-page--wide">
+      <div class="page-title">
+        <h1>{{ 'customer.addresses.title' | t }}</h1>
+      </div>
+
+      <div class="customer-card" style="margin-bottom: 24px;">
+        <h2 class="h3" style="margin-bottom: 16px;">{{ 'customer.addresses.add_new' | t }}</h2>
+        {%- form 'customer_address', customer.new_address -%}
+          <div class="grid grid--2" style="gap: 0 16px;">
+            <div class="field">
+              <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+              <input type="text" id="AddressFirstNameNew" name="address[first_name]" class="field__input" autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+              <input type="text" id="AddressLastNameNew" name="address[last_name]" class="field__input" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="field">
+            <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+            <input type="text" id="AddressAddress1New" name="address[address1]" class="field__input" autocomplete="address-line1">
+          </div>
+          <div class="field">
+            <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+            <input type="text" id="AddressAddress2New" name="address[address2]" class="field__input" autocomplete="address-line2">
+          </div>
+          <div class="grid grid--2" style="gap: 0 16px;">
+            <div class="field">
+              <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+              <input type="text" id="AddressCityNew" name="address[city]" class="field__input" autocomplete="address-level2">
+            </div>
+            <div class="field">
+              <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+              <input type="text" id="AddressZipNew" name="address[zip]" class="field__input" autocomplete="postal-code">
+            </div>
+          </div>
+          <div class="field">
+            <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+            <select id="AddressCountryNew" name="address[country]" data-default="{{ customer.default_address.country }}">
+              {{ all_country_option_tags }}
+            </select>
+          </div>
+          <div class="field">
+            <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+            <input type="tel" id="AddressPhoneNew" name="address[phone]" class="field__input" autocomplete="tel">
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 1.4rem; margin-bottom: 16px;">
+            {{ form.set_as_default_checkbox }}
+            {{ 'customer.addresses.set_default' | t }}
+          </label>
+          <button type="submit" class="btn">{{ 'customer.addresses.save' | t }}</button>
+        {%- endform -%}
+      </div>
+
+      <div class="grid grid--2" style="gap: 20px;">
+        {%- paginate customer.addresses by 10 -%}
+          {%- for address in customer.addresses -%}
+            <div class="customer-card">
+              {%- if address == customer.default_address -%}
+                <p class="eyebrow" style="margin-bottom: 8px;">{{ 'customer.addresses.default' | t }}</p>
+              {%- endif -%}
+              {{ address | format_address }}
+              <div style="margin-top: 14px; display: flex; gap: 10px;">
+                <form method="post" action="{{ address.url }}" onsubmit="return confirm('{{ 'customer.addresses.confirm_delete' | t }}');">
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" class="btn btn--card btn--secondary">{{ 'customer.addresses.delete' | t }}</button>
+                </form>
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endpaginate -%}
+      </div>
+
+      <p class="customer-links">
+        <a href="{{ routes.account_url }}">{{ 'customer.order.back' | t }}</a>
+      </p>
+    </div>
+  </div>
+</section>

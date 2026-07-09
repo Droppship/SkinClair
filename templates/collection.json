@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 24
+      }
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "Satisfaite ou remboursée — 30 jours",
+        "text": "Commandez en toute confiance : si un soin ne vous convient pas, nous vous remboursons intégralement.",
+        "button_label": "",
+        "small_print": ""
+      }
+    }
+  },
+  "order": ["main", "guarantee"]
+}

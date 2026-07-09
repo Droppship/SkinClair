@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Notre histoire",
+        "heading": "La beauté, avec exigence et douceur",
+        "text": "Nous croyons qu'une routine simple, avec des soins justes et efficaces, vaut mieux que dix produits superflus.",
+        "button_label": "",
+        "height": "small",
+        "alignment": "center"
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "left",
+        "background": "default",
+        "eyebrow": "Pourquoi nous existons",
+        "heading": "Née d'une frustration, portée par une conviction",
+        "text": "<p>Trop de promesses, trop d'ingrédients inutiles, trop de marketing. Nous avons créé cette marque pour revenir à l'essentiel : des formules courtes, des actifs prouvés, des textures qu'on aime retrouver chaque matin.</p><p>Chaque produit est développé avec des formulateurs indépendants, testé sur peaux sensibles, et n'est lancé que lorsqu'il nous rend réellement fières.</p>",
+        "button_label": "Découvrir nos soins"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "values": {
+      "type": "multicolumn",
+      "settings": {
+        "eyebrow": "Nos valeurs",
+        "heading": "Ce qui nous guide",
+        "background": "soft",
+        "compact": false
+      },
+      "blocks": {
+        "v1": { "type": "column", "settings": { "icon": "heart", "title": "Transparence", "text": "Composition complète affichée, aucune promesse que nous ne pouvons tenir." } },
+        "v2": { "type": "column", "settings": { "icon": "lab", "title": "Efficacité", "text": "Des actifs dosés à des concentrations réellement actives." } },
+        "v3": { "type": "column", "settings": { "icon": "rabbit", "title": "Respect", "text": "Cruelty-free, vegan autant que possible, et respectueux de votre peau." } },
+        "v4": { "type": "column", "settings": { "icon": "recycle", "title": "Responsabilité", "text": "Emballages recyclables et partenaires de production exigeants." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Rejoignez-nous",
+        "heading": "Faites partie de l'aventure",
+        "text": "Recevez nos nouveautés en avant-première et -10 % sur votre première commande.",
+        "button_label": "S'inscrire"
+      }
+    }
+  },
+  "order": ["hero", "story", "values", "newsletter"]
+}

@@ -1,0 +1,169 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "SkinClair",
+    "theme_version": "1.0.0",
+    "theme_author": "SkinClair Studio",
+    "theme_documentation_url": "https://github.com/droppship/skinclair",
+    "theme_support_url": "https://github.com/droppship/skinclair"
+  },
+  {
+    "name": "Couleurs",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Fond de page (ivoire)",
+        "default": "#FBF7F2"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surfaces (cartes, panneaux)",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_soft",
+        "label": "Fond doux (sections alternées)",
+        "default": "#F4E8E3"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Texte principal",
+        "default": "#3D2E33"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Texte secondaire",
+        "default": "#8A7076"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (rose poudré)",
+        "default": "#D8A7A0"
+      },
+      {
+        "type": "color",
+        "id": "color_button",
+        "label": "Boutons (prune profond)",
+        "default": "#5E3E47"
+      },
+      {
+        "type": "color",
+        "id": "color_button_text",
+        "label": "Texte des boutons",
+        "default": "#FFF9F5"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Doré (étoiles, détails)",
+        "default": "#C7A17A"
+      },
+      {
+        "type": "color",
+        "id": "color_line",
+        "label": "Bordures et séparateurs",
+        "default": "#EADDD6"
+      }
+    ]
+  },
+  {
+    "name": "Mise en page",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Largeur maximale du contenu",
+        "min": 1000,
+        "max": 1440,
+        "step": 20,
+        "unit": "px",
+        "default": 1240
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "48 × 48 px recommandé"
+      }
+    ]
+  },
+  {
+    "name": "Panier et livraison",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_free_shipping_bar",
+        "label": "Afficher la barre de livraison offerte",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "free_shipping_threshold",
+        "label": "Seuil de livraison offerte",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "€",
+        "default": 50
+      }
+    ]
+  },
+  {
+    "name": "Fiches produit",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_low_stock",
+        "label": "Afficher l'alerte stock faible",
+        "info": "Urgence subtile : affichée uniquement lorsque le suivi de stock est activé et sous le seuil.",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "low_stock_threshold",
+        "label": "Seuil de stock faible",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "default": 5
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quick_add",
+        "label": "Ajout rapide au panier sur les cartes produit",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Réseaux sociaux",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest"
+      }
+    ]
+  }
+]

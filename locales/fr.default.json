@@ -1,0 +1,206 @@
+{
+  "accessibility": {
+    "skip_to_content": "Passer au contenu",
+    "close": "Fermer",
+    "open_menu": "Ouvrir le menu",
+    "open_cart": "Ouvrir le panier",
+    "open_search": "Ouvrir la recherche"
+  },
+  "general": {
+    "meta": {
+      "tags": "Étiquettes « {{ tags }} »",
+      "page": "Page {{ page }}"
+    },
+    "search": {
+      "title": "Recherche",
+      "placeholder": "Rechercher un soin, un produit…",
+      "submit": "Rechercher",
+      "results_count": {
+        "one": "{{ count }} résultat pour « {{ terms }} »",
+        "other": "{{ count }} résultats pour « {{ terms }} »"
+      },
+      "no_results": "Aucun résultat pour « {{ terms }} ». Vérifiez l'orthographe ou essayez un autre mot-clé.",
+      "suggestions": "Suggestions"
+    },
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {{ number }}"
+    },
+    "newsletter": {
+      "label": "Adresse e-mail",
+      "placeholder": "Votre adresse e-mail",
+      "submit": "S'inscrire",
+      "success": "Merci ! Votre inscription est confirmée. Surveillez votre boîte mail ✨"
+    },
+    "social": {
+      "follow_instagram": "Nous suivre sur Instagram",
+      "follow_tiktok": "Nous suivre sur TikTok",
+      "follow_facebook": "Nous suivre sur Facebook",
+      "follow_pinterest": "Nous suivre sur Pinterest"
+    },
+    "404": {
+      "title": "Page introuvable",
+      "subtitle": "Cette page a disparu… mais votre éclat, jamais.",
+      "back_home": "Retour à l'accueil",
+      "browse": "Découvrir nos soins"
+    },
+    "password": {
+      "title": "Bientôt disponible",
+      "notify": "Soyez la première informée de notre ouverture.",
+      "password_label": "Mot de passe",
+      "enter": "Entrer"
+    }
+  },
+  "products": {
+    "add_to_cart": "Ajouter au panier",
+    "adding": "Ajout en cours…",
+    "added": "Ajouté au panier ✓",
+    "sold_out": "Épuisé",
+    "unavailable": "Indisponible",
+    "on_sale": "Promo",
+    "new": "Nouveau",
+    "from": "À partir de",
+    "quantity": "Quantité",
+    "decrease": "Diminuer la quantité",
+    "increase": "Augmenter la quantité",
+    "choose_options": "Choisir",
+    "view_details": "Voir le produit",
+    "low_stock": "Plus que {{ count }} en stock — commandez vite",
+    "in_stock": "En stock, expédié sous 24 h",
+    "vendor": "Marque",
+    "reviews_count": {
+      "one": "{{ count }} avis",
+      "other": "{{ count }} avis"
+    }
+  },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide",
+    "empty_text": "Votre routine beauté commence ici.",
+    "continue_shopping": "Découvrir nos soins",
+    "subtotal": "Sous-total",
+    "checkout": "Passer commande",
+    "view_cart": "Voir le panier",
+    "remove": "Retirer",
+    "note_label": "Ajouter une note à votre commande",
+    "taxes_shipping": "Taxes et frais de livraison calculés à l'étape suivante.",
+    "free_shipping_remaining": "Plus que {{ amount }} pour profiter de la livraison offerte 🎁",
+    "free_shipping_unlocked": "Bravo, la livraison vous est offerte ! 🎉",
+    "update": "Mettre à jour",
+    "quantity_error": "Vous ne pouvez pas ajouter plus de {{ quantity }} exemplaires de cet article."
+  },
+  "footer": {
+    "payment_methods": "Moyens de paiement acceptés"
+  },
+  "contact": {
+    "name": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone (optionnel)",
+    "message": "Votre message",
+    "send": "Envoyer le message",
+    "success": "Merci pour votre message ! Nous vous répondons sous 24 h ouvrées."
+  },
+  "blog": {
+    "read_more": "Lire l'article",
+    "back_to_blog": "Retour au journal"
+  },
+  "customer": {
+    "login": {
+      "title": "Connexion",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "no_account": "Pas encore de compte ?",
+      "create_account": "Créer un compte",
+      "guest_title": "Continuer en tant qu'invitée",
+      "guest_continue": "Continuer"
+    },
+    "recover": {
+      "title": "Réinitialiser votre mot de passe",
+      "subtext": "Nous vous enverrons un e-mail pour réinitialiser votre mot de passe.",
+      "submit": "Envoyer",
+      "cancel": "Annuler",
+      "success": "Si cette adresse existe, un e-mail de réinitialisation vient de vous être envoyé."
+    },
+    "register": {
+      "title": "Créer un compte",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "submit": "Créer mon compte",
+      "already": "Déjà cliente ?",
+      "login": "Se connecter"
+    },
+    "account": {
+      "title": "Mon compte",
+      "welcome": "Bonjour {{ name }}",
+      "orders": "Mes commandes",
+      "no_orders": "Vous n'avez pas encore passé de commande.",
+      "addresses": "Mes adresses",
+      "logout": "Se déconnecter",
+      "order_number": "Commande",
+      "date": "Date",
+      "status": "Statut",
+      "total": "Total"
+    },
+    "addresses": {
+      "title": "Mes adresses",
+      "default": "Adresse par défaut",
+      "add_new": "Ajouter une adresse",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "address1": "Adresse",
+      "address2": "Complément d'adresse",
+      "city": "Ville",
+      "zip": "Code postal",
+      "country": "Pays",
+      "phone": "Téléphone",
+      "set_default": "Définir comme adresse par défaut",
+      "confirm_delete": "Supprimer cette adresse ?"
+    },
+    "order": {
+      "title": "Commande {{ name }}",
+      "placed_on": "Passée le {{ date }}",
+      "product": "Produit",
+      "price": "Prix",
+      "quantity": "Quantité",
+      "total": "Total",
+      "subtotal": "Sous-total",
+      "shipping": "Livraison",
+      "tax": "Taxes",
+      "billing_address": "Adresse de facturation",
+      "shipping_address": "Adresse de livraison",
+      "back": "Retour à mon compte"
+    },
+    "activate": {
+      "title": "Activer votre compte",
+      "subtext": "Créez votre mot de passe pour activer votre compte.",
+      "password": "Mot de passe",
+      "password_confirm": "Confirmer le mot de passe",
+      "submit": "Activer mon compte",
+      "decline": "Refuser l'invitation"
+    },
+    "reset": {
+      "title": "Nouveau mot de passe",
+      "subtext": "Choisissez un nouveau mot de passe pour {{ email }}.",
+      "password": "Mot de passe",
+      "password_confirm": "Confirmer le mot de passe",
+      "submit": "Réinitialiser"
+    }
+  },
+  "gift_card": {
+    "title": "Voici votre carte cadeau {{ shop }} !",
+    "subtext": "Votre carte cadeau",
+    "balance": "Solde",
+    "code": "Code de la carte",
+    "shop_now": "Utiliser ma carte",
+    "print": "Imprimer"
+  }
+}

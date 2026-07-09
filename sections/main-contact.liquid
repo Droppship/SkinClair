@@ -1,0 +1,115 @@
+<section class="section">
+  <div class="page-width">
+    <div class="page-title">
+      <h1>{{ page.title | default: 'Contactez-nous' }}</h1>
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+
+    <div class="contact__grid">
+      <div>
+        {%- form 'contact' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="form-message form-message--success">{{ 'contact.success' | t }}</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div class="form-message form-message--error">
+              <ul>
+                {%- for field in form.errors -%}
+                  <li>{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}</li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <div class="grid grid--2" style="gap: 0 16px;">
+            <div class="field">
+              <label for="ContactName">{{ 'contact.name' | t }}</label>
+              <input type="text" id="ContactName" name="contact[name]" class="field__input" value="{% if customer %}{{ customer.name }}{% endif %}" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="ContactEmail">{{ 'contact.email' | t }}</label>
+              <input type="email" id="ContactEmail" name="contact[email]" class="field__input" value="{% if customer %}{{ customer.email }}{% endif %}" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ContactPhone">{{ 'contact.phone' | t }}</label>
+            <input type="tel" id="ContactPhone" name="contact[phone]" class="field__input" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="ContactMessage">{{ 'contact.message' | t }}</label>
+            <textarea id="ContactMessage" name="contact[body]" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="btn">{{ 'contact.send' | t }}</button>
+        {%- endform -%}
+      </div>
+
+      <aside class="contact__aside">
+        {%- for block in section.blocks -%}
+          <div class="contact__card reveal" {{ block.shopify_attributes }}>
+            {% render 'icon', name: block.settings.icon, size: 26 %}
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page contact",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sous-titre",
+      "default": "Une question sur un produit, une commande ? Nous vous répondons sous 24 h ouvrées."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Bloc d'information",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "options": [
+            { "value": "mail", "label": "E-mail" },
+            { "value": "truck", "label": "Livraison" },
+            { "value": "return", "label": "Retours" },
+            { "value": "heart", "label": "Cœur" },
+            { "value": "shield", "label": "Garantie" }
+          ],
+          "default": "mail"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Service clientes"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Réponse sous 24 h ouvrées, du lundi au vendredi."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page contact",
+      "blocks": [
+        { "type": "info" },
+        { "type": "info", "settings": { "icon": "truck", "title": "Suivi de commande", "text": "Un e-mail de suivi vous est envoyé dès l'expédition de votre colis." } },
+        { "type": "info", "settings": { "icon": "return", "title": "Retours & échanges", "text": "30 jours pour changer d'avis, remboursement rapide et sans friction." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

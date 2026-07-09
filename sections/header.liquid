@@ -1,0 +1,125 @@
+<header class="site-header">
+  <div class="page-width">
+    <div class="site-header__inner">
+      {%- comment -%} Burger mobile {%- endcomment -%}
+      <button class="header-icon-btn site-header__burger" data-drawer-open="MenuDrawer" aria-label="{{ 'accessibility.open_menu' | t }}" aria-controls="MenuDrawer">
+        {% render 'icon', name: 'menu', size: 24 %}
+      </button>
+
+      {%- comment -%} Logo {%- endcomment -%}
+      <div class="site-header__logo">
+        <a href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+          {%- if section.settings.logo != blank -%}
+            <img src="{{ section.settings.logo | image_url: width: 300 }}" alt="{{ shop.name | escape }}" width="150" height="{{ 150 | divided_by: section.settings.logo.aspect_ratio | round }}">
+          {%- else -%}
+            {{ shop.name }}
+          {%- endif -%}
+        </a>
+      </div>
+
+      {%- comment -%} Navigation desktop {%- endcomment -%}
+      <nav class="site-header__nav" aria-label="Navigation principale">
+        {%- for link in section.settings.menu.links -%}
+          <div class="nav-item">
+            <a href="{{ link.url }}" class="nav-link" {% if link.current %}aria-current="page"{% endif %}>
+              {{ link.title }}
+              {%- if link.links != blank %} {% render 'icon', name: 'chevron-down', size: 13 %}{% endif -%}
+            </a>
+            {%- if link.links != blank -%}
+              <div class="nav-dropdown">
+                {%- for child in link.links -%}
+                  <a href="{{ child.url }}">{{ child.title }}</a>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </nav>
+
+      {%- comment -%} Actions {%- endcomment -%}
+      <div class="site-header__actions">
+        <button class="header-icon-btn" data-search-toggle aria-expanded="false" aria-controls="SearchPanel" aria-label="{{ 'accessibility.open_search' | t }}">
+          {% render 'icon', name: 'search', size: 21 %}
+        </button>
+        {%- if shop.customer_accounts_enabled -%}
+          <a class="header-icon-btn" href="{{ routes.account_url }}" aria-label="{{ 'customer.account.title' | t }}">
+            {% render 'icon', name: 'account', size: 21 %}
+          </a>
+        {%- endif -%}
+        <button class="header-icon-btn" data-drawer-open="CartDrawer" aria-controls="CartDrawer" aria-label="{{ 'accessibility.open_cart' | t }}">
+          {% render 'icon', name: 'cart', size: 21 %}
+          <span class="cart-count" data-cart-count data-count="{{ cart.item_count }}">{{ cart.item_count }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Panneau de recherche prédictive {%- endcomment -%}
+  <div class="search-panel" id="SearchPanel">
+    <div class="page-width">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-panel__form">
+        <input type="hidden" name="type" value="product">
+        <input
+          type="search"
+          name="q"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+          aria-label="{{ 'general.search.title' | t }}"
+          autocomplete="off"
+        >
+        <button type="submit" class="btn">{{ 'general.search.submit' | t }}</button>
+      </form>
+      <div class="search-panel__results" data-search-results aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+{%- comment -%} Menu mobile {%- endcomment -%}
+<div class="drawer drawer--left" id="MenuDrawer" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer__header">
+    <p class="drawer__title">{{ shop.name }}</p>
+    <button class="header-icon-btn" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">
+      {% render 'icon', name: 'close', size: 22 %}
+    </button>
+  </div>
+  <div class="drawer__body">
+    <nav class="mobile-nav" aria-label="Navigation mobile">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- for child in link.links -%}
+          <a href="{{ child.url }}" class="mobile-nav__child">{{ child.title }}</a>
+        {%- endfor -%}
+      {%- endfor -%}
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="mobile-nav__child">{{ 'customer.account.title' | t }}</a>
+      {%- endif -%}
+    </nav>
+    <div class="mobile-nav__extras">
+      {%- if settings.social_instagram != blank -%}
+        <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_instagram' | t }}">{% render 'icon', name: 'instagram', size: 22 %}</a>
+      {%- endif -%}
+      {%- if settings.social_tiktok != blank -%}
+        <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_tiktok' | t }}">{% render 'icon', name: 'tiktok', size: 22 %}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "En-tête",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "300 × 90 px recommandé. Sans logo, le nom de la boutique s'affiche en typographie élégante."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

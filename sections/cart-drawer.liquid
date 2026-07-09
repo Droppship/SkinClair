@@ -1,0 +1,90 @@
+<aside class="drawer drawer--right" id="CartDrawer" role="dialog" aria-modal="true" aria-label="{{ 'cart.title' | t }}">
+  <div class="drawer__header">
+    <p class="drawer__title">{{ 'cart.title' | t }} {% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</p>
+    <button class="header-icon-btn" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">
+      {% render 'icon', name: 'close', size: 22 %}
+    </button>
+  </div>
+
+  {%- if cart.item_count == 0 -%}
+    <div class="drawer__body">
+      <div class="cart-drawer__empty">
+        {% render 'icon', name: 'flower', size: 44 %}
+        <h3>{{ 'cart.empty' | t }}</h3>
+        <p class="text-muted" style="margin: 8px 0 24px;">{{ 'cart.empty_text' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn" data-drawer-close>{{ 'cart.continue_shopping' | t }}</a>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="drawer__body">
+      {%- if settings.show_free_shipping_bar -%}
+        {% render 'free-shipping-bar' %}
+      {%- endif -%}
+
+      {%- for item in cart.items -%}
+        <div class="cart-line">
+          <a href="{{ item.url }}" class="cart-line__media">
+            {%- if item.image -%}
+              <img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.image.alt | escape }}" width="84" height="84" loading="lazy">
+            {%- endif -%}
+          </a>
+          <div class="cart-line__info">
+            <p class="cart-line__title"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
+            {%- unless item.product.has_only_default_variant -%}
+              <p class="cart-line__variant">{{ item.variant.title }}</p>
+            {%- endunless -%}
+            {%- if item.selling_plan_allocation -%}
+              <p class="cart-line__variant">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+            {%- endif -%}
+            <div class="cart-line__bottom">
+              <div class="qty">
+                <button type="button" data-qty-change="-1" aria-label="{{ 'products.decrease' | t }}">{% render 'icon', name: 'minus', size: 14 %}</button>
+                <input
+                  type="number"
+                  value="{{ item.quantity }}"
+                  min="0"
+                  data-line-qty
+                  data-line-key="{{ item.key }}"
+                  aria-label="{{ 'products.quantity' | t }}"
+                >
+                <button type="button" data-qty-change="1" aria-label="{{ 'products.increase' | t }}">{% render 'icon', name: 'plus', size: 14 %}</button>
+              </div>
+              <p class="cart-line__price">
+                {%- if item.original_line_price > item.final_line_price -%}
+                  <s class="price__compare">{{ item.original_line_price | money }}</s>
+                {%- endif -%}
+                {{ item.final_line_price | money }}
+              </p>
+            </div>
+            <button type="button" class="cart-line__remove" data-line-remove data-line-key="{{ item.key }}">{{ 'cart.remove' | t }}</button>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="drawer__footer">
+      <div class="cart-drawer__subtotal">
+        <span>{{ 'cart.subtotal' | t }}</span>
+        <span>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="cart-drawer__note">{{ 'cart.taxes_shipping' | t }}</p>
+      <form action="{{ routes.cart_url }}" method="post">
+        <button type="submit" name="checkout" class="btn btn--full">
+          {% render 'icon', name: 'lock', size: 15 %}
+          {{ 'cart.checkout' | t }}
+        </button>
+      </form>
+      <div class="trust-row" style="margin-top: 14px;">
+        <span class="trust-row__item">{% render 'icon', name: 'lock', size: 15 %} Paiement sécurisé</span>
+        <span class="trust-row__item">{% render 'icon', name: 'return', size: 15 %} Retours 30 jours</span>
+      </div>
+    </div>
+  {%- endif -%}
+</aside>
+
+{% schema %}
+{
+  "name": "Panier coulissant",
+  "settings": []
+}
+{% endschema %}

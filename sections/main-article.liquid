@@ -1,0 +1,47 @@
+<article class="section">
+  <div class="page-width">
+    <div class="page-narrow">
+      <div class="page-title">
+        <p class="article-card__date">{{ article.published_at | date: '%d %B %Y' }}</p>
+        <h1>{{ article.title }}</h1>
+      </div>
+
+      {%- if article.image -%}
+        <div class="article__hero">
+          <img
+            src="{{ article.image | image_url: width: 1400 }}"
+            alt="{{ article.image.alt | default: article.title | escape }}"
+            width="1400"
+            height="{{ 1400 | divided_by: article.image.aspect_ratio | round }}"
+          >
+        </div>
+      {%- endif -%}
+
+      <div class="rte">
+        {{ article.content }}
+      </div>
+
+      <div style="margin-top: 48px; text-align: center;">
+        <a href="{{ blog.url }}" class="link-arrow">{% render 'icon', name: 'chevron-left', size: 14 %} {{ 'blog.back_to_blog' | t }}</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {{ article.title | json }},
+      "datePublished": {{ article.published_at | date: '%Y-%m-%d' | json }},
+      {% if article.image %}"image": [{{ article.image | image_url: width: 1400 | prepend: 'https:' | json }}],{% endif %}
+      "author": { "@type": "Organization", "name": {{ shop.name | json }} }
+    }
+  </script>
+</article>
+
+{% schema %}
+{
+  "name": "Article de blog",
+  "settings": []
+}
+{% endschema %}

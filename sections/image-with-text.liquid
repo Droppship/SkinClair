@@ -1,0 +1,135 @@
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% elsif section.settings.background == 'surface' %} section--surface{% endif %}">
+  <div class="page-width">
+    <div class="image-text__grid{% if section.settings.layout == 'right' %} image-text__grid--reverse{% endif %}">
+      <div class="image-text__media reveal">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 900 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 900 }} 900w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 990px) 50vw, 100vw"
+            alt="{{ section.settings.image.alt | escape }}"
+            width="900"
+            height="{{ 900 | divided_by: section.settings.image.aspect_ratio | round }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      <div class="image-text__content reveal">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="check-list" role="list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>
+                {% render 'icon', name: 'check', size: 18 %}
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image avec texte",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "900 × 1125 px recommandé"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Position de l'image",
+      "options": [
+        { "value": "left", "label": "Gauche" },
+        { "value": "right", "label": "Droite" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Fond",
+      "options": [
+        { "value": "default", "label": "Ivoire" },
+        { "value": "soft", "label": "Rose doux" },
+        { "value": "surface", "label": "Blanc" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "Notre différence"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Pourquoi choisir nos soins ?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Nous avons créé la marque que nous cherchions sans jamais la trouver : des soins réellement efficaces, doux pour la peau, sans ingrédients controversés, à un prix juste.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton",
+      "default": "Découvrir notre histoire"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Argument",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Formules testées dermatologiquement"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image avec texte",
+      "blocks": [
+        { "type": "point" },
+        { "type": "point", "settings": { "text": "Sans parabènes, sans sulfates, sans silicones" } },
+        { "type": "point", "settings": { "text": "Jamais testés sur les animaux" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

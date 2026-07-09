@@ -1,0 +1,28 @@
+{%- comment -%}
+  Rendu côté serveur des suggestions de recherche.
+  Appelé en AJAX par global.js via routes.predictive_search_url.
+{%- endcomment -%}
+<div id="PredictiveSearchResults">
+  {%- if predictive_search.performed -%}
+    {%- if predictive_search.resources.products.size > 0 -%}
+      {%- for product in predictive_search.resources.products -%}
+        <a href="{{ product.url }}">
+          {%- if product.featured_media -%}
+            <img src="{{ product.featured_media | image_url: width: 96 }}" alt="" width="48" height="48" loading="lazy">
+          {%- endif -%}
+          <span>
+            {{ product.title }}
+            {% render 'price', item: product %}
+          </span>
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Recherche prédictive",
+  "settings": []
+}
+{% endschema %}
