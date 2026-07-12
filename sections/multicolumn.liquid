@@ -32,86 +32,86 @@
 
 {% schema %}
 {
-  "name": "Colonnes avec icônes",
+  "name": "Columns with icons",
   "max_blocks": 8,
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Sur-titre"
+      "label": "Eyebrow"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "subtext",
-      "label": "Sous-texte"
+      "label": "Subtext"
     },
     {
       "type": "select",
       "id": "background",
-      "label": "Fond",
+      "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivoire" },
-        { "value": "soft", "label": "Rose doux" },
-        { "value": "surface", "label": "Blanc" }
+        { "value": "default", "label": "Ivory" },
+        { "value": "soft", "label": "Soft pink" },
+        { "value": "surface", "label": "White" }
       ],
       "default": "default"
     },
     {
       "type": "checkbox",
       "id": "compact",
-      "label": "Style compact (bandeau de réassurance)",
+      "label": "Compact style (trust bar)",
       "default": false
     }
   ],
   "blocks": [
     {
       "type": "column",
-      "name": "Colonne",
+      "name": "Column",
       "settings": [
         {
           "type": "select",
           "id": "icon",
-          "label": "Icône",
+          "label": "Icon",
           "options": [
-            { "value": "leaf", "label": "Feuille (naturel)" },
-            { "value": "drop", "label": "Goutte (hydratation)" },
-            { "value": "heart", "label": "Cœur" },
-            { "value": "sparkle", "label": "Éclat" },
-            { "value": "flower", "label": "Fleur" },
-            { "value": "shield", "label": "Bouclier (garantie)" },
-            { "value": "truck", "label": "Camion (livraison)" },
-            { "value": "lock", "label": "Cadenas (sécurité)" },
-            { "value": "return", "label": "Retours" },
-            { "value": "rabbit", "label": "Lapin (cruelty-free)" },
-            { "value": "lab", "label": "Laboratoire" },
-            { "value": "recycle", "label": "Recyclage" },
-            { "value": "gift", "label": "Cadeau" }
+            { "value": "leaf", "label": "Leaf (natural)" },
+            { "value": "drop", "label": "Drop (hydration)" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "flower", "label": "Flower" },
+            { "value": "shield", "label": "Shield (guarantee)" },
+            { "value": "truck", "label": "Truck (shipping)" },
+            { "value": "lock", "label": "Lock (security)" },
+            { "value": "return", "label": "Returns" },
+            { "value": "rabbit", "label": "Rabbit (cruelty-free)" },
+            { "value": "lab", "label": "Lab" },
+            { "value": "recycle", "label": "Recycling" },
+            { "value": "gift", "label": "Gift" }
           ],
           "default": "leaf"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Titre",
-          "default": "Ingrédients naturels"
+          "label": "Title",
+          "default": "Natural ingredients"
         },
         {
           "type": "text",
           "id": "text",
-          "label": "Texte",
-          "default": "Des formules propres, sans compromis sur l'efficacité."
+          "label": "Text",
+          "default": "Clean formulas, with no compromise on efficacy."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Colonnes avec icônes",
+      "name": "Columns with icons",
       "blocks": [
         { "type": "column" },
         { "type": "column" },

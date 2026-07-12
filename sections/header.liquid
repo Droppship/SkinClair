@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="page-width">
     <div class="site-header__inner">
-      {%- comment -%} Burger mobile {%- endcomment -%}
+      {%- comment -%} Mobile burger {%- endcomment -%}
       <button class="header-icon-btn site-header__burger" data-drawer-open="MenuDrawer" aria-label="{{ 'accessibility.open_menu' | t }}" aria-controls="MenuDrawer">
         {% render 'icon', name: 'menu', size: 24 %}
       </button>
@@ -17,8 +17,8 @@
         </a>
       </div>
 
-      {%- comment -%} Navigation desktop {%- endcomment -%}
-      <nav class="site-header__nav" aria-label="Navigation principale">
+      {%- comment -%} Desktop navigation {%- endcomment -%}
+      <nav class="site-header__nav" aria-label="Main navigation">
         {%- for link in section.settings.menu.links -%}
           <div class="nav-item">
             <a href="{{ link.url }}" class="nav-link" {% if link.current %}aria-current="page"{% endif %}>
@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  {%- comment -%} Panneau de recherche prédictive {%- endcomment -%}
+  {%- comment -%} Predictive search panel {%- endcomment -%}
   <div class="search-panel" id="SearchPanel">
     <div class="page-width">
       <form action="{{ routes.search_url }}" method="get" role="search" class="search-panel__form">
@@ -73,7 +73,7 @@
   </div>
 </header>
 
-{%- comment -%} Menu mobile {%- endcomment -%}
+{%- comment -%} Mobile menu {%- endcomment -%}
 <div class="drawer drawer--left" id="MenuDrawer" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="drawer__header">
     <p class="drawer__title">{{ shop.name }}</p>
@@ -82,7 +82,7 @@
     </button>
   </div>
   <div class="drawer__body">
-    <nav class="mobile-nav" aria-label="Navigation mobile">
+    <nav class="mobile-nav" aria-label="Mobile navigation">
       {%- for link in section.settings.menu.links -%}
         <a href="{{ link.url }}">{{ link.title }}</a>
         {%- for child in link.links -%}
@@ -106,18 +106,18 @@
 
 {% schema %}
 {
-  "name": "En-tête",
+  "name": "Header",
   "settings": [
     {
       "type": "image_picker",
       "id": "logo",
       "label": "Logo",
-      "info": "300 × 90 px recommandé. Sans logo, le nom de la boutique s'affiche en typographie élégante."
+      "info": "300 × 90 px recommended. Without a logo, the store name is shown in elegant type."
     },
     {
       "type": "link_list",
       "id": "menu",
-      "label": "Menu principal",
+      "label": "Main menu",
       "default": "main-menu"
     }
   ]

@@ -87,9 +87,9 @@
           </form>
 
           <div class="trust-row">
-            <span class="trust-row__item">{% render 'icon', name: 'lock', size: 15 %} Paiement sécurisé SSL</span>
-            <span class="trust-row__item">{% render 'icon', name: 'truck', size: 15 %} Expédition sous 24 h</span>
-            <span class="trust-row__item">{% render 'icon', name: 'return', size: 15 %} Retours gratuits 30 jours</span>
+            <span class="trust-row__item">{% render 'icon', name: 'lock', size: 15 %} Secure SSL payment</span>
+            <span class="trust-row__item">{% render 'icon', name: 'truck', size: 15 %} Ships within 24 h</span>
+            <span class="trust-row__item">{% render 'icon', name: 'return', size: 15 %} Free 30-day returns</span>
           </div>
 
           {%- if section.settings.show_payment_icons -%}
@@ -107,12 +107,12 @@
 
 {% schema %}
 {
-  "name": "Page panier",
+  "name": "Cart page",
   "settings": [
     {
       "type": "checkbox",
       "id": "show_payment_icons",
-      "label": "Afficher les moyens de paiement",
+      "label": "Show payment methods",
       "default": true
     }
   ]

@@ -59,7 +59,7 @@
     </div>
 
     <div class="site-footer__bottom">
-      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
 
       <ul class="site-footer__policies" role="list">
         {%- for policy in shop.policies -%}
@@ -82,30 +82,30 @@
 
 {% schema %}
 {
-  "name": "Pied de page",
+  "name": "Footer",
   "settings": [
     {
       "type": "text",
       "id": "brand_text",
-      "label": "Texte de marque",
-      "default": "Des soins essentiels, formulés avec exigence, pour révéler l'éclat naturel de votre peau."
+      "label": "Brand text",
+      "default": "Essential skincare, formulated with rigor, to reveal your skin's natural glow."
     },
     {
       "type": "text",
       "id": "newsletter_heading",
-      "label": "Titre newsletter",
-      "default": "Rejoignez le cercle"
+      "label": "Newsletter heading",
+      "default": "Join the circle"
     },
     {
       "type": "text",
       "id": "newsletter_text",
-      "label": "Texte newsletter",
-      "default": "Recevez -10 % sur votre première commande, nos conseils beauté et nos offres privées."
+      "label": "Newsletter text",
+      "default": "Get 10% off your first order, our beauty tips and private offers."
     },
     {
       "type": "checkbox",
       "id": "show_payment_icons",
-      "label": "Afficher les moyens de paiement",
+      "label": "Show payment methods",
       "default": true
     }
   ],
@@ -118,8 +118,8 @@
         {
           "type": "text",
           "id": "heading",
-          "label": "Titre",
-          "default": "Boutique"
+          "label": "Heading",
+          "default": "Shop"
         },
         {
           "type": "link_list",
@@ -132,8 +132,8 @@
   ],
   "default": {
     "blocks": [
-      { "type": "link_list", "settings": { "heading": "Boutique" } },
-      { "type": "link_list", "settings": { "heading": "Informations" } }
+      { "type": "link_list", "settings": { "heading": "Shop" } },
+      { "type": "link_list", "settings": { "heading": "Information" } }
     ]
   }
 }

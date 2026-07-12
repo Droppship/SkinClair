@@ -3,30 +3,30 @@
     "main": {
       "type": "faq",
       "settings": {
-        "eyebrow": "Centre d'aide",
-        "heading": "Questions fréquentes",
-        "subtext": "Livraison, retours, produits, paiement : toutes les réponses à vos questions.",
+        "eyebrow": "Help center",
+        "heading": "Frequently asked questions",
+        "subtext": "Shipping, returns, products, payment: all the answers to your questions.",
         "open_first": true,
         "background": "default"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "Quels sont les délais et frais de livraison ?", "answer": "<p>Votre commande est préparée sous 24 h et livrée en 2 à 4 jours ouvrés en France métropolitaine. La livraison est offerte dès 50 € d'achat ; en dessous, elle est facturée 4,90 €.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Livrez-vous à l'international ?", "answer": "<p>Oui, nous livrons en Belgique, en Suisse, au Luxembourg et au Canada. Les délais varient de 4 à 8 jours ouvrés selon la destination.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Comment suivre ma commande ?", "answer": "<p>Dès l'expédition, vous recevez un e-mail avec un lien de suivi en temps réel. Pensez à vérifier vos courriers indésirables.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "Vos produits conviennent-ils aux peaux sensibles ?", "answer": "<p>Oui. Nos formules sont testées dermatologiquement et développées avec un pH physiologique. La liste INCI complète figure sur chaque fiche produit.</p>" } },
-        "q5": { "type": "question", "settings": { "question": "Vos produits sont-ils testés sur les animaux ?", "answer": "<p>Jamais. Toutes nos formules sont cruelty-free et la majorité sont vegan (indiqué sur chaque fiche produit).</p>" } },
-        "q6": { "type": "question", "settings": { "question": "Comment fonctionne la garantie satisfaite ou remboursée ?", "answer": "<p>Vous disposez de 30 jours après réception pour changer d'avis. Contactez-nous avec votre numéro de commande : nous organisons le retour et vous remboursons sous 5 jours après réception.</p>" } },
-        "q7": { "type": "question", "settings": { "question": "Quels moyens de paiement acceptez-vous ?", "answer": "<p>Carte bancaire (Visa, Mastercard, Amex), PayPal, Apple Pay et Google Pay. Toutes les transactions sont chiffrées et sécurisées.</p>" } },
-        "q8": { "type": "question", "settings": { "question": "Comment utiliser mon code promo ?", "answer": "<p>Saisissez votre code dans le champ dédié à l'étape du paiement. Un seul code peut être utilisé par commande.</p>" } }
+        "q1": { "type": "question", "settings": { "question": "What are the shipping times and costs?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days within the continental US. Free shipping on orders over $50; below that, a flat $4.90 fee applies.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "Do you ship internationally?", "answer": "<p>Yes, we ship to Canada, the UK, and the EU. Delivery times range from 4 to 8 business days depending on the destination.</p>" } },
+        "q3": { "type": "question", "settings": { "question": "How can I track my order?", "answer": "<p>As soon as your order ships, you'll receive an email with a real-time tracking link. Be sure to check your spam folder.</p>" } },
+        "q4": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested and developed at a skin-friendly pH. The full INCI ingredient list is on every product page.</p>" } },
+        "q5": { "type": "question", "settings": { "question": "Are your products tested on animals?", "answer": "<p>Never. All our formulas are cruelty-free, and most are vegan (noted on each product page).</p>" } },
+        "q6": { "type": "question", "settings": { "question": "How does the satisfaction guarantee work?", "answer": "<p>You have 30 days after delivery to change your mind. Contact us with your order number: we'll arrange the return and refund you within 5 days of receiving it.</p>" } },
+        "q7": { "type": "question", "settings": { "question": "What payment methods do you accept?", "answer": "<p>Credit card (Visa, Mastercard, Amex), PayPal, Apple Pay, and Google Pay. All transactions are encrypted and secure.</p>" } },
+        "q8": { "type": "question", "settings": { "question": "How do I use my promo code?", "answer": "<p>Enter your code in the dedicated field at checkout. Only one code can be used per order.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"]
     },
     "contact_cta": {
       "type": "guarantee",
       "settings": {
-        "heading": "Vous n'avez pas trouvé votre réponse ?",
-        "text": "Notre équipe vous répond avec plaisir sous 24 h ouvrées.",
-        "button_label": "Nous contacter",
+        "heading": "Didn't find your answer?",
+        "text": "Our team is happy to help — we respond within 24 business hours.",
+        "button_label": "Contact us",
         "button_link": "shopify://pages/contact",
         "small_print": ""
       }

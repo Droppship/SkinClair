@@ -47,87 +47,87 @@
 
 {% schema %}
 {
-  "name": "Image avec texte",
+  "name": "Image with text",
   "max_blocks": 6,
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
       "label": "Image",
-      "info": "900 × 1125 px recommandé"
+      "info": "900 × 1125 px recommended"
     },
     {
       "type": "select",
       "id": "layout",
-      "label": "Position de l'image",
+      "label": "Image position",
       "options": [
-        { "value": "left", "label": "Gauche" },
-        { "value": "right", "label": "Droite" }
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
       ],
       "default": "left"
     },
     {
       "type": "select",
       "id": "background",
-      "label": "Fond",
+      "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivoire" },
-        { "value": "soft", "label": "Rose doux" },
-        { "value": "surface", "label": "Blanc" }
+        { "value": "default", "label": "Ivory" },
+        { "value": "soft", "label": "Soft pink" },
+        { "value": "surface", "label": "White" }
       ],
       "default": "default"
     },
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Sur-titre",
-      "default": "Notre différence"
+      "label": "Eyebrow",
+      "default": "Our difference"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre",
-      "default": "Pourquoi choisir nos soins ?"
+      "label": "Heading",
+      "default": "Why choose our skincare?"
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": "Texte",
-      "default": "<p>Nous avons créé la marque que nous cherchions sans jamais la trouver : des soins réellement efficaces, doux pour la peau, sans ingrédients controversés, à un prix juste.</p>"
+      "label": "Text",
+      "default": "<p>We built the brand we could never find: skincare that's genuinely effective, gentle on skin, free from controversial ingredients, at a fair price.</p>"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Bouton",
-      "default": "Découvrir notre histoire"
+      "label": "Button",
+      "info": "Leave blank to hide the button — useful if the linked page doesn't exist yet."
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Lien du bouton"
+      "label": "Button link"
     }
   ],
   "blocks": [
     {
       "type": "point",
-      "name": "Argument",
+      "name": "Point",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "Texte",
-          "default": "Formules testées dermatologiquement"
+          "label": "Text",
+          "default": "Dermatologist-tested formulas"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Image avec texte",
+      "name": "Image with text",
       "blocks": [
         { "type": "point" },
-        { "type": "point", "settings": { "text": "Sans parabènes, sans sulfates, sans silicones" } },
-        { "type": "point", "settings": { "text": "Jamais testés sur les animaux" } }
+        { "type": "point", "settings": { "text": "No parabens, sulfates, or silicones" } },
+        { "type": "point", "settings": { "text": "Never tested on animals" } }
       ]
     }
   ]

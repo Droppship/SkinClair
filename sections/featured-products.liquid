@@ -31,9 +31,9 @@
                 {{ 'product-apparel-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
               </div>
               <div class="product-card__info">
-                <h3 class="product-card__title">Votre produit vedette</h3>
-                <p class="product-card__subtitle">Sélectionnez une collection</p>
-                <div class="price price--card"><span class="price__current">29,90&nbsp;€</span></div>
+                <h3 class="product-card__title">Your featured product</h3>
+                <p class="product-card__subtitle">Select a collection</p>
+                <div class="price price--card"><span class="price__current">$29.90</span></div>
               </div>
             </article>
           {%- endfor -%}
@@ -51,25 +51,25 @@
 
 {% schema %}
 {
-  "name": "Produits vedettes",
+  "name": "Featured products",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Sur-titre",
-      "default": "Les indispensables"
+      "label": "Eyebrow",
+      "default": "The essentials"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre",
-      "default": "Nos best-sellers"
+      "label": "Heading",
+      "default": "Our best-sellers"
     },
     {
       "type": "text",
       "id": "subtext",
-      "label": "Sous-texte",
-      "default": "Les soins préférés de nos clientes, approuvés au quotidien."
+      "label": "Subtext",
+      "default": "Our customers' favorite treatments, loved every day."
     },
     {
       "type": "collection",
@@ -79,7 +79,7 @@
     {
       "type": "range",
       "id": "products_count",
-      "label": "Nombre de produits",
+      "label": "Number of products",
       "min": 4,
       "max": 12,
       "step": 1,
@@ -88,12 +88,12 @@
     {
       "type": "text",
       "id": "button_label",
-      "label": "Lien « voir tout »",
-      "default": "Voir toute la collection"
+      "label": "\"View all\" link",
+      "default": "View full collection"
     }
   ],
   "presets": [
-    { "name": "Produits vedettes" }
+    { "name": "Featured products" }
   ]
 }
 {% endschema %}

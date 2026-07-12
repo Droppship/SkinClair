@@ -3,26 +3,26 @@
     "main": {
       "type": "main-contact",
       "settings": {
-        "subtext": "Une question sur un produit, une commande ? Nous vous répondons sous 24 h ouvrées."
+        "subtext": "Question about a product, an order? We'll get back to you within 24 business hours."
       },
       "blocks": {
-        "b1": { "type": "info", "settings": { "icon": "mail", "title": "Service clientes", "text": "Réponse sous 24 h ouvrées, du lundi au vendredi." } },
-        "b2": { "type": "info", "settings": { "icon": "truck", "title": "Suivi de commande", "text": "Un e-mail de suivi vous est envoyé dès l'expédition de votre colis." } },
-        "b3": { "type": "info", "settings": { "icon": "return", "title": "Retours & échanges", "text": "30 jours pour changer d'avis, remboursement rapide et sans friction." } }
+        "b1": { "type": "info", "settings": { "icon": "mail", "title": "Customer care", "text": "Response within 24 business hours, Monday through Friday." } },
+        "b2": { "type": "info", "settings": { "icon": "truck", "title": "Order tracking", "text": "You'll receive a tracking email as soon as your order ships." } },
+        "b3": { "type": "info", "settings": { "icon": "return", "title": "Returns & exchanges", "text": "30 days to change your mind, fast and frictionless refunds." } }
       },
       "block_order": ["b1", "b2", "b3"]
     },
     "faq": {
       "type": "faq",
       "settings": {
-        "eyebrow": "Avant de nous écrire",
-        "heading": "La réponse est peut-être ici",
+        "eyebrow": "Before you reach out",
+        "heading": "You might find your answer here",
         "open_first": false,
         "background": "surface"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "Où est ma commande ?", "answer": "<p>Consultez l'e-mail de confirmation d'expédition : il contient votre lien de suivi. Sans nouvelle sous 5 jours ouvrés, écrivez-nous avec votre numéro de commande.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Comment retourner un produit ?", "answer": "<p>Écrivez-nous avec votre numéro de commande : nous vous envoyons la procédure et l'étiquette de retour sous 24 h.</p>" } }
+        "q1": { "type": "question", "settings": { "question": "Where is my order?", "answer": "<p>Check your shipping confirmation email: it contains your tracking link. No update after 5 business days? Email us with your order number.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "How do I return a product?", "answer": "<p>Email us with your order number: we'll send you the process and return label within 24 hours.</p>" } }
       },
       "block_order": ["q1", "q2"]
     }

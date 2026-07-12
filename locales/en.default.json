@@ -1,0 +1,206 @@
+{
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close",
+    "open_menu": "Open menu",
+    "open_cart": "Open cart",
+    "open_search": "Open search"
+  },
+  "general": {
+    "meta": {
+      "tags": "Tags \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search for a treatment, a product…",
+      "submit": "Search",
+      "results_count": {
+        "one": "{{ count }} result for \"{{ terms }}\"",
+        "other": "{{ count }} results for \"{{ terms }}\""
+      },
+      "no_results": "No results for \"{{ terms }}\". Check the spelling or try another keyword.",
+      "suggestions": "Suggestions"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}"
+    },
+    "newsletter": {
+      "label": "Email address",
+      "placeholder": "Your email address",
+      "submit": "Sign up",
+      "success": "Thank you! Your subscription is confirmed. Keep an eye on your inbox ✨"
+    },
+    "social": {
+      "follow_instagram": "Follow us on Instagram",
+      "follow_tiktok": "Follow us on TikTok",
+      "follow_facebook": "Follow us on Facebook",
+      "follow_pinterest": "Follow us on Pinterest"
+    },
+    "404": {
+      "title": "Page not found",
+      "subtitle": "This page has vanished… but your glow never will.",
+      "back_home": "Back to home",
+      "browse": "Shop our treatments"
+    },
+    "password": {
+      "title": "Coming soon",
+      "notify": "Be the first to know when we launch.",
+      "password_label": "Password",
+      "enter": "Enter"
+    }
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "adding": "Adding…",
+    "added": "Added to cart ✓",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "on_sale": "Sale",
+    "new": "New",
+    "from": "From",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "choose_options": "Choose options",
+    "view_details": "View product",
+    "low_stock": "Only {{ count }} left in stock — order soon",
+    "in_stock": "In stock, ships within 24 h",
+    "vendor": "Brand",
+    "reviews_count": {
+      "one": "{{ count }} review",
+      "other": "{{ count }} reviews"
+    }
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "empty_text": "Your beauty routine starts here.",
+    "continue_shopping": "Shop our treatments",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "view_cart": "View cart",
+    "remove": "Remove",
+    "note_label": "Add a note to your order",
+    "taxes_shipping": "Taxes and shipping calculated at checkout.",
+    "free_shipping_remaining": "Only {{ amount }} away from free shipping 🎁",
+    "free_shipping_unlocked": "You've unlocked free shipping! 🎉",
+    "update": "Update",
+    "quantity_error": "You cannot add more than {{ quantity }} of this item."
+  },
+  "footer": {
+    "payment_methods": "Accepted payment methods"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "message": "Your message",
+    "send": "Send message",
+    "success": "Thank you for your message! We'll get back to you within 24 business hours."
+  },
+  "blog": {
+    "read_more": "Read article",
+    "back_to_blog": "Back to journal"
+  },
+  "customer": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot": "Forgot your password?",
+      "submit": "Sign in",
+      "no_account": "Don't have an account yet?",
+      "create_account": "Create account",
+      "guest_title": "Continue as guest",
+      "guest_continue": "Continue"
+    },
+    "recover": {
+      "title": "Reset your password",
+      "subtext": "We'll send you an email to reset your password.",
+      "submit": "Send",
+      "cancel": "Cancel",
+      "success": "If that email address is in our system, you'll receive a password reset email shortly."
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create my account",
+      "already": "Already have an account?",
+      "login": "Sign in"
+    },
+    "account": {
+      "title": "My account",
+      "welcome": "Hello {{ name }}",
+      "orders": "My orders",
+      "no_orders": "You haven't placed any orders yet.",
+      "addresses": "My addresses",
+      "logout": "Log out",
+      "order_number": "Order",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total"
+    },
+    "addresses": {
+      "title": "My addresses",
+      "default": "Default address",
+      "add_new": "Add a new address",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "address1": "Address",
+      "address2": "Apartment, suite, etc.",
+      "city": "City",
+      "zip": "Postal code",
+      "country": "Country",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "confirm_delete": "Delete this address?"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "placed_on": "Placed on {{ date }}",
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "billing_address": "Billing address",
+      "shipping_address": "Shipping address",
+      "back": "Back to my account"
+    },
+    "activate": {
+      "title": "Activate your account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate my account",
+      "decline": "Decline invitation"
+    },
+    "reset": {
+      "title": "New password",
+      "subtext": "Choose a new password for {{ email }}.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Reset"
+    }
+  },
+  "gift_card": {
+    "title": "Here's your {{ shop }} gift card!",
+    "subtext": "Your gift card",
+    "balance": "Balance",
+    "code": "Gift card code",
+    "shop_now": "Use my gift card",
+    "print": "Print"
+  }
+}

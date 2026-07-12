@@ -3,9 +3,9 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "Notre histoire",
-        "heading": "La beauté, avec exigence et douceur",
-        "text": "Nous croyons qu'une routine simple, avec des soins justes et efficaces, vaut mieux que dix produits superflus.",
+        "eyebrow": "Our story",
+        "heading": "Beauty, with rigor and softness",
+        "text": "We believe a simple routine, with honest and effective treatments, beats ten unnecessary products.",
         "button_label": "",
         "height": "small",
         "alignment": "center"
@@ -16,10 +16,10 @@
       "settings": {
         "layout": "left",
         "background": "default",
-        "eyebrow": "Pourquoi nous existons",
-        "heading": "Née d'une frustration, portée par une conviction",
-        "text": "<p>Trop de promesses, trop d'ingrédients inutiles, trop de marketing. Nous avons créé cette marque pour revenir à l'essentiel : des formules courtes, des actifs prouvés, des textures qu'on aime retrouver chaque matin.</p><p>Chaque produit est développé avec des formulateurs indépendants, testé sur peaux sensibles, et n'est lancé que lorsqu'il nous rend réellement fières.</p>",
-        "button_label": "Découvrir nos soins"
+        "eyebrow": "Why we exist",
+        "heading": "Born from frustration, driven by conviction",
+        "text": "<p>Too many promises, too many unnecessary ingredients, too much marketing. We built this brand to get back to basics: short formulas, proven actives, textures you'll love reaching for every morning.</p><p>Every product is developed with independent formulators, tested on sensitive skin, and only launched when we're truly proud of it.</p>",
+        "button_label": "Shop our treatments"
       },
       "blocks": {},
       "block_order": []
@@ -27,26 +27,26 @@
     "values": {
       "type": "multicolumn",
       "settings": {
-        "eyebrow": "Nos valeurs",
-        "heading": "Ce qui nous guide",
+        "eyebrow": "Our values",
+        "heading": "What guides us",
         "background": "soft",
         "compact": false
       },
       "blocks": {
-        "v1": { "type": "column", "settings": { "icon": "heart", "title": "Transparence", "text": "Composition complète affichée, aucune promesse que nous ne pouvons tenir." } },
-        "v2": { "type": "column", "settings": { "icon": "lab", "title": "Efficacité", "text": "Des actifs dosés à des concentrations réellement actives." } },
-        "v3": { "type": "column", "settings": { "icon": "rabbit", "title": "Respect", "text": "Cruelty-free, vegan autant que possible, et respectueux de votre peau." } },
-        "v4": { "type": "column", "settings": { "icon": "recycle", "title": "Responsabilité", "text": "Emballages recyclables et partenaires de production exigeants." } }
+        "v1": { "type": "column", "settings": { "icon": "heart", "title": "Transparency", "text": "Full ingredient lists shown, no promise we can't keep." } },
+        "v2": { "type": "column", "settings": { "icon": "lab", "title": "Efficacy", "text": "Actives dosed at genuinely effective concentrations." } },
+        "v3": { "type": "column", "settings": { "icon": "rabbit", "title": "Respect", "text": "Cruelty-free, vegan wherever possible, and gentle on your skin." } },
+        "v4": { "type": "column", "settings": { "icon": "recycle", "title": "Responsibility", "text": "Recyclable packaging and exacting production partners." } }
       },
       "block_order": ["v1", "v2", "v3", "v4"]
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "eyebrow": "Rejoignez-nous",
-        "heading": "Faites partie de l'aventure",
-        "text": "Recevez nos nouveautés en avant-première et -10 % sur votre première commande.",
-        "button_label": "S'inscrire"
+        "eyebrow": "Join us",
+        "heading": "Be part of the journey",
+        "text": "Get early access to new launches and 10% off your first order.",
+        "button_label": "Sign up"
       }
     }
   },

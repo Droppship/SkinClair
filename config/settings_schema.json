@@ -8,77 +8,77 @@
     "theme_support_url": "https://github.com/droppship/skinclair"
   },
   {
-    "name": "Couleurs",
+    "name": "Colors",
     "settings": [
       {
         "type": "color",
         "id": "color_background",
-        "label": "Fond de page (ivoire)",
+        "label": "Page background (ivory)",
         "default": "#FBF7F2"
       },
       {
         "type": "color",
         "id": "color_surface",
-        "label": "Surfaces (cartes, panneaux)",
+        "label": "Surfaces (cards, panels)",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_soft",
-        "label": "Fond doux (sections alternées)",
+        "label": "Soft background (alternating sections)",
         "default": "#F4E8E3"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "Texte principal",
+        "label": "Main text",
         "default": "#3D2E33"
       },
       {
         "type": "color",
         "id": "color_muted",
-        "label": "Texte secondaire",
+        "label": "Secondary text",
         "default": "#8A7076"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Accent (rose poudré)",
+        "label": "Accent (powder pink)",
         "default": "#D8A7A0"
       },
       {
         "type": "color",
         "id": "color_button",
-        "label": "Boutons (prune profond)",
+        "label": "Buttons (deep plum)",
         "default": "#5E3E47"
       },
       {
         "type": "color",
         "id": "color_button_text",
-        "label": "Texte des boutons",
+        "label": "Button text",
         "default": "#FFF9F5"
       },
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Doré (étoiles, détails)",
+        "label": "Gold (stars, details)",
         "default": "#C7A17A"
       },
       {
         "type": "color",
         "id": "color_line",
-        "label": "Bordures et séparateurs",
+        "label": "Borders and dividers",
         "default": "#EADDD6"
       }
     ]
   },
   {
-    "name": "Mise en page",
+    "name": "Layout",
     "settings": [
       {
         "type": "range",
         "id": "page_width",
-        "label": "Largeur maximale du contenu",
+        "label": "Maximum content width",
         "min": 1000,
         "max": 1440,
         "step": 20,
@@ -89,45 +89,45 @@
         "type": "image_picker",
         "id": "favicon",
         "label": "Favicon",
-        "info": "48 × 48 px recommandé"
+        "info": "48 × 48 px recommended"
       }
     ]
   },
   {
-    "name": "Panier et livraison",
+    "name": "Cart & shipping",
     "settings": [
       {
         "type": "checkbox",
         "id": "show_free_shipping_bar",
-        "label": "Afficher la barre de livraison offerte",
+        "label": "Show free shipping progress bar",
         "default": true
       },
       {
         "type": "range",
         "id": "free_shipping_threshold",
-        "label": "Seuil de livraison offerte",
+        "label": "Free shipping threshold",
         "min": 0,
         "max": 200,
         "step": 5,
-        "unit": "€",
+        "unit": "$",
         "default": 50
       }
     ]
   },
   {
-    "name": "Fiches produit",
+    "name": "Product pages",
     "settings": [
       {
         "type": "checkbox",
         "id": "show_low_stock",
-        "label": "Afficher l'alerte stock faible",
-        "info": "Urgence subtile : affichée uniquement lorsque le suivi de stock est activé et sous le seuil.",
+        "label": "Show low stock alert",
+        "info": "Subtle urgency: only shown when inventory tracking is on and stock is under the threshold.",
         "default": true
       },
       {
         "type": "range",
         "id": "low_stock_threshold",
-        "label": "Seuil de stock faible",
+        "label": "Low stock threshold",
         "min": 1,
         "max": 20,
         "step": 1,
@@ -136,13 +136,13 @@
       {
         "type": "checkbox",
         "id": "show_quick_add",
-        "label": "Ajout rapide au panier sur les cartes produit",
+        "label": "Quick add to cart on product cards",
         "default": true
       }
     ]
   },
   {
-    "name": "Réseaux sociaux",
+    "name": "Social media",
     "settings": [
       {
         "type": "url",

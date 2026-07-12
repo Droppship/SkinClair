@@ -1,5 +1,5 @@
 {%- if section.blocks.size > 0 -%}
-  <div class="announcement-bar" {% if section.blocks.size > 1 %}data-announcement-rotate{% endif %} role="region" aria-label="Annonces">
+  <div class="announcement-bar" {% if section.blocks.size > 1 %}data-announcement-rotate{% endif %} role="region" aria-label="Announcements">
     <div class="announcement-bar__inner">
       {%- for block in section.blocks -%}
         <p class="announcement-bar__item" {% unless forloop.first %}data-hidden{% endunless %} {{ block.shopify_attributes }}>
@@ -16,32 +16,32 @@
 
 {% schema %}
 {
-  "name": "Barre d'annonces",
+  "name": "Announcement bar",
   "max_blocks": 4,
   "blocks": [
     {
       "type": "announcement",
-      "name": "Annonce",
+      "name": "Announcement",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "Texte",
-          "default": "Livraison offerte dès 50 € d'achat 🌸"
+          "label": "Text",
+          "default": "Free shipping on orders over $50 🌸"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Lien (optionnel)"
+          "label": "Link (optional)"
         }
       ]
     }
   ],
   "default": {
     "blocks": [
-      { "type": "announcement", "settings": { "text": "Livraison offerte dès 50 € d'achat 🌸" } },
-      { "type": "announcement", "settings": { "text": "-10 % sur votre première commande avec le code BIENVENUE10" } },
-      { "type": "announcement", "settings": { "text": "Satisfaite ou remboursée pendant 30 jours" } }
+      { "type": "announcement", "settings": { "text": "Free shipping on orders over $50 🌸" } },
+      { "type": "announcement", "settings": { "text": "10% off your first order with code WELCOME10" } },
+      { "type": "announcement", "settings": { "text": "30-day satisfaction guarantee" } }
     ]
   }
 }

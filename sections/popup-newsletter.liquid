@@ -50,18 +50,18 @@
 
 {% schema %}
 {
-  "name": "Pop-up e-mail",
+  "name": "Email pop-up",
   "settings": [
     {
       "type": "checkbox",
       "id": "enable",
-      "label": "Activer le pop-up",
+      "label": "Enable pop-up",
       "default": true
     },
     {
       "type": "range",
       "id": "delay",
-      "label": "Délai d'apparition",
+      "label": "Appearance delay",
       "min": 2,
       "max": 30,
       "step": 1,
@@ -71,11 +71,11 @@
     {
       "type": "range",
       "id": "frequency",
-      "label": "Ne pas réafficher pendant",
+      "label": "Don't show again for",
       "min": 1,
       "max": 30,
       "step": 1,
-      "unit": "j",
+      "unit": "d",
       "default": 7
     },
     {
@@ -86,32 +86,32 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Sur-titre",
-      "default": "Offre de bienvenue"
+      "label": "Eyebrow",
+      "default": "Welcome offer"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre",
-      "default": "-10 % sur votre première commande"
+      "label": "Heading",
+      "default": "10% off your first order"
     },
     {
       "type": "text",
       "id": "text",
-      "label": "Texte",
-      "default": "Inscrivez-vous et recevez votre code exclusif, nos rituels beauté et nos ventes privées."
+      "label": "Text",
+      "default": "Sign up and get your exclusive code, our beauty rituals, and private sales."
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Bouton",
-      "default": "Je profite de -10 %"
+      "label": "Button",
+      "default": "Get my 10% off"
     },
     {
       "type": "text",
       "id": "dismiss_label",
-      "label": "Lien de refus",
-      "default": "Non merci, je préfère payer plein tarif"
+      "label": "Dismiss link",
+      "default": "No thanks, I'll pay full price"
     }
   ]
 }

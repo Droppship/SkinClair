@@ -14,16 +14,16 @@
       <div class="testimonials__track" data-slider-track>
         {%- for block in section.blocks -%}
           <figure class="testimonial-card reveal" {{ block.shopify_attributes }}>
-            <span class="stars" role="img" aria-label="{{ block.settings.rating }} étoiles sur 5">
+            <span class="stars" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
               {%- for i in (1..block.settings.rating) -%}
                 {% render 'icon', name: 'star', size: 16 %}
               {%- endfor -%}
             </span>
-            <blockquote class="testimonial-card__quote">« {{ block.settings.quote }} »</blockquote>
+            <blockquote class="testimonial-card__quote">"{{ block.settings.quote }}"</blockquote>
             <figcaption class="testimonial-card__author">
               {{ block.settings.author }}
               {%- if block.settings.verified -%}
-                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} Achat vérifié</span>
+                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} Verified buyer</span>
               {%- endif -%}
             </figcaption>
           </figure>
@@ -35,34 +35,34 @@
 
 {% schema %}
 {
-  "name": "Témoignages",
+  "name": "Testimonials",
   "max_blocks": 9,
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Sur-titre",
-      "default": "Elles nous font confiance"
+      "label": "Eyebrow",
+      "default": "Trusted by our customers"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Titre",
-      "default": "Ce que disent nos clientes"
+      "label": "Heading",
+      "default": "What our customers say"
     },
     {
       "type": "text",
       "id": "subtext",
-      "label": "Sous-texte"
+      "label": "Subtext"
     },
     {
       "type": "select",
       "id": "background",
-      "label": "Fond",
+      "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivoire" },
-        { "value": "soft", "label": "Rose doux" },
-        { "value": "surface", "label": "Blanc" }
+        { "value": "default", "label": "Ivory" },
+        { "value": "soft", "label": "Soft pink" },
+        { "value": "surface", "label": "White" }
       ],
       "default": "soft"
     }
@@ -70,12 +70,12 @@
   "blocks": [
     {
       "type": "testimonial",
-      "name": "Témoignage",
+      "name": "Testimonial",
       "settings": [
         {
           "type": "range",
           "id": "rating",
-          "label": "Note",
+          "label": "Rating",
           "min": 1,
           "max": 5,
           "step": 1,
@@ -84,19 +84,19 @@
         {
           "type": "textarea",
           "id": "quote",
-          "label": "Citation",
-          "default": "Ma peau n'a jamais été aussi douce. Je vois une vraie différence après trois semaines d'utilisation."
+          "label": "Quote",
+          "default": "My skin has never been this soft. I noticed a real difference after three weeks of use."
         },
         {
           "type": "text",
           "id": "author",
-          "label": "Prénom",
-          "default": "Camille L."
+          "label": "First name",
+          "default": "Emily R."
         },
         {
           "type": "checkbox",
           "id": "verified",
-          "label": "Achat vérifié",
+          "label": "Verified buyer",
           "default": true
         }
       ]
@@ -104,11 +104,11 @@
   ],
   "presets": [
     {
-      "name": "Témoignages",
+      "name": "Testimonials",
       "blocks": [
         { "type": "testimonial" },
-        { "type": "testimonial", "settings": { "quote": "Enfin une marque qui tient ses promesses. Textures divines, parfums délicats, et une livraison ultra rapide.", "author": "Sarah M." } },
-        { "type": "testimonial", "settings": { "quote": "J'ai remplacé toute ma routine. Le sérum est devenu mon indispensable du matin.", "author": "Inès B." } }
+        { "type": "testimonial", "settings": { "quote": "Finally a brand that keeps its promises. Gorgeous textures, subtle scents, and super fast shipping.", "author": "Sarah M." } },
+        { "type": "testimonial", "settings": { "quote": "I replaced my entire routine. The serum is now my can't-live-without morning step.", "author": "Ava B." } }
       ]
     }
   ]

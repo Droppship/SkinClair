@@ -1,7 +1,7 @@
 <section class="section">
   <div class="page-width">
     <div class="page-title">
-      <h1>{{ page.title | default: 'Contactez-nous' }}</h1>
+      <h1>{{ page.title | default: 'Contact us' }}</h1>
       <p>{{ section.settings.subtext }}</p>
     </div>
 
@@ -58,56 +58,56 @@
 
 {% schema %}
 {
-  "name": "Page contact",
+  "name": "Contact page",
   "max_blocks": 4,
   "settings": [
     {
       "type": "text",
       "id": "subtext",
-      "label": "Sous-titre",
-      "default": "Une question sur un produit, une commande ? Nous vous répondons sous 24 h ouvrées."
+      "label": "Subtitle",
+      "default": "Question about a product, an order? We'll get back to you within 24 business hours."
     }
   ],
   "blocks": [
     {
       "type": "info",
-      "name": "Bloc d'information",
+      "name": "Info block",
       "settings": [
         {
           "type": "select",
           "id": "icon",
-          "label": "Icône",
+          "label": "Icon",
           "options": [
-            { "value": "mail", "label": "E-mail" },
-            { "value": "truck", "label": "Livraison" },
-            { "value": "return", "label": "Retours" },
-            { "value": "heart", "label": "Cœur" },
-            { "value": "shield", "label": "Garantie" }
+            { "value": "mail", "label": "Email" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "return", "label": "Returns" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Guarantee" }
           ],
           "default": "mail"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Titre",
-          "default": "Service clientes"
+          "label": "Title",
+          "default": "Customer care"
         },
         {
           "type": "text",
           "id": "text",
-          "label": "Texte",
-          "default": "Réponse sous 24 h ouvrées, du lundi au vendredi."
+          "label": "Text",
+          "default": "Response within 24 business hours, Monday through Friday."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Page contact",
+      "name": "Contact page",
       "blocks": [
         { "type": "info" },
-        { "type": "info", "settings": { "icon": "truck", "title": "Suivi de commande", "text": "Un e-mail de suivi vous est envoyé dès l'expédition de votre colis." } },
-        { "type": "info", "settings": { "icon": "return", "title": "Retours & échanges", "text": "30 jours pour changer d'avis, remboursement rapide et sans friction." } }
+        { "type": "info", "settings": { "icon": "truck", "title": "Order tracking", "text": "You'll receive a tracking email as soon as your order ships." } },
+        { "type": "info", "settings": { "icon": "return", "title": "Returns & exchanges", "text": "30 days to change your mind, fast and frictionless refunds." } }
       ]
     }
   ]

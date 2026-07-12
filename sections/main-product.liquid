@@ -6,7 +6,7 @@
   <div class="page-width">
     <div class="product__grid">
 
-      {%- comment -%} ————— Galerie ————— {%- endcomment -%}
+      {%- comment -%} ————— Gallery ————— {%- endcomment -%}
       <div class="product__gallery">
         <div class="product__main-media" data-zoom-container>
           {%- if product.featured_media -%}
@@ -34,7 +34,7 @@
                 data-full-src="{{ media | image_url: width: 1100 }}"
                 data-full-srcset="{{ media | image_url: width: 750 }} 750w, {{ media | image_url: width: 1100 }} 1100w, {{ media | image_url: width: 1600 }} 1600w"
                 class="{% if forloop.first %}is-active{% endif %}"
-                aria-label="Voir l'image {{ forloop.index }}"
+                aria-label="View image {{ forloop.index }}"
               >
                 <img src="{{ media | image_url: width: 144 }}" alt="{{ media.alt | escape }}" width="72" height="72" loading="lazy">
               </button>
@@ -43,7 +43,7 @@
         {%- endif -%}
       </div>
 
-      {%- comment -%} ————— Informations ————— {%- endcomment -%}
+      {%- comment -%} ————— Info ————— {%- endcomment -%}
       <div class="product__info">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -57,10 +57,10 @@
             {%- when 'rating' -%}
               {%- if block.settings.rating_count != blank -%}
                 <div class="product__rating" {{ block.shopify_attributes }}>
-                  <span class="stars" role="img" aria-label="4,8 étoiles sur 5">
+                  <span class="stars" role="img" aria-label="4.8 out of 5 stars">
                     {%- for i in (1..5) -%}{% render 'icon', name: 'star', size: 15 %}{%- endfor -%}
                   </span>
-                  <a href="#avis">{{ block.settings.rating_count }}</a>
+                  <a href="#reviews">{{ block.settings.rating_count }}</a>
                 </div>
               {%- endif -%}
 
@@ -119,7 +119,7 @@
                     </div>
                   {%- endunless -%}
 
-                  {%- comment -%} Urgence subtile : stock faible réel uniquement {%- endcomment -%}
+                  {%- comment -%} Subtle urgency: real low stock only {%- endcomment -%}
                   {%- if settings.show_low_stock
                     and current_variant.inventory_management == 'shopify'
                     and current_variant.inventory_quantity > 0
@@ -162,9 +162,9 @@
                 {%- endform -%}
 
                 <div class="product__trust">
-                  <span>{% render 'icon', name: 'lock', size: 15 %} Paiement 100 % sécurisé</span>
-                  <span>{% render 'icon', name: 'truck', size: 15 %} Livraison 48–72 h</span>
-                  <span>{% render 'icon', name: 'return', size: 15 %} Retours 30 jours</span>
+                  <span>{% render 'icon', name: 'lock', size: 15 %} 100% secure payment</span>
+                  <span>{% render 'icon', name: 'truck', size: 15 %} Ships in 48–72 h</span>
+                  <span>{% render 'icon', name: 'return', size: 15 %} 30-day returns</span>
                 </div>
               </div>
 
@@ -215,7 +215,7 @@
 
   <script type="application/json" data-product-json>{{ product.variants | json }}</script>
 
-  {%- comment -%} Barre d'achat fixe sur mobile {%- endcomment -%}
+  {%- comment -%} Fixed mobile buy bar {%- endcomment -%}
   <div class="sticky-atc" data-sticky-atc aria-hidden="true">
     <div class="sticky-atc__info">
       <p class="sticky-atc__title">{{ product.title }}</p>
@@ -251,135 +251,135 @@
 
 {% schema %}
 {
-  "name": "Page produit",
+  "name": "Product page",
   "blocks": [
     {
       "type": "vendor",
-      "name": "Marque",
+      "name": "Brand",
       "limit": 1,
       "settings": []
     },
     {
       "type": "title",
-      "name": "Titre",
+      "name": "Title",
       "limit": 1,
       "settings": []
     },
     {
       "type": "rating",
-      "name": "Note (étoiles)",
+      "name": "Rating (stars)",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "rating_count",
-          "label": "Texte du lien avis",
-          "info": "Ex. « 127 avis ». Laisser vide pour masquer. Remplacé automatiquement si vous installez une app d'avis (Judge.me, Loox…).",
-          "default": "★ 4,8 — voir les avis"
+          "label": "Review link text",
+          "info": "E.g. \"127 reviews\". Leave blank to hide. Automatically replaced if you install a review app (Judge.me, Loox…).",
+          "default": "★ 4.8 — read reviews"
         }
       ]
     },
     {
       "type": "price",
-      "name": "Prix",
+      "name": "Price",
       "limit": 1,
       "settings": []
     },
     {
       "type": "short_description",
-      "name": "Description courte",
+      "name": "Short description",
       "limit": 1,
       "settings": [
         {
           "type": "textarea",
           "id": "text",
-          "label": "Texte de repli",
-          "info": "Utilisé si le métachamp custom.short_description est vide.",
-          "default": "Un soin quotidien qui transforme votre routine : peau visiblement plus lisse, hydratée et lumineuse dès les premières semaines."
+          "label": "Fallback text",
+          "info": "Used when the custom.short_description metafield is empty.",
+          "default": "A daily treatment that transforms your routine: visibly smoother, hydrated, and glowing skin within the first weeks."
         }
       ]
     },
     {
       "type": "benefits",
-      "name": "Bénéfices (icônes)",
+      "name": "Benefits (icons)",
       "limit": 1,
       "settings": [
-        { "type": "select", "id": "icon_1", "label": "Icône 1", "options": [{ "value": "leaf", "label": "Feuille" }, { "value": "drop", "label": "Goutte" }, { "value": "sparkle", "label": "Éclat" }, { "value": "rabbit", "label": "Lapin" }, { "value": "lab", "label": "Laboratoire" }, { "value": "heart", "label": "Cœur" }], "default": "leaf" },
-        { "type": "text", "id": "benefit_1", "label": "Bénéfice 1", "default": "97 % d'ingrédients naturels" },
-        { "type": "select", "id": "icon_2", "label": "Icône 2", "options": [{ "value": "leaf", "label": "Feuille" }, { "value": "drop", "label": "Goutte" }, { "value": "sparkle", "label": "Éclat" }, { "value": "rabbit", "label": "Lapin" }, { "value": "lab", "label": "Laboratoire" }, { "value": "heart", "label": "Cœur" }], "default": "drop" },
-        { "type": "text", "id": "benefit_2", "label": "Bénéfice 2", "default": "Hydratation 24 h" },
-        { "type": "select", "id": "icon_3", "label": "Icône 3", "options": [{ "value": "leaf", "label": "Feuille" }, { "value": "drop", "label": "Goutte" }, { "value": "sparkle", "label": "Éclat" }, { "value": "rabbit", "label": "Lapin" }, { "value": "lab", "label": "Laboratoire" }, { "value": "heart", "label": "Cœur" }], "default": "rabbit" },
-        { "type": "text", "id": "benefit_3", "label": "Bénéfice 3", "default": "Cruelty-free & vegan" },
-        { "type": "select", "id": "icon_4", "label": "Icône 4", "options": [{ "value": "leaf", "label": "Feuille" }, { "value": "drop", "label": "Goutte" }, { "value": "sparkle", "label": "Éclat" }, { "value": "rabbit", "label": "Lapin" }, { "value": "lab", "label": "Laboratoire" }, { "value": "heart", "label": "Cœur" }], "default": "lab" },
-        { "type": "text", "id": "benefit_4", "label": "Bénéfice 4", "default": "Testé dermatologiquement" }
+        { "type": "select", "id": "icon_1", "label": "Icon 1", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "leaf" },
+        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "97% naturally derived ingredients" },
+        { "type": "select", "id": "icon_2", "label": "Icon 2", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "drop" },
+        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "24-hour hydration" },
+        { "type": "select", "id": "icon_3", "label": "Icon 3", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "rabbit" },
+        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Cruelty-free & vegan" },
+        { "type": "select", "id": "icon_4", "label": "Icon 4", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "lab" },
+        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Dermatologist-tested" }
       ]
     },
     {
       "type": "buy_buttons",
-      "name": "Boutons d'achat",
+      "name": "Buy buttons",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_dynamic_checkout",
-          "label": "Paiement accéléré (Apple Pay, PayPal…)",
+          "label": "Accelerated checkout (Apple Pay, PayPal…)",
           "default": true
         }
       ]
     },
     {
       "type": "guarantee",
-      "name": "Encart garantie",
+      "name": "Guarantee callout",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "label": "Titre",
-          "default": "Satisfaite ou remboursée pendant 30 jours"
+          "label": "Title",
+          "default": "30-day satisfaction guarantee"
         },
         {
           "type": "text",
           "id": "text",
-          "label": "Texte",
-          "default": "Essayez sereinement : si le soin ne vous convient pas, nous vous remboursons."
+          "label": "Text",
+          "default": "Shop with peace of mind: if this treatment isn't right for you, we'll refund you."
         }
       ]
     },
     {
       "type": "description",
-      "name": "Description (accordéon)",
+      "name": "Description (accordion)",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "label": "Titre",
-          "default": "Description & bénéfices"
+          "label": "Title",
+          "default": "Description & benefits"
         }
       ]
     },
     {
       "type": "accordion",
-      "name": "Accordéon personnalisé",
+      "name": "Custom accordion",
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "label": "Titre",
-          "default": "Ingrédients"
+          "label": "Title",
+          "default": "Ingredients"
         },
         {
           "type": "richtext",
           "id": "content",
-          "label": "Contenu",
-          "default": "<p>Renseignez ici la liste INCI complète ou le contenu de votre choix.</p>"
+          "label": "Content",
+          "default": "<p>Add the full INCI ingredient list here, or any content you'd like.</p>"
         },
         {
           "type": "text",
           "id": "metafield_key",
-          "label": "Métachamp produit (optionnel)",
-          "info": "Ex. custom.ingredients — remplace le contenu ci-dessus s'il existe."
+          "label": "Product metafield (optional)",
+          "info": "E.g. custom.ingredients — overrides the content above if it exists."
         }
       ]
     }

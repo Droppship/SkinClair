@@ -1,6 +1,6 @@
 {%- comment -%}
-  Rendu côté serveur des suggestions de recherche.
-  Appelé en AJAX par global.js via routes.predictive_search_url.
+  Server-side render of search suggestions.
+  Called via AJAX by global.js through routes.predictive_search_url.
 {%- endcomment -%}
 <div id="PredictiveSearchResults">
   {%- if predictive_search.performed -%}
@@ -22,7 +22,7 @@
 
 {% schema %}
 {
-  "name": "Recherche prédictive",
+  "name": "Predictive search",
   "settings": []
 }
 {% endschema %}

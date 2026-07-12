@@ -46,7 +46,7 @@
       <p>{{ 'gift_card.subtext' | t }}</p>
       <p class="balance">{{ gift_card.balance | money }}</p>
       {%- if gift_card.expired or gift_card.enabled != true -%}
-        <p class="muted">Cette carte cadeau n'est plus valide.</p>
+        <p class="muted">This gift card is no longer valid.</p>
       {%- endif -%}
       <p class="code">{{ gift_card.code | format_code }}</p>
       <div>

@@ -10,10 +10,10 @@
     <div class="collection-toolbar">
       <p class="collection-toolbar__count">
         {{ collection.products_count }}
-        {%- if collection.products_count == 1 %} produit{% else %} produits{% endif -%}
+        {%- if collection.products_count == 1 %} product{% else %} products{% endif -%}
       </p>
       <form method="get" id="SortForm">
-        <label for="SortBy" class="visually-hidden" style="position:absolute;left:-9999px;">Trier</label>
+        <label for="SortBy" class="visually-hidden" style="position:absolute;left:-9999px;">Sort by</label>
         <select name="sort_by" id="SortBy" onchange="this.form.submit()">
           {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
           {%- for option in collection.sort_options -%}
@@ -51,9 +51,9 @@
       {%- endif -%}
     {%- else -%}
       <div class="collection-empty">
-        <h2>Cette collection arrive bientôt</h2>
-        <p class="text-muted" style="margin: 10px 0 26px;">Nos soins sont en préparation. Revenez très vite !</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn">Voir tous les produits</a>
+        <h2>This collection is coming soon</h2>
+        <p class="text-muted" style="margin: 10px 0 26px;">Our treatments are being prepared. Check back very soon!</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn">View all products</a>
       </div>
     {%- endif -%}
   {%- endpaginate -%}
@@ -61,12 +61,12 @@
 
 {% schema %}
 {
-  "name": "Page collection",
+  "name": "Collection page",
   "settings": [
     {
       "type": "range",
       "id": "products_per_page",
-      "label": "Produits par page",
+      "label": "Products per page",
       "min": 8,
       "max": 48,
       "step": 4,
