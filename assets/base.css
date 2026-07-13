@@ -668,7 +668,7 @@ h4, .h4 { font-family: var(--font-body); font-weight: 500; font-size: 1.7rem; }
   aspect-ratio: 1; background: var(--c-soft); box-shadow: var(--shadow-soft);
   cursor: zoom-in;
 }
-.product__main-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease-out; will-change: transform; }
+.product__main-media img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.25s ease-out; will-change: transform; }
 .product__main-media.is-zoomed { cursor: zoom-out; }
 .product__thumbs { display: flex; gap: 10px; margin-top: 14px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
 .product__thumbs::-webkit-scrollbar { display: none; }
