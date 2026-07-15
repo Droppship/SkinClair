@@ -7,8 +7,9 @@
   assign price = target.price
   assign compare_price = target.compare_at_price
   if target.object_type == 'product'
-    assign price = target.price_min
-    assign compare_price = target.compare_at_price_max
+    assign cheapest_variant = target.variants | sort: 'price' | first
+    assign price = cheapest_variant.price
+    assign compare_price = cheapest_variant.compare_at_price
   endif
 -%}
 <div class="price {{ class }}{% if compare_price > price %} price--on-sale{% endif %}" data-price>

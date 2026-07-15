@@ -7,8 +7,9 @@
   if card_product.media.size > 1
     assign has_second_image = true
   endif
+  assign cheapest_variant = card_product.variants | sort: 'price' | first
   assign on_sale = false
-  if card_product.compare_at_price_max > card_product.price_min
+  if cheapest_variant.compare_at_price > cheapest_variant.price
     assign on_sale = true
   endif
   assign is_new = false
