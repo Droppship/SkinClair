@@ -31,7 +31,7 @@
 
           <div class="hero-split__media">
             {%- if scrolly -%}
-              <div class="hero-split__media-card hero-media-stack">
+              <div class="hero-split__media-card hero-media-stack{% if section.settings.media_cutout %} hero-media-stack--cutout{% endif %}">
                 <div class="hero-media-stack__img hero-media-stack__img--open">
                   {%- if section.settings.image_open != blank -%}
                     <img
@@ -181,6 +181,13 @@
       "id": "scroll_hint",
       "label": "Scroll hint text",
       "default": "Scroll to open"
+    },
+    {
+      "type": "checkbox",
+      "id": "media_cutout",
+      "label": "Cut-out packshots (transparent background)",
+      "info": "Removes the card frame so the product floats directly on the hero background. Use with transparent PNG photos.",
+      "default": false
     },
     {
       "type": "text",
