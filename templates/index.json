@@ -4,6 +4,8 @@
       "type": "hero",
       "settings": {
         "layout": "split",
+        "scroll_reveal": true,
+        "scroll_hint": "Scroll to open",
         "eyebrow": "Pressed Powder Concealer",
         "heading": "Flawless, the effortless way",
         "text": "A silky pressed powder concealer that covers dark circles with a natural, weightless finish — in four flexible shades made to melt into your skin.",

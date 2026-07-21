@@ -21,6 +21,7 @@
     initCartPage();
     initProduct();
     initSliders();
+    initHeroScrolly();
     initBeforeAfter();
     initReveal();
     initPopup();
@@ -480,6 +481,40 @@
         });
       });
     });
+  }
+
+  /* ---------- Hero « scroll to open » ---------- */
+
+  function initHeroScrolly() {
+    var section = document.querySelector('[data-hero-scrolly]');
+    if (!section) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      section.style.setProperty('--hp', 1);
+      return;
+    }
+
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var total = section.offsetHeight - window.innerHeight;
+      if (total <= 0) {
+        section.style.setProperty('--hp', 1);
+        return;
+      }
+      var progress = -section.getBoundingClientRect().top / total;
+      section.style.setProperty('--hp', Math.min(1, Math.max(0, progress)).toFixed(4));
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   }
 
   /* ---------- Comparateur avant / après ---------- */

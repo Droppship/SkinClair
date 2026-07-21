@@ -434,6 +434,49 @@ h4, .h4 { font-family: var(--font-body); font-weight: 500; font-size: 1.7rem; }
   .hero-split__media-card { aspect-ratio: 1; max-width: 420px; margin: 0 auto; }
 }
 
+.hero-split__wrap { width: 100%; }
+
+/* Scroll-open animation: the hero pins while --hp goes 0 → 1 */
+.hero--scrolly { display: block; height: 180vh; overflow: visible; }
+@media (min-width: 990px) { .hero--scrolly { height: 200vh; } }
+.hero-scrolly__sticky {
+  position: sticky; top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero--scrolly .hero-split__grid { width: 100%; padding: 40px 0 56px; }
+.hero--scrolly .hero-split__media-card { animation: none; }
+.hero-media-stack { position: relative; }
+.hero-media-stack__img { position: absolute; inset: 0; }
+.hero-media-stack__img img, .hero-media-stack__img .placeholder-svg {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-media-stack__img--closed {
+  opacity: calc(1 - var(--hp, 0));
+  transform: scale(calc(1 + var(--hp, 0) * 0.06)) translateY(calc(var(--hp, 0) * -14px));
+  will-change: opacity, transform;
+}
+.hero-media-stack__img--open {
+  opacity: var(--hp, 0);
+  transform: scale(calc(0.94 + var(--hp, 0) * 0.06));
+  will-change: opacity, transform;
+}
+.hero-scrolly__hint {
+  position: absolute; left: 50%; bottom: -34px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+  font-size: 1.2rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--c-muted);
+  opacity: calc(1 - var(--hp, 0) * 2.5);
+  pointer-events: none;
+}
+.hero-scrolly__hint .icon { animation: hint-bob 1.8s ease-in-out infinite; }
+@media (max-width: 989px) {
+  .hero--scrolly .hero-split__media { padding-bottom: 40px; }
+  .hero-scrolly__hint { bottom: 0; }
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: none; }
@@ -442,8 +485,14 @@ h4, .h4 { font-family: var(--font-body); font-weight: 500; font-size: 1.7rem; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+@keyframes hint-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-split__media-card { animation: none; }
+  .hero--scrolly { height: auto; }
+  .hero-scrolly__hint { display: none; }
 }
 
 /* Before / after comparison */

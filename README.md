@@ -24,7 +24,8 @@ Thème Shopify **Online Store 2.0** complet, construit sur mesure pour **Skincla
 |---|---|---|
 | 1 | Produits | Créer le produit **Pressed Powder Concealer** à 7,99 $ avec une option **Shade** et 4 valeurs : `Light Bisque`, `Warm Bisque`, `Extra Deep Peach`, `Very Deep Beige` (les pastilles de couleur s'affichent automatiquement pour ces noms) |
 | 2 | Éditeur de thème → page d'accueil | Sélectionner ce produit dans la section **Shade selector** (« Linked product ») et pointer les boutons « Shop Now » vers sa page |
-| 3 | Éditeur de thème | Remplacer les placeholders : image produit du hero, photos **Before/After** (même cadrage), et la liste réelle des **ingrédients** |
+| 3 | Éditeur de thème → Hero | Uploader les deux photos de l'animation d'ouverture : **Product photo — closed** et **Product photo — open** (même cadrage, 1000 × 1250 px) |
+| 3b | Éditeur de thème | Remplacer les autres placeholders : photos **Before/After** (même cadrage) et la liste réelle des **ingrédients** |
 | 4 | Navigation | Créer le menu `main-menu` (Home, Shop, About, Contact) et le menu `footer` |
 | 5 | Pages | Créer les pages : `About` (template **page.about**), `Contact` (template **page.contact**), `FAQ` (template **page.faq**) |
 | 6 | Paramètres → Politiques | Renseigner Privacy, Shipping, Refund, Terms — elles s'affichent automatiquement dans le footer |
@@ -47,7 +48,7 @@ Le thème ne contient **volontairement aucune section d'avis**. Quand vous aurez
 
 ## Structure de la page d'accueil
 
-1. **Hero** — packshot produit en deux colonnes, titre accrocheur, bouton « Shop Now », animation d'entrée + flottement subtil
+1. **Hero « scroll to open »** — le hero reste épinglé pendant le scroll : la photo du produit **fermé** s'ouvre progressivement (fondu + zoom) vers la photo du produit **ouvert**, avec un indice « Scroll to open ». Deux emplacements d'images dans l'éditeur (closed/open, même cadrage). Désactivable d'un clic (« Enable scroll-open animation ») pour revenir au packshot statique avec flottement subtil. Respecte `prefers-reduced-motion` (produit ouvert affiché sans animation)
 2. **Why you'll love it** — 6 cartes bénéfices avec icônes animées (couvre les cernes, fini naturel, texture légère, longue tenue, application facile, tous types de peau)
 3. **Before / After** — comparateur interactif à glissière (placeholders à remplacer)
 4. **How to use** — 4 étapes numérotées
