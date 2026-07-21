@@ -66,6 +66,7 @@
         "eyebrow": "Customer reviews",
         "heading": "Customers love it",
         "subtext": "Connect a review app (Judge.me, Loox) to display real product reviews — this section shows your best feedback in the meantime.",
+        "verified_label": "Verified buyer",
         "background": "soft"
       },
       "blocks": {

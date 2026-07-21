@@ -97,12 +97,36 @@
                   <input type="hidden" name="id" value="{{ current_variant.id }}">
 
                   {%- unless product.has_only_default_variant -%}
+                    {%- assign swatch_lines = block.settings.shade_colors | newline_to_br | split: '<br />' -%}
                     <div class="variant-picker">
                       {%- for option in product.options_with_values -%}
+                        {%- liquid
+                          assign option_down = option.name | downcase
+                          assign is_swatch = false
+                          if option_down contains 'teinte' or option_down contains 'shade' or option_down contains 'couleur' or option_down contains 'color'
+                            assign is_swatch = true
+                          endif
+                        -%}
                         <fieldset data-option-index="{{ forloop.index0 }}">
-                          <legend class="form__label">{{ option.name }}</legend>
+                          <legend class="form__label">
+                            {{ option.name }}
+                            {%- if is_swatch %} — <span class="variant-picker__selected" data-selected-value>{{ option.selected_value }}</span>{% endif -%}
+                          </legend>
                           {%- for value in option.values -%}
-                            <span class="variant-option">
+                            {%- liquid
+                              assign swatch_color = ''
+                              if is_swatch
+                                assign value_down = value | downcase
+                                for line in swatch_lines
+                                  assign pair = line | strip | split: ':'
+                                  assign pair_name = pair[0] | strip | downcase
+                                  if pair_name == value_down and pair[1] != blank
+                                    assign swatch_color = pair[1] | strip
+                                  endif
+                                endfor
+                              endif
+                            -%}
+                            <span class="variant-option{% if swatch_color != '' %} variant-option--swatch{% endif %}">
                               <input
                                 type="radio"
                                 id="Option-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
@@ -111,7 +135,10 @@
                                 data-option-input
                                 {% if option.selected_value == value %}checked{% endif %}
                               >
-                              <label for="Option-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">{{ value }}</label>
+                              <label
+                                for="Option-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                                {% if swatch_color != '' %}style="background-color: {{ swatch_color }};" title="{{ value | escape }}"{% endif %}
+                              >{{ value }}</label>
                             </span>
                           {%- endfor -%}
                         </fieldset>
@@ -324,6 +351,13 @@
           "id": "show_dynamic_checkout",
           "label": "Accelerated checkout (Apple Pay, PayPal…)",
           "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "shade_colors",
+          "label": "Shade swatch colors",
+          "info": "One per line, format \"Variant name: #hex\". Applied to options named Teinte / Shade / Couleur / Color — matching values render as color dots instead of text pills.",
+          "default": "Porcelaine: #f3e0d1\nIvoire: #eed6c0\nSable clair: #e8c9ab\nSable: #ddb894\nMiel: #d2a67e\nBeige doré: #c69a6e\nCaramel: #b3835a\nNoisette: #a1714b\nAmbre: #8d5f3e\nCannelle: #7a4f33\nAcajou: #61402b\nÉbène: #4a3122"
         }
       ]
     },

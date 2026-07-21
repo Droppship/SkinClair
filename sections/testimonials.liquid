@@ -23,7 +23,7 @@
             <figcaption class="testimonial-card__author">
               {{ block.settings.author }}
               {%- if block.settings.verified -%}
-                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} Verified buyer</span>
+                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} {{ section.settings.verified_label | default: 'Achat vérifié' }}</span>
               {%- endif -%}
             </figcaption>
           </figure>
@@ -56,13 +56,19 @@
       "label": "Subtext"
     },
     {
+      "type": "text",
+      "id": "verified_label",
+      "label": "Verified buyer label",
+      "default": "Achat vérifié"
+    },
+    {
       "type": "select",
       "id": "background",
       "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivory" },
-        { "value": "soft", "label": "Soft pink" },
-        { "value": "surface", "label": "White" }
+        { "value": "default", "label": "Deep plum" },
+        { "value": "soft", "label": "Light plum" },
+        { "value": "surface", "label": "Surface" }
       ],
       "default": "soft"
     }

@@ -1,0 +1,103 @@
+{%- comment -%}
+  Section bénéfice : grand numéro serif italique en filigrane derrière le
+  texte, zone image en vis-à-vis (texture, application, packaging…).
+{%- endcomment -%}
+
+<section class="section benefit{% if section.settings.background == 'soft' %} section--soft{% endif %}">
+  <div class="page-width">
+    <div class="benefit__grid{% if section.settings.layout == 'right' %} benefit__grid--reverse{% endif %}">
+
+      <div class="benefit__media reveal{% if section.settings.image == blank %} benefit__media--placeholder{% endif %}">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 1400 }} 1400w"
+            sizes="(min-width: 990px) 50vw, 100vw"
+            alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+            width="1000"
+            height="{{ 1000 | divided_by: section.settings.image.aspect_ratio | round }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <span>{{ section.settings.placeholder_label | default: 'Votre photo ici' }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="benefit__content reveal">
+        <span class="benefit__num" aria-hidden="true">{{ section.settings.number }}</span>
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+        <p>{{ section.settings.text }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bénéfice (numéroté)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "number",
+      "label": "Numéro en filigrane",
+      "default": "01"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Fini naturel, <em>tenue 24h</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Un pigment qui fusionne avec la peau dès l'application. Pas d'effet masque, pas de craquelures en fin de journée — juste un teint reposé, toute la journée."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Texture / swatch, photo d'application ou packaging. 1000 × 1250 px recommandé."
+    },
+    {
+      "type": "text",
+      "id": "placeholder_label",
+      "label": "Libellé de la zone image (si vide)",
+      "default": "Photo texture / application"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Position de l'image",
+      "options": [
+        { "value": "left", "label": "Image à gauche" },
+        { "value": "right", "label": "Image à droite" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Fond",
+      "options": [
+        { "value": "default", "label": "Prune profond" },
+        { "value": "soft", "label": "Prune clair" }
+      ],
+      "default": "default"
+    }
+  ],
+  "presets": [
+    { "name": "Bénéfice (numéroté)" }
+  ]
+}
+{% endschema %}

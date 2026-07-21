@@ -1,6 +1,16 @@
-# SkinClair — Thème Shopify premium beauté & soins
+# SkinClair — Thème Shopify « Édition rose-doré » (cache-cerne compact)
 
-Thème Shopify **Online Store 2.0** complet, construit sur mesure pour une marque de soins et de beauté haut de gamme destinée aux femmes de 18 à 45 ans. Zéro dépendance externe, code 100 % natif (Liquid + CSS + JS vanilla), mobile-first, optimisé conversion et SEO.
+Thème Shopify **Online Store 2.0** complet, construit sur mesure autour du cache-cerne compact rose-doré SkinClair. Palette prune profonde / rose-doré, typographie Playfair Display + Manrope, animations liées au scroll. Zéro dépendance externe, code 100 % natif (Liquid + CSS + JS vanilla), mobile-first, optimisé conversion et SEO.
+
+## Direction artistique & animations
+
+- **Palette sombre luxueuse** : prune profond `#1c1216`, prune clair `#241820`, rose-doré `#d9b3ab`, rose-doré atténué `#a9807a`, ivoire `#f4ece5`, berry `#7c2e3f` — tout est réglable dans **Réglages du thème → Colors**.
+- **Typographie** : Playfair Display (titres serif ; les mots en italique via `<em>` passent automatiquement en rose-doré) + Manrope (corps, 300–500, labels majuscules très espacés).
+- **Hero « révélation »** (`sections/hero-reveal.liquid`) : le boîtier part petit, flou et fermé, puis grossit, se précise et s'ouvre (crossfade entre les deux photos détourées) à mesure que la page défile — scroll listener + `getBoundingClientRect`, throttlé par `requestAnimationFrame`, désactivé si `prefers-reduced-motion`. Uploadez les photos **boîtier fermé** et **boîtier ouvert** dans la section ; en attendant, des placeholders SVG rose-doré assurent l'effet.
+- **Sections bénéfices numérotées** (`sections/benefit.liquid`) : numéro serif italique en filigrane, zone image (texture / application / packaging) avec placeholder libellé.
+- **Grille des 12 teintes** (`sections/shade-grid.liquid`) : pastilles de couleur + noms, éditables bloc par bloc.
+- **Fiche produit** : sélecteur de teinte en pastilles de couleur (mappage « Nom : #hex » dans le bloc *Buy buttons* — s'applique aux options nommées Teinte / Shade / Couleur / Color), micro-interaction d'ajout au panier (pop + halo + passage berry).
+- **Apparitions au scroll** : `IntersectionObserver` (`.reveal`) sur toutes les sections.
 
 ---
 

@@ -13,62 +13,68 @@
       {
         "type": "color",
         "id": "color_background",
-        "label": "Page background (ivory)",
-        "default": "#FBF7F2"
+        "label": "Page background (deep plum)",
+        "default": "#1c1216"
       },
       {
         "type": "color",
         "id": "color_surface",
         "label": "Surfaces (cards, panels)",
-        "default": "#FFFFFF"
+        "default": "#2a1c24"
       },
       {
         "type": "color",
         "id": "color_soft",
         "label": "Soft background (alternating sections)",
-        "default": "#F4E8E3"
+        "default": "#241820"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "Main text",
-        "default": "#3D2E33"
+        "label": "Main text (ivory)",
+        "default": "#f4ece5"
       },
       {
         "type": "color",
         "id": "color_muted",
-        "label": "Secondary text",
-        "default": "#8A7076"
+        "label": "Secondary text (muted rose gold)",
+        "default": "#a9807a"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Accent (powder pink)",
-        "default": "#D8A7A0"
+        "label": "Accent (rose gold)",
+        "default": "#d9b3ab"
       },
       {
         "type": "color",
         "id": "color_button",
-        "label": "Buttons (deep plum)",
-        "default": "#5E3E47"
+        "label": "Buttons (rose gold)",
+        "default": "#d9b3ab"
       },
       {
         "type": "color",
         "id": "color_button_text",
         "label": "Button text",
-        "default": "#FFF9F5"
+        "default": "#1c1216"
       },
       {
         "type": "color",
         "id": "color_gold",
         "label": "Gold (stars, details)",
-        "default": "#C7A17A"
+        "default": "#d9b3ab"
+      },
+      {
+        "type": "color",
+        "id": "color_berry",
+        "label": "Berry accent (badges, highlights)",
+        "default": "#7c2e3f"
       },
       {
         "type": "color",
         "id": "color_line",
         "label": "Borders and dividers",
-        "default": "#EADDD6"
+        "default": "#3a2830"
       }
     ]
   },

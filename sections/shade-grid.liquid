@@ -1,0 +1,119 @@
+{%- comment -%}
+  Grille des teintes : pastille de couleur + nom pour chacune des
+  références disponibles.
+{%- endcomment -%}
+
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% endif %}">
+  <div class="page-width">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p>{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="shade-grid">
+      {%- for block in section.blocks -%}
+        <div class="shade reveal" {{ block.shopify_attributes }}>
+          <span class="shade__dot" style="background-color: {{ block.settings.color }};"></span>
+          <span class="shade__name">{{ block.settings.name }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div style="text-align: center; margin-top: 44px;" class="reveal">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--secondary">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Grille des teintes",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "12 TEINTES"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Une teinte pour <em>chaque</em> carnation"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sous-texte",
+      "default": "Du plus clair au plus profond, chaque teinte est calibrée pour se fondre dans la peau, pas pour la couvrir."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton (optionnel)"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Fond",
+      "options": [
+        { "value": "default", "label": "Prune profond" },
+        { "value": "soft", "label": "Prune clair" }
+      ],
+      "default": "soft"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "shade",
+      "name": "Teinte",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom",
+          "default": "Porcelaine"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Couleur",
+          "default": "#f3e0d1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grille des teintes",
+      "blocks": [
+        { "type": "shade", "settings": { "name": "Porcelaine", "color": "#f3e0d1" } },
+        { "type": "shade", "settings": { "name": "Ivoire", "color": "#eed6c0" } },
+        { "type": "shade", "settings": { "name": "Sable clair", "color": "#e8c9ab" } },
+        { "type": "shade", "settings": { "name": "Sable", "color": "#ddb894" } },
+        { "type": "shade", "settings": { "name": "Miel", "color": "#d2a67e" } },
+        { "type": "shade", "settings": { "name": "Beige doré", "color": "#c69a6e" } },
+        { "type": "shade", "settings": { "name": "Caramel", "color": "#b3835a" } },
+        { "type": "shade", "settings": { "name": "Noisette", "color": "#a1714b" } },
+        { "type": "shade", "settings": { "name": "Ambre", "color": "#8d5f3e" } },
+        { "type": "shade", "settings": { "name": "Cannelle", "color": "#7a4f33" } },
+        { "type": "shade", "settings": { "name": "Acajou", "color": "#61402b" } },
+        { "type": "shade", "settings": { "name": "Ébène", "color": "#4a3122" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

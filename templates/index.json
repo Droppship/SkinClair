@@ -1,137 +1,94 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "hero-reveal",
       "settings": {
-        "eyebrow": "Essential care, visible results",
-        "heading": "Reveal your skin's natural glow",
-        "text": "Gentle, effective formulas designed for your daily ritual. Because your skin deserves the essentials, nothing more.",
-        "button_label": "Shop our treatments",
-        "height": "large",
-        "alignment": "left"
+        "eyebrow": "ÉDITION ROSE-DORÉ",
+        "heading": "Un teint <em>révélé<\/em>, jamais masqué.",
+        "text": "Une formule fondante qui unifie le teint et estompe les cernes — sans jamais craqueler, du matin au soir.",
+        "hint_label": "Faites défiler"
       }
     },
-    "reassurance": {
-      "type": "multicolumn",
+    "benefit_1": {
+      "type": "benefit",
       "settings": {
-        "compact": true,
-        "background": "surface"
-      },
-      "blocks": {
-        "r1": { "type": "column", "settings": { "icon": "sparkle", "title": "Loved by 10,000+ Customers", "text": "Real reviews, real results" } },
-        "r3": { "type": "column", "settings": { "icon": "rabbit", "title": "Cruelty-free & vegan", "text": "Never tested on animals" } },
-        "r4": { "type": "column", "settings": { "icon": "lock", "title": "Secure payment", "text": "Credit card, PayPal, Apple Pay" } }
-      },
-      "block_order": ["r1", "r3", "r4"]
-    },
-    "collections": {
-      "type": "featured-collections",
-      "settings": {
-        "eyebrow": "Shop by category",
-        "heading": "Find your ritual",
-        "subtext": "Each collection answers a specific need of your skin.",
-        "cta_label": "Shop now"
-      },
-      "blocks": {
-        "c1": { "type": "collection", "settings": { "title": "Face" } },
-        "c2": { "type": "collection", "settings": { "title": "Body" } },
-        "c3": { "type": "collection", "settings": { "title": "Wellness" } }
-      },
-      "block_order": ["c1", "c2", "c3"]
-    },
-    "why_us": {
-      "type": "image-with-text",
-      "settings": {
+        "number": "01",
+        "eyebrow": "LE FINI",
+        "heading": "Fini naturel, <em>tenue 24h<\/em>",
+        "text": "Un pigment qui fusionne avec la peau dès l'application. Pas d'effet masque, pas de craquelures en fin de journée — juste un teint reposé, toute la journée.",
+        "placeholder_label": "Photo texture \/ swatch",
         "layout": "left",
-        "background": "default",
-        "eyebrow": "Our difference",
-        "heading": "Why choose our skincare?",
-        "text": "<p>We built the brand we could never find: skincare that's genuinely effective, gentle on skin, free from controversial ingredients, at a fair price. Every formula is developed with experts and tested on sensitive skin.</p>",
-        "button_label": "",
-        "button_link": ""
+        "background": "default"
+      }
+    },
+    "benefit_2": {
+      "type": "benefit",
+      "settings": {
+        "number": "02",
+        "eyebrow": "LA FORMULE",
+        "heading": "Formule <em>vegan<\/em> & sans huile",
+        "text": "Testée dermatologiquement, sans huile comédogène. Pensée pour les peaux sensibles autour des yeux, la zone la plus délicate du visage.",
+        "placeholder_label": "Photo d'application",
+        "layout": "right",
+        "background": "default"
+      }
+    },
+    "shades": {
+      "type": "shade-grid",
+      "settings": {
+        "eyebrow": "12 TEINTES",
+        "heading": "Une teinte pour <em>chaque<\/em> carnation",
+        "subtext": "Du plus clair au plus profond, chaque teinte est calibrée pour se fondre dans la peau, pas pour la couvrir.",
+        "background": "soft"
       },
       "blocks": {
-        "p1": { "type": "point", "settings": { "text": "Dermatologist-tested formulas" } },
-        "p2": { "type": "point", "settings": { "text": "No parabens, sulfates, or silicones" } },
-        "p3": { "type": "point", "settings": { "text": "Never tested on animals" } },
-        "p4": { "type": "point", "settings": { "text": "Sensorial textures and delicate scents" } }
+        "s1": { "type": "shade", "settings": { "name": "Porcelaine", "color": "#f3e0d1" } },
+        "s2": { "type": "shade", "settings": { "name": "Ivoire", "color": "#eed6c0" } },
+        "s3": { "type": "shade", "settings": { "name": "Sable clair", "color": "#e8c9ab" } },
+        "s4": { "type": "shade", "settings": { "name": "Sable", "color": "#ddb894" } },
+        "s5": { "type": "shade", "settings": { "name": "Miel", "color": "#d2a67e" } },
+        "s6": { "type": "shade", "settings": { "name": "Beige doré", "color": "#c69a6e" } },
+        "s7": { "type": "shade", "settings": { "name": "Caramel", "color": "#b3835a" } },
+        "s8": { "type": "shade", "settings": { "name": "Noisette", "color": "#a1714b" } },
+        "s9": { "type": "shade", "settings": { "name": "Ambre", "color": "#8d5f3e" } },
+        "s10": { "type": "shade", "settings": { "name": "Cannelle", "color": "#7a4f33" } },
+        "s11": { "type": "shade", "settings": { "name": "Acajou", "color": "#61402b" } },
+        "s12": { "type": "shade", "settings": { "name": "Ébène", "color": "#4a3122" } }
       },
-      "block_order": ["p1", "p2", "p3", "p4"]
+      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"]
     },
     "testimonials": {
       "type": "testimonials",
       "settings": {
-        "eyebrow": "Trusted by our customers",
-        "heading": "What our customers say",
+        "eyebrow": "ELLES L'ONT ADOPTÉ",
+        "heading": "Ce que nos clientes en disent",
+        "verified_label": "Achat vérifié",
         "background": "default"
       },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "My skin has never been this soft. I noticed a real difference after three weeks of use.", "author": "Emily R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Finally a brand that keeps its promises. Gorgeous textures, subtle scents, and super fast shipping.", "author": "Sarah M.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 5, "quote": "I replaced my entire routine. The serum is now my can't-live-without morning step.", "author": "Ava B.", "verified": true } }
+        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "Je l'applique le matin, il tient jusqu'au soir sans marquer mes ridules. C'est le premier cache-cerne qui ne me fait pas l'effet masque.", "author": "Camille R.", "verified": true } },
+        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "La teinte Miel se fond parfaitement dans ma peau. On ne voit pas que j'en porte — on me dit juste que j'ai l'air reposée.", "author": "Inès B.", "verified": true } },
+        "t3": { "type": "testimonial", "settings": { "rating": 5, "quote": "Peau sensible et yeux qui piquent facilement : aucune réaction, même après un mois d'utilisation quotidienne. Le miroir intégré est un vrai plus.", "author": "Léa M.", "verified": true } },
+        "t4": { "type": "testimonial", "settings": { "rating": 5, "quote": "Le boîtier est magnifique, on dirait un produit de luxe à trois fois le prix. Et la texture fond vraiment sur la peau.", "author": "Sofia T.", "verified": true } }
       },
-      "block_order": ["t1", "t2", "t3"]
+      "block_order": ["t1", "t2", "t3", "t4"]
     },
-    "guarantee": {
-      "type": "guarantee",
+    "final_cta": {
+      "type": "final-cta",
       "settings": {
-        "heading": "30-day satisfaction guarantee",
-        "text": "Try our treatments with complete peace of mind. If you're not thrilled, we'll refund you in full, no questions asked. Your trust is our priority.",
-        "button_label": "Shop risk-free",
-        "small_print": "See our return policy for details."
-      }
-    },
-    "faq": {
-      "type": "faq",
-      "settings": {
-        "eyebrow": "Need help?",
-        "heading": "Frequently asked questions",
-        "open_first": true,
-        "background": "surface"
-      },
-      "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What are the shipping times?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days. Free shipping on orders over $50.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested, free from harsh fragrance and controversial ingredients. If in doubt, patch-test on a small area first and check the full ingredient list on each product page.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Absolutely. You have 30 days after delivery to change your mind. The product must be unopened; refunds are processed within 5 days of us receiving the return.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "Are payments secure?", "answer": "<p>Yes, all transactions are encrypted (SSL) and processed by PCI-DSS certified providers: credit card, PayPal, Apple Pay, and Google Pay.</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3", "q4"]
-    },
-    "social": {
-      "type": "social-gallery",
-      "settings": {
-        "eyebrow": "Community",
-        "heading": "Follow us on Instagram",
-        "subtext": "Share your ritual with #MySkinClairRitual",
-        "handle": "@skinclair"
-      },
-      "blocks": {
-        "i1": { "type": "image" },
-        "i2": { "type": "image" },
-        "i3": { "type": "image" },
-        "i4": { "type": "image" }
-      },
-      "block_order": ["i1", "i2", "i3", "i4"]
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "eyebrow": "Newsletter",
-        "heading": "10% off your first order",
-        "text": "Expert tips, beauty rituals, and private offers. Once or twice a month, never spam.",
-        "button_label": "Sign up"
+        "eyebrow": "DISPONIBLE EN 12 TEINTES",
+        "heading": "Ta peau, en version <em>reposée<\/em>.",
+        "text": "Trouve ta teinte en 30 secondes et découvre pourquoi SkinClair est devenu un essentiel de trousse.",
+        "button_label": "Découvrir le produit"
       }
     }
   },
   "order": [
     "hero",
-    "reassurance",
-    "collections",
-    "why_us",
+    "benefit_1",
+    "benefit_2",
+    "shades",
     "testimonials",
-    "guarantee",
-    "faq",
-    "social",
-    "newsletter"
+    "final_cta"
   ]
 }

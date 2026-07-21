@@ -22,6 +22,7 @@
     initProduct();
     initSliders();
     initReveal();
+    initHeroReveal();
     initPopup();
     initNewsletterSuccess();
   });
@@ -249,8 +250,10 @@
           .then(function () {
             if (btn) {
               btn.textContent = (window.theme.strings && window.theme.strings.added) || '✓';
+              btn.classList.add('is-added');
               setTimeout(function () {
                 btn.textContent = label;
+                btn.classList.remove('is-added');
                 btn.removeAttribute('aria-disabled');
               }, 1600);
             }
@@ -334,6 +337,12 @@
       });
       if (!match) return;
       if (idInput) idInput.value = match.id;
+
+      root.querySelectorAll('[data-option-index]').forEach(function (fs) {
+        var selectedLabel = fs.querySelector('[data-selected-value]');
+        var checked = fs.querySelector('input:checked');
+        if (selectedLabel && checked) selectedLabel.textContent = checked.value;
+      });
 
       if (priceWrap) {
         var html = '<span class="price__current">' + formatMoney(match.price) + '</span>';
@@ -494,6 +503,72 @@
       });
     }, { rootMargin: '0px 0px -8% 0px' });
     els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Hero « révélation » lié au scroll ---------- */
+
+  function initHeroReveal() {
+    var root = document.querySelector('[data-hero-reveal]');
+    if (!root) return;
+    var track = root.querySelector('[data-hero-track]');
+    var stage = root.querySelector('[data-hero-stage]');
+    if (!track || !stage) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var closed = root.querySelector('[data-hero-closed]');
+    var open = root.querySelector('[data-hero-open]');
+    var halo = root.querySelector('[data-hero-halo]');
+    var shadow = root.querySelector('[data-hero-shadow]');
+    var copy = root.querySelector('[data-hero-copy]');
+    var hint = root.querySelector('[data-hero-hint]');
+    var ticking = false;
+
+    function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+    function ease(t) { return t * t * (3 - 2 * t); }
+
+    function render() {
+      ticking = false;
+      var rect = track.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      var p = total > 0 ? clamp01(-rect.top / total) : 1;
+
+      /* Le boîtier part petit et flou, grandit et se précise */
+      var grow = ease(clamp01(p / 0.55));
+      var scale = 0.62 + grow * 0.38;
+      var blur = (1 - ease(clamp01(p / 0.35))) * 7;
+      stage.style.transform = 'scale(' + scale.toFixed(4) + ')';
+      stage.style.filter = blur > 0.05 ? 'blur(' + blur.toFixed(2) + 'px)' : 'none';
+
+      /* Crossfade fermé → ouvert entre 40 % et 70 % du parcours */
+      var fade = ease(clamp01((p - 0.4) / 0.3));
+      if (closed) closed.style.opacity = (1 - fade).toFixed(3);
+      if (open) open.style.opacity = fade.toFixed(3);
+
+      /* Halo et ombre portée s'intensifient avec la révélation */
+      if (halo) halo.style.opacity = (fade * 0.9).toFixed(3);
+      if (shadow) {
+        shadow.style.opacity = (0.2 + grow * 0.5).toFixed(3);
+        shadow.style.transform = 'scaleX(' + (0.7 + grow * 0.3).toFixed(3) + ')';
+      }
+
+      /* L'indication de scroll disparaît dès que la révélation commence */
+      if (hint) hint.style.opacity = (1 - ease(clamp01(p / 0.25))).toFixed(3);
+
+      /* Le texte s'efface doucement quand le produit prend la scène */
+      if (copy) {
+        var out = ease(clamp01((p - 0.55) / 0.35));
+        copy.style.opacity = (1 - out * 0.85).toFixed(3);
+        copy.style.transform = 'translateY(' + (-out * 24).toFixed(1) + 'px)';
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    render();
   }
 
   /* ---------- Pop-up newsletter ---------- */

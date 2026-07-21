@@ -1,0 +1,146 @@
+{%- comment -%}
+  Hero « révélation » lié au scroll : le boîtier part petit, flou et fermé,
+  puis grossit et s'ouvre (crossfade fermé → ouvert) à mesure que l'on défile.
+  L'animation est pilotée par global.js (initHeroReveal) : scroll listener
+  + getBoundingClientRect, throttlé par requestAnimationFrame.
+{%- endcomment -%}
+
+<div class="hero-reveal" data-hero-reveal>
+  <div class="hero-reveal__track" data-hero-track>
+    <div class="hero-reveal__viewport">
+
+      <div class="hero-reveal__copy" data-hero-copy>
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h1 class="hero-reveal__title">{{ section.settings.heading }}</h1>
+        {%- if section.settings.text != blank -%}
+          <p class="hero-reveal__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="hero-reveal__stage" data-hero-stage>
+        <div class="hero-reveal__halo" data-hero-halo></div>
+
+        {%- if section.settings.image_open != blank -%}
+          <img
+            class="hero-reveal__img hero-reveal__img--open"
+            data-hero-open
+            src="{{ section.settings.image_open | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image_open | image_url: width: 750 }} 750w, {{ section.settings.image_open | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 750px) 44vh, 76vw"
+            alt="{{ section.settings.image_open.alt | default: section.settings.heading | strip_html | escape }}"
+            width="1200"
+            height="{{ 1200 | divided_by: section.settings.image_open.aspect_ratio | round }}"
+            fetchpriority="high"
+          >
+        {%- else -%}
+          <svg class="hero-reveal__img hero-reveal__img--open" data-hero-open viewBox="0 0 400 400" role="img" aria-label="{{ section.settings.heading | strip_html | escape }}">
+            <defs>
+              <linearGradient id="hr-gold-open" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8c4b8"/><stop offset="0.5" stop-color="#d9a996"/><stop offset="1" stop-color="#b97f6d"/>
+              </linearGradient>
+              <linearGradient id="hr-mirror" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f7ded4"/><stop offset="0.55" stop-color="#d8b3a6"/><stop offset="1" stop-color="#c39485"/>
+              </linearGradient>
+              <radialGradient id="hr-pan" cx="0.4" cy="0.35" r="0.9">
+                <stop offset="0" stop-color="#e9c3ad"/><stop offset="1" stop-color="#d5a68c"/>
+              </radialGradient>
+            </defs>
+            <g transform="rotate(-6 200 200)">
+              <rect x="105" y="28" width="190" height="150" rx="14" fill="url(#hr-gold-open)"/>
+              <rect x="119" y="42" width="162" height="122" rx="8" fill="url(#hr-mirror)"/>
+              <rect x="105" y="180" width="190" height="16" rx="6" fill="#a06c5c"/>
+              <rect x="95" y="196" width="210" height="150" rx="16" fill="url(#hr-gold-open)"/>
+              <circle cx="200" cy="268" r="56" fill="url(#hr-pan)"/>
+              <circle cx="200" cy="268" r="56" fill="none" stroke="#b97f6d" stroke-width="2" opacity="0.6"/>
+            </g>
+          </svg>
+        {%- endif -%}
+
+        {%- if section.settings.image_closed != blank -%}
+          <img
+            class="hero-reveal__img hero-reveal__img--closed"
+            data-hero-closed
+            src="{{ section.settings.image_closed | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image_closed | image_url: width: 750 }} 750w, {{ section.settings.image_closed | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 750px) 44vh, 76vw"
+            alt="{{ section.settings.image_closed.alt | default: section.settings.heading | strip_html | escape }}"
+            width="1200"
+            height="{{ 1200 | divided_by: section.settings.image_closed.aspect_ratio | round }}"
+            fetchpriority="high"
+          >
+        {%- else -%}
+          <svg class="hero-reveal__img hero-reveal__img--closed" data-hero-closed viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <linearGradient id="hr-gold-closed" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#eccabe"/><stop offset="0.45" stop-color="#d9a996"/><stop offset="1" stop-color="#b0755f"/>
+              </linearGradient>
+            </defs>
+            <g transform="rotate(-6 200 200)">
+              <rect x="90" y="120" width="220" height="160" rx="18" fill="url(#hr-gold-closed)"/>
+              <rect x="90" y="196" width="220" height="4" fill="#a06c5c" opacity="0.7"/>
+              <rect x="168" y="272" width="64" height="10" rx="4" fill="#a06c5c"/>
+              <rect x="98" y="128" width="204" height="60" rx="12" fill="#f2d6c9" opacity="0.35"/>
+            </g>
+          </svg>
+        {%- endif -%}
+
+        <div class="hero-reveal__shadow" data-hero-shadow></div>
+      </div>
+
+      {%- if section.settings.hint_label != blank -%}
+        <span class="hero-reveal__hint" data-hero-hint aria-hidden="true">{{ section.settings.hint_label }}</span>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero révélation (scroll)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_closed",
+      "label": "Image boîtier fermé",
+      "info": "Photo détourée (fond transparent) du produit fermé — état de départ."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_open",
+      "label": "Image boîtier ouvert",
+      "info": "Photo détourée du produit ouvert — révélée pendant le scroll."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "ÉDITION ROSE-DORÉ"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "info": "L'italique passe en rose-doré (police serif italique).",
+      "default": "Un teint <em>révélé</em>, jamais masqué."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Sous-titre",
+      "default": "Une formule fondante qui unifie le teint et estompe les cernes — sans jamais craqueler, du matin au soir."
+    },
+    {
+      "type": "text",
+      "id": "hint_label",
+      "label": "Indication de scroll",
+      "default": "Faites défiler"
+    }
+  ],
+  "presets": [
+    { "name": "Hero révélation (scroll)" }
+  ]
+}
+{% endschema %}

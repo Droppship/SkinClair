@@ -1,0 +1,59 @@
+{%- comment -%}
+  CTA final : halo bordeaux, titre serif, bouton vers la fiche produit.
+{%- endcomment -%}
+
+<section class="final-cta">
+  <div class="final-cta__inner reveal">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}
+      <p>{{ section.settings.text }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA final",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "DISPONIBLE EN 12 TEINTES"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Ta peau, en version <em>reposée</em>."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Trouve ta teinte en 30 secondes et découvre pourquoi SkinClair est devenu un essentiel de trousse."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton",
+      "default": "Découvrir le produit"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton",
+      "info": "Idéalement la fiche produit du cache-cerne."
+    }
+  ],
+  "presets": [
+    { "name": "CTA final" }
+  ]
+}
+{% endschema %}
