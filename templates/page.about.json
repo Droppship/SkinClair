@@ -7,6 +7,7 @@
         "heading": "Beauty, with rigor and softness",
         "text": "We believe a simple routine, with honest and effective treatments, beats ten unnecessary products.",
         "button_label": "",
+        "layout": "background",
         "height": "small",
         "alignment": "center"
       }

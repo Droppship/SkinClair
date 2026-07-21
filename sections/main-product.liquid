@@ -54,16 +54,6 @@
             {%- when 'title' -%}
               <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
 
-            {%- when 'rating' -%}
-              {%- if block.settings.rating_count != blank -%}
-                <div class="product__rating" {{ block.shopify_attributes }}>
-                  <span class="stars" role="img" aria-label="4.8 out of 5 stars">
-                    {%- for i in (1..5) -%}{% render 'icon', name: 'star', size: 15 %}{%- endfor -%}
-                  </span>
-                  <a href="#reviews">{{ block.settings.rating_count }}</a>
-                </div>
-              {%- endif -%}
-
             {%- when 'price' -%}
               <div class="product__price" data-product-price {{ block.shopify_attributes }}>
                 {% render 'price', item: current_variant %}
@@ -100,7 +90,10 @@
                     <div class="variant-picker">
                       {%- for option in product.options_with_values -%}
                         <fieldset data-option-index="{{ forloop.index0 }}">
-                          <legend class="form__label">{{ option.name }}</legend>
+                          <legend class="form__label">
+                            {{ option.name }}
+                            <span class="variant-picker__selected" data-selected-option>{{ option.selected_value }}</span>
+                          </legend>
                           {%- for value in option.values -%}
                             <span class="variant-option">
                               <input
@@ -111,7 +104,10 @@
                                 data-option-input
                                 {% if option.selected_value == value %}checked{% endif %}
                               >
-                              <label for="Option-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">{{ value }}</label>
+                              <label for="Option-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}">
+                                {%- render 'shade-swatch', shade: value -%}
+                                {{ value }}
+                              </label>
                             </span>
                           {%- endfor -%}
                         </fieldset>
@@ -266,20 +262,6 @@
       "settings": []
     },
     {
-      "type": "rating",
-      "name": "Rating (stars)",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "rating_count",
-          "label": "Review link text",
-          "info": "E.g. \"127 reviews\". Leave blank to hide. Automatically replaced if you install a review app (Judge.me, Loox…).",
-          "default": "★ 4.8 — read reviews"
-        }
-      ]
-    },
-    {
       "type": "price",
       "name": "Price",
       "limit": 1,
@@ -295,7 +277,7 @@
           "id": "text",
           "label": "Fallback text",
           "info": "Used when the custom.short_description metafield is empty.",
-          "default": "A daily treatment that transforms your routine: visibly smoother, hydrated, and glowing skin within the first weeks."
+          "default": "A silky pressed powder concealer that covers dark circles with a natural, weightless finish that lasts all day."
         }
       ]
     },
@@ -304,14 +286,14 @@
       "name": "Benefits (icons)",
       "limit": 1,
       "settings": [
-        { "type": "select", "id": "icon_1", "label": "Icon 1", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "leaf" },
-        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "97% naturally derived ingredients" },
+        { "type": "select", "id": "icon_1", "label": "Icon 1", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "sparkle" },
+        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "Covers dark circles" },
         { "type": "select", "id": "icon_2", "label": "Icon 2", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "drop" },
-        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "24-hour hydration" },
-        { "type": "select", "id": "icon_3", "label": "Icon 3", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "rabbit" },
-        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Cruelty-free & vegan" },
-        { "type": "select", "id": "icon_4", "label": "Icon 4", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "lab" },
-        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Dermatologist-tested" }
+        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "Lightweight texture" },
+        { "type": "select", "id": "icon_3", "label": "Icon 3", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "heart" },
+        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Natural finish" },
+        { "type": "select", "id": "icon_4", "label": "Icon 4", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "leaf" },
+        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Long-lasting wear" }
       ]
     },
     {

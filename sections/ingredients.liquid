@@ -1,0 +1,123 @@
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% elsif section.settings.background == 'surface' %} section--surface{% endif %}">
+  <div class="page-width">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p>{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ingredient-grid" style="--ing-cols: {{ section.blocks.size | at_most: 3 }};">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-card reveal" {{ block.shopify_attributes }}>
+          <span class="ingredient-card__icon">
+            {% render 'icon', name: block.settings.icon, size: 24 %}
+          </span>
+          <h3 class="ingredient-card__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.text != blank -%}
+            <p class="ingredient-card__text">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <p class="ingredient-note reveal">{{ section.settings.note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Inside the compact"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A formula your skin will love"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Silky, skin-friendly ingredients chosen for comfort, coverage, and wear."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Bottom note (optional)",
+      "info": "E.g. link to the full ingredient list on the product page. Only state claims that are true for the actual formula.",
+      "default": "The full ingredient list is available on the product page."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "default", "label": "Ivory" },
+        { "value": "soft", "label": "Soft pink" },
+        { "value": "surface", "label": "White" }
+      ],
+      "default": "surface"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "drop", "label": "Drop" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "flower", "label": "Flower" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "lab", "label": "Lab" },
+            { "value": "rabbit", "label": "Rabbit" }
+          ],
+          "default": "sparkle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Silky mineral powders"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Finely milled for a smooth, weightless veil of coverage.",
+          "info": "Edit to match the actual product formula."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients",
+      "blocks": [
+        { "type": "ingredient", "settings": { "icon": "sparkle", "title": "Silky mineral powders", "text": "Finely milled for a smooth, weightless veil of coverage." } },
+        { "type": "ingredient", "settings": { "icon": "drop", "title": "Comfort-first texture", "text": "A creamy pressed formula that never looks cakey or dry." } },
+        { "type": "ingredient", "settings": { "icon": "leaf", "title": "Skin-friendly by design", "text": "Formulated to feel gentle and breathable for everyday wear." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

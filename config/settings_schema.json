@@ -61,8 +61,8 @@
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Gold (stars, details)",
-        "default": "#C7A17A"
+        "label": "Rose gold (details, gradients)",
+        "default": "#C48F7C"
       },
       {
         "type": "color",

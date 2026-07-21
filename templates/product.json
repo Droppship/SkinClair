@@ -5,12 +5,34 @@
       "blocks": {
         "vendor": { "type": "vendor", "settings": {} },
         "title": { "type": "title", "settings": {} },
-        "rating": { "type": "rating", "settings": { "rating_count": "★ 4.8 — read reviews" } },
         "price": { "type": "price", "settings": {} },
-        "short_description": { "type": "short_description", "settings": {} },
-        "benefits": { "type": "benefits", "settings": {} },
+        "short_description": {
+          "type": "short_description",
+          "settings": {
+            "text": "A silky pressed powder concealer that covers dark circles with a natural, weightless finish that lasts all day."
+          }
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "icon_1": "sparkle",
+            "benefit_1": "Covers dark circles",
+            "icon_2": "drop",
+            "benefit_2": "Lightweight texture",
+            "icon_3": "heart",
+            "benefit_3": "Natural finish",
+            "icon_4": "leaf",
+            "benefit_4": "Long-lasting wear"
+          }
+        },
         "buy": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true } },
-        "guarantee": { "type": "guarantee", "settings": {} },
+        "guarantee": {
+          "type": "guarantee",
+          "settings": {
+            "title": "30-day satisfaction guarantee",
+            "text": "Shop with peace of mind: if this concealer isn't right for you, we'll refund you."
+          }
+        },
         "description": { "type": "description", "settings": { "title": "Description & benefits" } },
         "ingredients": {
           "type": "accordion",
@@ -24,7 +46,7 @@
           "type": "accordion",
           "settings": {
             "title": "How to use",
-            "content": "<p>Apply morning and evening on clean, dry skin, gently massaging until fully absorbed.</p>",
+            "content": "<p>1. Choose the shade closest to your skin tone.<br>2. Press a small amount under the eyes with the applicator or a brush.<br>3. Blend outward with soft taps until it melts into your skin.<br>4. Build up in thin layers wherever you need more coverage.</p>",
             "metafield_key": "custom.usage"
           }
         },
@@ -32,7 +54,7 @@
           "type": "accordion",
           "settings": {
             "title": "Shipping & returns",
-            "content": "<p><strong>Shipping:</strong> ships within 24 h, delivered in 2 to 4 business days. Free on orders over $50.<br><strong>Returns:</strong> 30 days to change your mind, full refund.</p>",
+            "content": "<p><strong>Shipping:</strong> orders are processed within 24–48 hours and typically delivered within 7 to 14 business days. Free on orders over $50.<br><strong>Returns:</strong> 30 days to change your mind, full refund.</p>",
             "metafield_key": ""
           }
         }
@@ -40,7 +62,6 @@
       "block_order": [
         "vendor",
         "title",
-        "rating",
         "price",
         "short_description",
         "benefits",
@@ -52,28 +73,21 @@
         "shipping"
       ]
     },
-    "recommendations": {
-      "type": "product-recommendations",
+    "how_to_use": {
+      "type": "how-to-use",
       "settings": {
-        "eyebrow": "Cross-sell",
-        "heading": "Complete your routine",
-        "products_count": 4
-      }
-    },
-    "reviews": {
-      "type": "testimonials",
-      "settings": {
-        "eyebrow": "Customer reviews",
-        "heading": "Customers love it",
-        "subtext": "Connect a review app (Judge.me, Loox) to display real product reviews — this section shows your best feedback in the meantime.",
-        "background": "soft"
+        "eyebrow": "Simple ritual",
+        "heading": "How to use it",
+        "subtext": "Four effortless steps to a fresh, even, rested-looking complexion.",
+        "background": "surface"
       },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "Melts into skin, absorbs fast, and my complexion looks visibly brighter. Highly recommend.", "author": "Julia R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "I've been using it for a month: my skin is plumper and redness has faded.", "author": "Leah T.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 4, "quote": "Great product, subtle and elegant scent. The pump bottle is super convenient.", "author": "Megan D.", "verified": true } }
+        "s1": { "type": "step", "settings": { "title": "Choose your shade", "text": "Pick the shade closest to your skin tone from our four flexible tones." } },
+        "s2": { "type": "step", "settings": { "title": "Apply under the eyes", "text": "Press a small amount under the eyes with the applicator or a brush." } },
+        "s3": { "type": "step", "settings": { "title": "Blend gently", "text": "Blend outward with soft taps until the powder melts into your skin." } },
+        "s4": { "type": "step", "settings": { "title": "Enjoy an even complexion", "text": "A smooth, natural finish that stays comfortable all day." } }
       },
-      "block_order": ["t1", "t2", "t3"]
+      "block_order": ["s1", "s2", "s3", "s4"]
     },
     "faq": {
       "type": "faq",
@@ -84,21 +98,22 @@
         "background": "default"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "When will I receive my order?", "answer": "<p>Your order ships within 24 hours and is delivered in 2 to 4 business days. You'll get a tracking link by email as soon as it ships.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Is this product right for my skin type?", "answer": "<p>Our formulas are designed for all skin types, including sensitive skin. Check the full ingredient list above, and reach out if you're unsure: we're happy to advise you personally.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "What if this product doesn't work for me?", "answer": "<p>You're covered by our 30-day satisfaction guarantee: return the product and we'll refund you in full.</p>" } }
+        "q1": { "type": "question", "settings": { "question": "How do I choose my shade?", "answer": "<p>Light Bisque and Warm Bisque suit light to medium skin, while Extra Deep Peach and Very Deep Beige are made for deep skin tones. When in doubt between two shades, pick the warmer one — it blends more naturally under the eyes.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "When will I receive my order?", "answer": "<p>Orders are processed within 24–48 hours and typically delivered within 7 to 14 business days. You'll get a tracking link by email as soon as your order ships.</p>" } },
+        "q3": { "type": "question", "settings": { "question": "Is it suitable for sensitive skin?", "answer": "<p>The formula is designed to be gentle and breathable for everyday wear. If your skin is very reactive, review the full ingredient list above and patch-test on a small area first.</p>" } },
+        "q4": { "type": "question", "settings": { "question": "What if this product doesn't work for me?", "answer": "<p>You're covered by our 30-day satisfaction guarantee: return the product and we'll refund you in full.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3"]
+      "block_order": ["q1", "q2", "q3", "q4"]
     },
     "guarantee": {
       "type": "guarantee",
       "settings": {
         "heading": "Try it risk-free for 30 days",
-        "text": "If this treatment doesn't transform your routine, we'll refund you in full. No questions, no friction.",
+        "text": "If this concealer isn't the right match for you, we'll refund you in full. No questions, no friction.",
         "button_label": "",
         "small_print": "See our return policy for details."
       }
     }
   },
-  "order": ["main", "recommendations", "reviews", "faq", "guarantee"]
+  "order": ["main", "how_to_use", "faq", "guarantee"]
 }

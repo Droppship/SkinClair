@@ -1,0 +1,22 @@
+{%- comment -%}
+  Renders a small color dot for a known concealer shade name.
+  Outputs nothing for unknown values, so it is safe to render for any option.
+  Usage: {% render 'shade-swatch', shade: value %}
+{%- endcomment -%}
+{%- liquid
+  assign shade_handle = shade | handleize
+  assign swatch_color = ''
+  case shade_handle
+    when 'light-bisque'
+      assign swatch_color = '#F2D8BE'
+    when 'warm-bisque'
+      assign swatch_color = '#E4BC94'
+    when 'extra-deep-peach'
+      assign swatch_color = '#A2603C'
+    when 'very-deep-beige'
+      assign swatch_color = '#7C4A2F'
+  endcase
+-%}
+{%- if swatch_color != blank -%}
+  <span class="shade-dot" style="--shade: {{ swatch_color }};" aria-hidden="true"></span>
+{%- endif -%}

@@ -1,73 +1,134 @@
-<section class="hero{% if section.settings.height == 'small' %} hero--small{% endif %}{% if section.settings.alignment == 'center' %} hero--center{% endif %}">
-  <div class="hero__media">
-    {%- if section.settings.image != blank -%}
-      <img
-        src="{{ section.settings.image | image_url: width: 1800 }}"
-        srcset="{{ section.settings.image | image_url: width: 750 }} 750w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
-        sizes="100vw"
-        alt="{{ section.settings.image.alt | escape }}"
-        width="1800"
-        height="{{ 1800 | divided_by: section.settings.image.aspect_ratio | round }}"
-        fetchpriority="high"
-      >
-    {%- else -%}
-      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-    {%- endif -%}
-  </div>
-  <div class="page-width" style="width: 100%;">
-    <div class="hero__content">
-      {%- if section.settings.eyebrow != blank -%}
-        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      {%- endif -%}
-      <h1 class="hero__title">{{ section.settings.heading }}</h1>
-      {%- if section.settings.text != blank -%}
-        <p class="hero__text">{{ section.settings.text }}</p>
-      {%- endif -%}
-      <div class="hero__actions">
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--light">{{ section.settings.button_label }}</a>
-        {%- endif -%}
-        {%- if section.settings.button_label_2 != blank -%}
-          <a href="{{ section.settings.button_link_2 }}" class="btn btn--secondary" style="color: #fff; border-color: rgba(255,255,255,0.7);">{{ section.settings.button_label_2 }}</a>
-        {%- endif -%}
+{%- if section.settings.layout == 'split' -%}
+
+  <section class="hero hero--split">
+    <div class="page-width">
+      <div class="hero-split__grid">
+        <div class="hero-split__content">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+          <h1 class="hero__title">{{ section.settings.heading }}</h1>
+          {%- if section.settings.text != blank -%}
+            <p class="hero__text">{{ section.settings.text }}</p>
+          {%- endif -%}
+          <div class="hero__actions">
+            {%- if section.settings.button_label != blank -%}
+              <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--hero">{{ section.settings.button_label }}</a>
+            {%- endif -%}
+            {%- if section.settings.button_label_2 != blank -%}
+              <a href="{{ section.settings.button_link_2 }}" class="btn btn--secondary">{{ section.settings.button_label_2 }}</a>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.tagline != blank -%}
+            <p class="hero-split__tagline">{{ section.settings.tagline }}</p>
+          {%- endif -%}
+        </div>
+
+        <div class="hero-split__media">
+          <div class="hero-split__media-card">
+            {%- if section.settings.image != blank -%}
+              <img
+                src="{{ section.settings.image | image_url: width: 1000 }}"
+                srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 1400 }} 1400w"
+                sizes="(min-width: 990px) 48vw, 100vw"
+                alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+                width="1000"
+                height="{{ 1000 | divided_by: section.settings.image.aspect_ratio | round }}"
+                fetchpriority="high"
+              >
+            {%- else -%}
+              {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+{%- else -%}
+
+  <section class="hero{% if section.settings.height == 'small' %} hero--small{% endif %}{% if section.settings.alignment == 'center' %} hero--center{% endif %}">
+    <div class="hero__media">
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 1800 }}"
+          srcset="{{ section.settings.image | image_url: width: 750 }} 750w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+          sizes="100vw"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="1800"
+          height="{{ 1800 | divided_by: section.settings.image.aspect_ratio | round }}"
+          fetchpriority="high"
+        >
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+    <div class="page-width" style="width: 100%;">
+      <div class="hero__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h1 class="hero__title">{{ section.settings.heading }}</h1>
+        {%- if section.settings.text != blank -%}
+          <p class="hero__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+        <div class="hero__actions">
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--light">{{ section.settings.button_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a href="{{ section.settings.button_link_2 }}" class="btn btn--secondary" style="color: #fff; border-color: rgba(255,255,255,0.7);">{{ section.settings.button_label_2 }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{%- endif -%}
 
 {% schema %}
 {
   "name": "Hero",
   "settings": [
     {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "split", "label": "Split (product spotlight)" },
+        { "value": "background", "label": "Full background image" }
+      ],
+      "default": "split"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Background image",
-      "info": "2400 × 1400 px recommended — a real, bright photo (product or model), natural light. Avoid illustrations for a premium, non-generic feel."
+      "label": "Image",
+      "info": "Split layout: a packshot of the product, 1000 × 1250 px. Background layout: 2400 × 1400 px, real bright photo."
     },
     {
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Essential care, visible results"
+      "default": "Pressed Powder Concealer"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Reveal your skin's natural glow"
+      "default": "Flawless, the effortless way"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Gentle, effective formulas designed for your daily ritual. Because your skin deserves the essentials, nothing more."
+      "default": "A silky pressed powder concealer that covers dark circles with a natural, weightless finish — in four flexible shades."
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Primary button",
-      "default": "Shop our treatments"
+      "default": "Shop Now"
     },
     {
       "type": "url",
@@ -85,9 +146,16 @@
       "label": "Secondary button link"
     },
     {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline under buttons",
+      "info": "Small reassurance line, e.g. shipping or returns. Keep it factual.",
+      "default": "Free shipping over $50 · 30-day returns"
+    },
+    {
       "type": "select",
       "id": "height",
-      "label": "Height",
+      "label": "Height (background layout)",
       "options": [
         { "value": "large", "label": "Large" },
         { "value": "small", "label": "Compact" }
@@ -97,7 +165,7 @@
     {
       "type": "select",
       "id": "alignment",
-      "label": "Content alignment",
+      "label": "Content alignment (background layout)",
       "options": [
         { "value": "left", "label": "Left" },
         { "value": "center", "label": "Center" }

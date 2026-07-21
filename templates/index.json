@@ -3,83 +3,112 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "Essential care, visible results",
-        "heading": "Reveal your skin's natural glow",
-        "text": "Gentle, effective formulas designed for your daily ritual. Because your skin deserves the essentials, nothing more.",
-        "button_label": "Shop our treatments",
-        "height": "large",
-        "alignment": "left"
+        "layout": "split",
+        "eyebrow": "Pressed Powder Concealer",
+        "heading": "Flawless, the effortless way",
+        "text": "A silky pressed powder concealer that covers dark circles with a natural, weightless finish — in four flexible shades made to melt into your skin.",
+        "button_label": "Shop Now",
+        "tagline": "Free shipping over $50 · 30-day returns"
       }
     },
-    "reassurance": {
+    "why_product": {
       "type": "multicolumn",
       "settings": {
-        "compact": true,
+        "eyebrow": "Why you'll love it",
+        "heading": "Concealing, perfected",
+        "subtext": "Every detail of the formula is designed for a fresh, rested, natural look.",
+        "background": "surface",
+        "compact": false
+      },
+      "blocks": {
+        "b1": { "type": "column", "settings": { "icon": "sparkle", "title": "Covers dark circles", "text": "Buildable coverage that evens out shadows and discoloration." } },
+        "b2": { "type": "column", "settings": { "icon": "heart", "title": "Natural finish", "text": "A soft-matte, second-skin effect — never masky or cakey." } },
+        "b3": { "type": "column", "settings": { "icon": "drop", "title": "Lightweight texture", "text": "A silky pressed powder you forget you're wearing." } },
+        "b4": { "type": "column", "settings": { "icon": "shield", "title": "Long-lasting wear", "text": "Stays fresh and comfortable from morning to night." } },
+        "b5": { "type": "column", "settings": { "icon": "flower", "title": "Easy application", "text": "Glides on with a sponge or brush and blends in seconds." } },
+        "b6": { "type": "column", "settings": { "icon": "leaf", "title": "For all skin types", "text": "Gentle, breathable comfort — even on sensitive skin." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"]
+    },
+    "before_after": {
+      "type": "before-after",
+      "settings": {
+        "eyebrow": "Real results",
+        "heading": "See the difference",
+        "subtext": "Drag the slider to compare bare skin with skin wearing Skinclair Pressed Powder Concealer.",
+        "label_before": "Before",
+        "label_after": "After",
+        "background": "default"
+      }
+    },
+    "how_to_use": {
+      "type": "how-to-use",
+      "settings": {
+        "eyebrow": "Simple ritual",
+        "heading": "How to use it",
+        "subtext": "Four effortless steps to a fresh, even, rested-looking complexion.",
         "background": "surface"
       },
       "blocks": {
-        "r1": { "type": "column", "settings": { "icon": "sparkle", "title": "Loved by 10,000+ Customers", "text": "Real reviews, real results" } },
-        "r3": { "type": "column", "settings": { "icon": "rabbit", "title": "Cruelty-free & vegan", "text": "Never tested on animals" } },
-        "r4": { "type": "column", "settings": { "icon": "lock", "title": "Secure payment", "text": "Credit card, PayPal, Apple Pay" } }
+        "s1": { "type": "step", "settings": { "title": "Choose your shade", "text": "Pick the shade closest to your skin tone from our four flexible tones." } },
+        "s2": { "type": "step", "settings": { "title": "Apply under the eyes", "text": "Press a small amount under the eyes with the applicator or a brush." } },
+        "s3": { "type": "step", "settings": { "title": "Blend gently", "text": "Blend outward with soft taps until the powder melts into your skin." } },
+        "s4": { "type": "step", "settings": { "title": "Enjoy an even complexion", "text": "A smooth, natural finish that stays comfortable all day." } }
       },
-      "block_order": ["r1", "r3", "r4"]
+      "block_order": ["s1", "s2", "s3", "s4"]
     },
-    "collections": {
-      "type": "featured-collections",
+    "shades": {
+      "type": "shade-selector",
       "settings": {
-        "eyebrow": "Shop by category",
-        "heading": "Find your ritual",
-        "subtext": "Each collection answers a specific need of your skin.",
-        "cta_label": "Shop now"
+        "eyebrow": "Find your match",
+        "heading": "Four shades, one perfect match",
+        "subtext": "Flexible, buildable tones designed to melt into your skin — from light to deep.",
+        "cta_label": "Shop this shade",
+        "background": "soft"
       },
       "blocks": {
-        "c1": { "type": "collection", "settings": { "title": "Face" } },
-        "c2": { "type": "collection", "settings": { "title": "Body" } },
-        "c3": { "type": "collection", "settings": { "title": "Wellness" } }
+        "sh1": { "type": "shade", "settings": { "title": "Light Bisque", "color": "#F2D8BE", "text": "For light skin with neutral undertones" } },
+        "sh2": { "type": "shade", "settings": { "title": "Warm Bisque", "color": "#E4BC94", "text": "For light-to-medium skin with warm undertones" } },
+        "sh3": { "type": "shade", "settings": { "title": "Extra Deep Peach", "color": "#A2603C", "text": "For deep skin with peachy undertones" } },
+        "sh4": { "type": "shade", "settings": { "title": "Very Deep Beige", "color": "#7C4A2F", "text": "For very deep skin with neutral undertones" } }
       },
-      "block_order": ["c1", "c2", "c3"]
+      "block_order": ["sh1", "sh2", "sh3", "sh4"]
     },
-    "why_us": {
+    "why_skinclair": {
       "type": "image-with-text",
       "settings": {
         "layout": "left",
         "background": "default",
-        "eyebrow": "Our difference",
-        "heading": "Why choose our skincare?",
-        "text": "<p>We built the brand we could never find: skincare that's genuinely effective, gentle on skin, free from controversial ingredients, at a fair price. Every formula is developed with experts and tested on sensitive skin.</p>",
-        "button_label": "",
+        "eyebrow": "The Skinclair standard",
+        "heading": "Why choose Skinclair",
+        "text": "<p>We believe everyday makeup should feel like a small luxury: thoughtfully made, comfortable to wear, and honest about what it does. One perfect product, done properly.</p>",
+        "button_label": "Shop Now",
         "button_link": ""
       },
       "blocks": {
-        "p1": { "type": "point", "settings": { "text": "Dermatologist-tested formulas" } },
-        "p2": { "type": "point", "settings": { "text": "No parabens, sulfates, or silicones" } },
-        "p3": { "type": "point", "settings": { "text": "Never tested on animals" } },
-        "p4": { "type": "point", "settings": { "text": "Sensorial textures and delicate scents" } }
+        "p1": { "type": "point", "settings": { "text": "Quality you can feel in every compact" } },
+        "p2": { "type": "point", "settings": { "text": "Natural beauty first — enhance, never mask" } },
+        "p3": { "type": "point", "settings": { "text": "A professional result with zero effort" } },
+        "p4": { "type": "point", "settings": { "text": "All-day comfort and long-lasting wear" } },
+        "p5": { "type": "point", "settings": { "text": "Honest brand, transparent policies, secure checkout" } }
       },
-      "block_order": ["p1", "p2", "p3", "p4"]
+      "block_order": ["p1", "p2", "p3", "p4", "p5"]
     },
-    "testimonials": {
-      "type": "testimonials",
+    "ingredients": {
+      "type": "ingredients",
       "settings": {
-        "eyebrow": "Trusted by our customers",
-        "heading": "What our customers say",
-        "background": "default"
+        "eyebrow": "Inside the compact",
+        "heading": "A formula your skin will love",
+        "subtext": "Silky, skin-friendly ingredients chosen for comfort, coverage, and wear.",
+        "note": "The full ingredient list is available on the product page.",
+        "background": "surface"
       },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "My skin has never been this soft. I noticed a real difference after three weeks of use.", "author": "Emily R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Finally a brand that keeps its promises. Gorgeous textures, subtle scents, and super fast shipping.", "author": "Sarah M.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 5, "quote": "I replaced my entire routine. The serum is now my can't-live-without morning step.", "author": "Ava B.", "verified": true } }
+        "i1": { "type": "ingredient", "settings": { "icon": "sparkle", "title": "Silky mineral powders", "text": "Finely milled for a smooth, weightless veil of coverage." } },
+        "i2": { "type": "ingredient", "settings": { "icon": "drop", "title": "Comfort-first texture", "text": "A creamy pressed formula that never looks cakey or dry." } },
+        "i3": { "type": "ingredient", "settings": { "icon": "leaf", "title": "Skin-friendly by design", "text": "Formulated to feel gentle and breathable for everyday wear." } }
       },
-      "block_order": ["t1", "t2", "t3"]
-    },
-    "guarantee": {
-      "type": "guarantee",
-      "settings": {
-        "heading": "30-day satisfaction guarantee",
-        "text": "Try our treatments with complete peace of mind. If you're not thrilled, we'll refund you in full, no questions asked. Your trust is our priority.",
-        "button_label": "Shop risk-free",
-        "small_print": "See our return policy for details."
-      }
+      "block_order": ["i1", "i2", "i3"]
     },
     "faq": {
       "type": "faq",
@@ -87,51 +116,36 @@
         "eyebrow": "Need help?",
         "heading": "Frequently asked questions",
         "open_first": true,
-        "background": "surface"
+        "background": "default"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What are the shipping times?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days. Free shipping on orders over $50.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested, free from harsh fragrance and controversial ingredients. If in doubt, patch-test on a small area first and check the full ingredient list on each product page.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Absolutely. You have 30 days after delivery to change your mind. The product must be unopened; refunds are processed within 5 days of us receiving the return.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "Are payments secure?", "answer": "<p>Yes, all transactions are encrypted (SSL) and processed by PCI-DSS certified providers: credit card, PayPal, Apple Pay, and Google Pay.</p>" } }
+        "q1": { "type": "question", "settings": { "question": "How do I choose my shade?", "answer": "<p>Use the shade guide above: Light Bisque and Warm Bisque suit light to medium skin, while Extra Deep Peach and Very Deep Beige are made for deep skin tones. When in doubt between two shades, pick the warmer one — it blends more naturally under the eyes.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "How long does shipping take?", "answer": "<p>Orders are processed within 24–48 hours and typically delivered within 7 to 14 business days. You'll receive a tracking link by email as soon as your order ships. Shipping is free on orders over $50.</p>" } },
+        "q3": { "type": "question", "settings": { "question": "Is it suitable for sensitive skin?", "answer": "<p>The formula is designed to be gentle and breathable for everyday wear. If your skin is very reactive, review the full ingredient list on the product page and patch-test on a small area first.</p>" } },
+        "q4": { "type": "question", "settings": { "question": "How do I apply the product?", "answer": "<p>Press a small amount under the eyes with the applicator or a brush, then blend outward with soft taps until it melts into your skin. Build up in thin layers wherever you need more coverage.</p>" } },
+        "q5": { "type": "question", "settings": { "question": "Can I wear it every day?", "answer": "<p>Yes — the lightweight pressed powder texture is made for daily wear. Remove it at the end of the day with your usual cleanser.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4"]
-    },
-    "social": {
-      "type": "social-gallery",
-      "settings": {
-        "eyebrow": "Community",
-        "heading": "Follow us on Instagram",
-        "subtext": "Share your ritual with #MySkinClairRitual",
-        "handle": "@skinclair"
-      },
-      "blocks": {
-        "i1": { "type": "image" },
-        "i2": { "type": "image" },
-        "i3": { "type": "image" },
-        "i4": { "type": "image" }
-      },
-      "block_order": ["i1", "i2", "i3", "i4"]
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "eyebrow": "Newsletter",
-        "heading": "10% off your first order",
-        "text": "Expert tips, beauty rituals, and private offers. Once or twice a month, never spam.",
+        "eyebrow": "Stay in touch",
+        "heading": "Join the Skinclair circle",
+        "text": "Beauty tips, launches, and private offers — once or twice a month, never spam.",
         "button_label": "Sign up"
       }
     }
   },
   "order": [
     "hero",
-    "reassurance",
-    "collections",
-    "why_us",
-    "testimonials",
-    "guarantee",
+    "why_product",
+    "before_after",
+    "how_to_use",
+    "shades",
+    "why_skinclair",
+    "ingredients",
     "faq",
-    "social",
     "newsletter"
   ]
 }

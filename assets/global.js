@@ -21,6 +21,7 @@
     initCartPage();
     initProduct();
     initSliders();
+    initBeforeAfter();
     initReveal();
     initPopup();
     initNewsletterSuccess();
@@ -29,7 +30,7 @@
   /* ---------- Utilitaires ---------- */
 
   function formatMoney(cents) {
-    var format = (window.theme && window.theme.moneyFormat) || '{{amount_with_comma_separator}} €';
+    var format = (window.theme && window.theme.moneyFormat) || '${{amount}}';
     var value = (cents / 100).toFixed(2);
     var parts = value.split('.');
     var amount;
@@ -257,7 +258,7 @@
           })
           .catch(function (err) {
             if (btn) { btn.textContent = label; btn.removeAttribute('aria-disabled'); }
-            alert((err && err.description) || 'Une erreur est survenue. Merci de réessayer.');
+            alert((err && err.description) || 'Something went wrong. Please try again.');
           });
       });
     });
@@ -329,6 +330,11 @@
 
     function onOptionChange() {
       var opts = selectedOptions();
+      root.querySelectorAll('[data-option-index]').forEach(function (fs) {
+        var checked = fs.querySelector('input:checked');
+        var label = fs.querySelector('[data-selected-option]');
+        if (label && checked) label.textContent = checked.value;
+      });
       var match = variants.find(function (v) {
         return v.options.every(function (val, i) { return val === opts[i]; });
       });
@@ -472,6 +478,21 @@
         btn.addEventListener('click', function () {
           track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
         });
+      });
+    });
+  }
+
+  /* ---------- Comparateur avant / après ---------- */
+
+  function initBeforeAfter() {
+    document.querySelectorAll('[data-before-after]').forEach(function (wrap) {
+      if (wrap.dataset.bound) return;
+      wrap.dataset.bound = 'true';
+      var frame = wrap.querySelector('.ba__frame');
+      var range = wrap.querySelector('[data-ba-range]');
+      if (!frame || !range) return;
+      range.addEventListener('input', function () {
+        frame.style.setProperty('--ba-pos', range.value + '%');
       });
     });
   }

@@ -62,6 +62,7 @@
   <body class="template-{{ request.page_type | handle }}">
     <a class="skip-link" href="#MainContent">{{ 'accessibility.skip_to_content' | t }}</a>
 
+    {% section 'announcement-bar' %}
     {% section 'header' %}
 
     <main id="MainContent" role="main" tabindex="-1">
