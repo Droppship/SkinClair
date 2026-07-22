@@ -874,7 +874,7 @@ body.drawer-open { overflow: hidden; }
 }
 .hero-reveal__stage {
   position: relative;
-  width: min(44vh, 76vw); aspect-ratio: 1;
+  width: min(58vh, 88vw); aspect-ratio: 1;
   will-change: transform, filter;
 }
 .hero-reveal__img {
@@ -883,7 +883,7 @@ body.drawer-open { overflow: hidden; }
      fermé → ouvert ressemble à un couvercle qui se soulève, sans
      saut brutal de taille dû aux proportions différentes des deux photos. */
   position: absolute; left: 50%; bottom: 7%;
-  width: 72%; height: auto;
+  width: 82%; height: auto;
   transform: translateX(-50%);
   will-change: opacity;
 }
