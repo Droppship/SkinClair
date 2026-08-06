@@ -7,6 +7,31 @@
     "color_soft": "#F7F1ED",
     "color_line": "#EAE2DC",
     "page_width": 1280,
-    "show_quick_add": true
+    "show_quick_add": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": { "type": "link_list", "settings": { "heading": "Shop", "menu": "footer" } },
+          "footer-1": { "type": "link_list", "settings": { "heading": "Information", "menu": "footer" } }
+        },
+        "block_order": ["footer-0", "footer-1"],
+        "settings": {
+          "brand_text": "Beauty essentials, made simple. Thoughtfully designed products for a natural look.",
+          "show_payment_icons": true
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
   }
 }

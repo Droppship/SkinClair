@@ -3,9 +3,11 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "heading": "Beauty, made simple",
-        "text": "Thoughtfully designed essentials for an effortless, natural look.",
-        "button_label": "Shop Now",
+        "image": "shopify://shop_images/soin-et-beaut-femme.png",
+        "eyebrow": "Essential care, visible results",
+        "heading": "Reveal your skin's natural glow",
+        "text": "Gentle, effective formulas designed for your daily ritual. Because your skin deserves the essentials, nothing more.",
+        "button_label": "Shop now !",
         "text_style": "light",
         "height": "large",
         "alignment": "left"
@@ -21,18 +23,24 @@
       }
     },
     "why_us": {
-      "type": "multicolumn",
+      "type": "image-with-text",
       "settings": {
-        "heading": "Why SkinClair",
-        "background": "soft"
+        "image": "shopify://shop_images/187DFD77-7C85-4B70-9416-B812655D1DA1_a379c1b1-d54a-404c-9db2-9e62ba4eeffd.png",
+        "layout": "left",
+        "background": "soft",
+        "eyebrow": "Our difference",
+        "heading": "Why choose our products",
+        "text": "<p><em>At SkinClair, we believe everyone deserves to feel confident in their own skin. Our carefully selected beauty essentials are designed to enhance your natural glow, simplify your skincare routine, and deliver visible results. Discover products you'll love and experience beauty with confidence.</em></p>",
+        "button_label": "",
+        "button_link": ""
       },
       "blocks": {
-        "w1": { "type": "column", "settings": { "icon": "sparkle", "title": "Quality", "text": "Carefully designed products, made to last." } },
-        "w2": { "type": "column", "settings": { "icon": "check", "title": "Easy to use", "text": "Simple gestures, quick results." } },
-        "w3": { "type": "column", "settings": { "icon": "leaf", "title": "Natural result", "text": "Enhance your features without masking them." } },
-        "w4": { "type": "column", "settings": { "icon": "flower", "title": "Elegant design", "text": "Objects you'll be proud to carry." } }
+        "p1": { "type": "point", "settings": { "text": "Quality you can feel" } },
+        "p2": { "type": "point", "settings": { "text": "Easy to use" } },
+        "p3": { "type": "point", "settings": { "text": "Natural result" } },
+        "p4": { "type": "point", "settings": { "text": "Elegant design" } }
       },
-      "block_order": ["w1", "w2", "w3", "w4"]
+      "block_order": ["p1", "p2", "p3", "p4"]
     },
     "mission": {
       "type": "rich-text",
