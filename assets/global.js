@@ -1,6 +1,6 @@
 /* =============================================================
    SkinClair — global.js
-   AJAX cart (drawer), product variants, gallery zoom,
+   AJAX cart (drawer), product variants, swipe gallery,
    predictive search, scroll reveal, page transitions.
    Zero external dependencies.
    ============================================================= */
@@ -343,55 +343,41 @@
       window.history.replaceState({}, '', url.toString());
     }
 
-    /* Gallery */
-    var mainImg = root.querySelector('[data-main-image]');
-    var thumbs = root.querySelectorAll('[data-thumb]');
+    /* Gallery: snap-scroll track, controlled by dots (mobile) and thumbnails (desktop) */
+    var track = root.querySelector('[data-media-track]');
+    var slides = track ? Array.prototype.slice.call(track.querySelectorAll('[data-media-slide]')) : [];
+    var controls = Array.prototype.slice.call(root.querySelectorAll('[data-media-goto]'));
 
-    function selectMedia(index) {
-      var thumb = thumbs[index];
-      if (!thumb || !mainImg) return;
-      mainImg.src = thumb.getAttribute('data-full-src');
-      mainImg.srcset = thumb.getAttribute('data-full-srcset') || '';
-      mainImg.alt = thumb.querySelector('img') ? thumb.querySelector('img').alt : '';
-      thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-      thumb.classList.add('is-active');
+    function setActiveMedia(index) {
+      controls.forEach(function (c) {
+        c.classList.toggle('is-active', parseInt(c.getAttribute('data-media-goto'), 10) === index);
+      });
     }
 
-    thumbs.forEach(function (thumb, i) {
-      thumb.addEventListener('click', function () { selectMedia(i); });
+    function selectMedia(index) {
+      if (!track || !slides[index]) return;
+      track.scrollTo({
+        left: slides[index].offsetLeft - track.offsetLeft,
+        behavior: reducedMotion ? 'auto' : 'smooth'
+      });
+      setActiveMedia(index);
+    }
+
+    controls.forEach(function (control) {
+      control.addEventListener('click', function () {
+        selectMedia(parseInt(control.getAttribute('data-media-goto'), 10));
+      });
     });
 
-    /* Zoom (hover on desktop, tap on mobile) */
-    var mediaWrap = root.querySelector('[data-zoom-container]');
-    if (mediaWrap && mainImg && !reducedMotion) {
-      var zoomed = false;
-      var applyZoom = function (e) {
-        var rect = mediaWrap.getBoundingClientRect();
-        var x = ((e.clientX - rect.left) / rect.width) * 100;
-        var y = ((e.clientY - rect.top) / rect.height) * 100;
-        mainImg.style.transformOrigin = x + '% ' + y + '%';
-        mainImg.style.transform = 'scale(1.8)';
-      };
-      var resetZoom = function () {
-        mainImg.style.transform = '';
-        mediaWrap.classList.remove('is-zoomed');
-        zoomed = false;
-      };
-      var isTouch = window.matchMedia('(hover: none)').matches;
-      if (isTouch) {
-        mediaWrap.addEventListener('click', function (e) {
-          if (zoomed) { resetZoom(); return; }
-          zoomed = true;
-          mediaWrap.classList.add('is-zoomed');
-          applyZoom(e);
-        });
-      } else {
-        mediaWrap.addEventListener('mousemove', function (e) {
-          mediaWrap.classList.add('is-zoomed');
-          applyZoom(e);
-        });
-        mediaWrap.addEventListener('mouseleave', resetZoom);
-      }
+    if (track && slides.length > 1) {
+      var scrollTimer = null;
+      track.addEventListener('scroll', function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var index = Math.round(track.scrollLeft / track.clientWidth);
+          setActiveMedia(Math.max(0, Math.min(index, slides.length - 1)));
+        }, 80);
+      }, { passive: true });
     }
 
     /* Fixed mobile buy bar */

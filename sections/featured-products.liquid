@@ -16,7 +16,7 @@
       {%- endif -%}
     </div>
 
-    <div class="grid grid--3">
+    <div class="product-row">
       {%- for product in products_source limit: section.settings.limit -%}
         {% render 'product-card', card_product: product %}
       {%- else -%}

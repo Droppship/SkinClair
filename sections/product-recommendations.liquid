@@ -11,7 +11,7 @@
           {%- endif -%}
           <h2>{{ section.settings.heading }}</h2>
         </div>
-        <div class="grid grid--3">
+        <div class="product-row">
           {%- for rec in recommendations.products -%}
             {% render 'product-card', card_product: rec %}
           {%- endfor -%}

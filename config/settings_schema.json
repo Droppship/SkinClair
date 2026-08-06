@@ -26,19 +26,26 @@
         "type": "color",
         "id": "color_muted",
         "label": "Secondary text",
-        "default": "#6E6E6E"
+        "default": "#706A65"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (small details)",
+        "default": "#C29384",
+        "info": "Used sparingly: labels, icons, small details. Keep it soft."
       },
       {
         "type": "color",
         "id": "color_soft",
-        "label": "Light gray (alternate sections)",
-        "default": "#F7F7F6"
+        "label": "Soft background (alternate sections)",
+        "default": "#F7F1ED"
       },
       {
         "type": "color",
         "id": "color_line",
         "label": "Borders and dividers",
-        "default": "#E9E9E7"
+        "default": "#EAE2DC"
       }
     ]
   },

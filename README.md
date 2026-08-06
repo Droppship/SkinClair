@@ -1,6 +1,6 @@
 # SkinClair — Thème Shopify minimaliste premium
 
-Thème Shopify **Online Store 2.0** construit sur mesure pour SkinClair, marque de beauté (Waterproof Tubing Mascara, Freckle Pen, Concealer). Design minimaliste et haut de gamme : fond blanc, texte noir, gris très clair en seule couleur secondaire. Zéro dépendance externe (Liquid + CSS + JS vanilla), mobile-first, rapide, optimisé SEO.
+Thème Shopify **Online Store 2.0** construit sur mesure pour SkinClair, marque de beauté (Waterproof Tubing Mascara, Freckle Pen, Concealer). Design minimaliste et haut de gamme : fond blanc, texte noir, et un accent rose terracotta doux réservé aux petits détails. Zéro dépendance externe (Liquid + CSS + JS vanilla), mobile-first, rapide, optimisé SEO.
 
 **Principe directeur : aucune information fausse.** Pas de faux avis, pas de compteurs, pas de badges inventés, pas d'urgence artificielle, pas de pop-up de réduction. Chaque élément du thème sert la crédibilité de la marque ou la conversion — rien d'autre.
 
@@ -40,7 +40,7 @@ Thème Shopify **Online Store 2.0** construit sur mesure pour SkinClair, marque 
 
 ## Design
 
-- **Palette** : blanc `#FFFFFF`, noir `#111111`, gris texte secondaire `#6E6E6E`, gris clair `#F7F7F6`, filets `#E9E9E7`. Aucune autre couleur.
+- **Palette** : blanc `#FFFFFF`, noir `#111111`, accent rose terracotta doux `#C29384` (petits détails uniquement), fond chaud `#F7F1ED`, filets `#EAE2DC`.
 - **Typographie** : Marcellus (titres serif, luxe intemporel) + Inter (corps, lisibilité maximale). Deux familles, trois graisses au total.
 - **Espace** : sections de 72 px (mobile) à 128 px (desktop) — le site respire.
 - **Animations** : sobres et performantes uniquement — fade-in au scroll (IntersectionObserver), survols fluides sur boutons et cartes, ouverture douce du panier et des menus, micro-interaction « Added ✓ » sur l'ajout au panier, fondu léger entre les pages. `prefers-reduced-motion` respecté partout.
@@ -48,7 +48,7 @@ Thème Shopify **Online Store 2.0** construit sur mesure pour SkinClair, marque 
 ## Pages
 
 - **Accueil** : hero (image, titre, texte, « Shop Now ») → 3 produits → « Why SkinClair » (Quality, Easy to use, Natural result, Elegant design) → mission → footer.
-- **Produit** : grande galerie avec zoom, titre, prix, détails avec icônes discrètes, bouton d'achat très visible (+ barre fixe sur mobile), description et accordéons. JSON-LD Product.
+- **Produit** : galerie swipeable (points sur mobile, miniatures sur desktop), titre, prix, détails avec icônes discrètes, bouton d'achat très visible (+ barre fixe sur mobile), description et accordéons. JSON-LD Product.
 - **Panier** : drawer AJAX discret + page panier propre, bouton de paiement bien visible. Aucun pop-up agressif.
 
 ## Performance & SEO
@@ -64,6 +64,6 @@ sections/                    Sections modulaires (toutes éditables dans l'édit
 snippets/                    Carte produit, prix, icônes SVG, meta-tags
 templates/                   JSON OS 2.0 + comptes clients + carte cadeau + password
 assets/base.css              Feuille de style unique, organisée en 10 chapitres
-assets/global.js             Panier AJAX, variantes, zoom, recherche prédictive, animations
+assets/global.js             Panier AJAX, variantes, galerie, recherche prédictive, animations
 locales/en.default.json      Anglais par défaut
 ```

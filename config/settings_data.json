@@ -2,9 +2,10 @@
   "current": {
     "color_background": "#FFFFFF",
     "color_text": "#111111",
-    "color_muted": "#6E6E6E",
-    "color_soft": "#F7F7F6",
-    "color_line": "#E9E9E7",
+    "color_muted": "#706A65",
+    "color_accent": "#C29384",
+    "color_soft": "#F7F1ED",
+    "color_line": "#EAE2DC",
     "page_width": 1280,
     "show_quick_add": true
   }
