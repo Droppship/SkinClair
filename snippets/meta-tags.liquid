@@ -63,6 +63,7 @@
       {%- endif -%}
     }
   </script>
+  {%- capture search_action_target -%}{{ request.origin }}{{ routes.search_url }}?q={search_term_string}{%- endcapture -%}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -70,7 +71,7 @@
       "name": {{ shop.name | json }},
       "potentialAction": {
         "@type": "SearchAction",
-        "target": {{ request.origin | append: routes.search_url | append: '?q={search_term_string}' | json }},
+        "target": {{ search_action_target | json }},
         "query-input": "required name=search_term_string"
       },
       "url": {{ request.origin | append: routes.root_url | json }}
