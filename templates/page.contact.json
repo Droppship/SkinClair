@@ -3,29 +3,15 @@
     "main": {
       "type": "main-contact",
       "settings": {
-        "subtext": "Question about a product, an order? We'll get back to you within 24 business hours."
+        "subtext": "A question about a product or an order? Send us a message — we answer every email."
       },
       "blocks": {
-        "b1": { "type": "info", "settings": { "icon": "mail", "title": "Customer care", "text": "Response within 24 business hours, Monday through Friday." } },
+        "b1": { "type": "info", "settings": { "icon": "mail", "title": "Customer care", "text": "We read and answer every message." } },
         "b2": { "type": "info", "settings": { "icon": "truck", "title": "Order tracking", "text": "You'll receive a tracking email as soon as your order ships." } },
-        "b3": { "type": "info", "settings": { "icon": "return", "title": "Returns & exchanges", "text": "30 days to change your mind, fast and frictionless refunds." } }
+        "b3": { "type": "info", "settings": { "icon": "return", "title": "Returns & refunds", "text": "See our refund policy for conditions and timelines." } }
       },
       "block_order": ["b1", "b2", "b3"]
-    },
-    "faq": {
-      "type": "faq",
-      "settings": {
-        "eyebrow": "Before you reach out",
-        "heading": "You might find your answer here",
-        "open_first": false,
-        "background": "surface"
-      },
-      "blocks": {
-        "q1": { "type": "question", "settings": { "question": "Where is my order?", "answer": "<p>Check your shipping confirmation email: it contains your tracking link. No update after 5 business days? Email us with your order number.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "How do I return a product?", "answer": "<p>Email us with your order number: we'll send you the process and return label within 24 hours.</p>" } }
-      },
-      "block_order": ["q1", "q2"]
     }
   },
-  "order": ["main", "faq"]
+  "order": ["main"]
 }

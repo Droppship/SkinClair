@@ -1,6 +1,6 @@
 {%- comment -%}
-  Affiche le prix d'un produit ou d'une variante.
-  Params : item (product ou variant), class (optionnel)
+  Displays the price of a product or variant.
+  Params: item (product or variant), class (optional)
 {%- endcomment -%}
 {%- liquid
   assign target = item | default: product
@@ -11,13 +11,12 @@
     assign compare_price = target.compare_at_price_max
   endif
 -%}
-<div class="price {{ class }}{% if compare_price > price %} price--on-sale{% endif %}" data-price>
+<div class="price {{ class }}" data-price>
   {%- if target.object_type == 'product' and target.price_varies -%}
     <span class="price__from">{{ 'products.from' | t }}</span>
   {%- endif -%}
   <span class="price__current">{{ price | money }}</span>
   {%- if compare_price > price -%}
     <s class="price__compare">{{ compare_price | money }}</s>
-    <span class="price__badge">-{{ compare_price | minus: price | times: 100 | divided_by: compare_price }}%</span>
   {%- endif -%}
 </div>

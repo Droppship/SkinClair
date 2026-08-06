@@ -1,20 +1,11 @@
 {
   "current": {
-    "color_background": "#FBF7F2",
-    "color_surface": "#FFFFFF",
-    "color_soft": "#F4E8E3",
-    "color_text": "#3D2E33",
-    "color_muted": "#8A7076",
-    "color_accent": "#D8A7A0",
-    "color_button": "#5E3E47",
-    "color_button_text": "#FFF9F5",
-    "color_gold": "#C7A17A",
-    "color_line": "#EADDD6",
-    "page_width": 1240,
-    "show_free_shipping_bar": true,
-    "free_shipping_threshold": 50,
-    "show_low_stock": true,
-    "low_stock_threshold": 5,
+    "color_background": "#FFFFFF",
+    "color_text": "#111111",
+    "color_muted": "#6E6E6E",
+    "color_soft": "#F7F7F6",
+    "color_line": "#E9E9E7",
+    "page_width": 1280,
     "show_quick_add": true
   }
 }

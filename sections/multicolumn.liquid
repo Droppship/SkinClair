@@ -1,4 +1,4 @@
-<section class="section{% if section.settings.background == 'soft' %} section--soft{% elsif section.settings.background == 'surface' %} section--surface{% endif %}">
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% endif %}">
   <div class="page-width">
     {%- if section.settings.heading != blank or section.settings.subtext != blank -%}
       <div class="section-header reveal">
@@ -14,12 +14,14 @@
       </div>
     {%- endif -%}
 
-    <div class="multicolumn__grid{% if section.settings.compact %} multicolumn--compact{% endif %}" style="--cols: {{ section.blocks.size | at_most: 4 }};">
+    <div class="multicolumn__grid" style="--cols: {{ section.blocks.size | at_most: 4 }};">
       {%- for block in section.blocks -%}
         <div class="multicolumn__item reveal" {{ block.shopify_attributes }}>
-          <span class="multicolumn__icon">
-            {% render 'icon', name: block.settings.icon, size: 26 %}
-          </span>
+          {%- if block.settings.icon != 'none' -%}
+            <span class="multicolumn__icon">
+              {% render 'icon', name: block.settings.icon, size: 22 %}
+            </span>
+          {%- endif -%}
           <h3>{{ block.settings.title }}</h3>
           {%- if block.settings.text != blank -%}
             <p>{{ block.settings.text }}</p>
@@ -55,17 +57,10 @@
       "id": "background",
       "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivory" },
-        { "value": "soft", "label": "Soft pink" },
-        { "value": "surface", "label": "White" }
+        { "value": "default", "label": "White" },
+        { "value": "soft", "label": "Light gray" }
       ],
       "default": "default"
-    },
-    {
-      "type": "checkbox",
-      "id": "compact",
-      "label": "Compact style (trust bar)",
-      "default": false
     }
   ],
   "blocks": [
@@ -78,33 +73,32 @@
           "id": "icon",
           "label": "Icon",
           "options": [
+            { "value": "none", "label": "None" },
+            { "value": "sparkle", "label": "Sparkle (quality)" },
+            { "value": "check", "label": "Check (easy)" },
             { "value": "leaf", "label": "Leaf (natural)" },
-            { "value": "drop", "label": "Drop (hydration)" },
+            { "value": "drop", "label": "Drop" },
             { "value": "heart", "label": "Heart" },
-            { "value": "sparkle", "label": "Sparkle" },
-            { "value": "flower", "label": "Flower" },
-            { "value": "shield", "label": "Shield (guarantee)" },
-            { "value": "truck", "label": "Truck (shipping)" },
-            { "value": "lock", "label": "Lock (security)" },
-            { "value": "return", "label": "Returns" },
+            { "value": "flower", "label": "Flower (design)" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "lock", "label": "Lock" },
             { "value": "rabbit", "label": "Rabbit (cruelty-free)" },
             { "value": "lab", "label": "Lab" },
-            { "value": "recycle", "label": "Recycling" },
-            { "value": "gift", "label": "Gift" }
+            { "value": "recycle", "label": "Recycling" }
           ],
-          "default": "leaf"
+          "default": "sparkle"
         },
         {
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Natural ingredients"
+          "default": "Quality"
         },
         {
           "type": "text",
           "id": "text",
           "label": "Text",
-          "default": "Clean formulas, with no compromise on efficacy."
+          "default": "Carefully designed products, made to last."
         }
       ]
     }

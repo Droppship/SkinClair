@@ -13,16 +13,12 @@
     {%- else -%}
       <div class="cart-page__grid">
         <div>
-          {%- if settings.show_free_shipping_bar -%}
-            {% render 'free-shipping-bar' %}
-          {%- endif -%}
-
           <form action="{{ routes.cart_url }}" method="post" id="CartPageForm">
             {%- for item in cart.items -%}
               <div class="cart-line">
                 <a href="{{ item.url }}" class="cart-line__media">
                   {%- if item.image -%}
-                    <img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.image.alt | escape }}" width="84" height="84" loading="lazy">
+                    <img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.image.alt | escape }}" width="84" height="104" loading="lazy">
                   {%- endif -%}
                 </a>
                 <div class="cart-line__info">
@@ -75,25 +71,18 @@
               name="note"
               form="CartPageForm"
               rows="3"
-              style="width: 100%; margin-top: 10px; padding: 12px; border: 1px solid var(--c-line); border-radius: var(--radius-sm);"
+              style="width: 100%; margin-top: 10px; padding: 12px; border: 1px solid var(--c-line); border-radius: var(--radius);"
             >{{ cart.note }}</textarea>
           </details>
 
           <form action="{{ routes.cart_url }}" method="post">
             <button type="submit" name="checkout" class="btn btn--full">
-              {% render 'icon', name: 'lock', size: 15 %}
               {{ 'cart.checkout' | t }}
             </button>
           </form>
 
-          <div class="trust-row">
-            <span class="trust-row__item">{% render 'icon', name: 'lock', size: 15 %} Secure SSL payment</span>
-            <span class="trust-row__item">{% render 'icon', name: 'truck', size: 15 %} Ships within 24 h</span>
-            <span class="trust-row__item">{% render 'icon', name: 'return', size: 15 %} Free 30-day returns</span>
-          </div>
-
           {%- if section.settings.show_payment_icons -%}
-            <div class="site-footer__payments" style="justify-content: center; margin-top: 16px;">
+            <div class="site-footer__payments" style="justify-content: center; margin-top: 18px;">
               {%- for type in shop.enabled_payment_types -%}
                 {{ type | payment_type_svg_tag }}
               {%- endfor -%}

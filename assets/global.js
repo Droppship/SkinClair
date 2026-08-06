@@ -1,35 +1,33 @@
 /* =============================================================
    SkinClair — global.js
-   Panier AJAX (drawer), variantes produit, zoom galerie,
-   recherche prédictive, pop-up email, animations d'apparition.
-   Zéro dépendance externe pour des performances maximales.
+   AJAX cart (drawer), product variants, gallery zoom,
+   predictive search, scroll reveal, page transitions.
+   Zero external dependencies.
    ============================================================= */
 (function () {
   'use strict';
 
   var overlay = null;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   document.addEventListener('DOMContentLoaded', function () {
     overlay = document.querySelector('[data-overlay]');
     initHeader();
     initDrawers();
     initSearchPanel();
-    initAnnouncementBar();
     initQuantityInputs(document);
     initAjaxAddForms(document);
     initCartDrawerEvents();
     initCartPage();
     initProduct();
-    initSliders();
     initReveal();
-    initPopup();
-    initNewsletterSuccess();
+    initPageTransitions();
   });
 
-  /* ---------- Utilitaires ---------- */
+  /* ---------- Utilities ---------- */
 
   function formatMoney(cents) {
-    var format = (window.theme && window.theme.moneyFormat) || '{{amount_with_comma_separator}} €';
+    var format = (window.theme && window.theme.moneyFormat) || '${{amount}}';
     var value = (cents / 100).toFixed(2);
     var parts = value.split('.');
     var amount;
@@ -52,13 +50,7 @@
   function closeOverlay() {
     if (!overlay) return;
     overlay.classList.remove('is-visible');
-    setTimeout(function () { overlay.hidden = true; }, 300);
-  }
-
-  function trapEscape(callback) {
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') callback();
-    });
+    setTimeout(function () { overlay.hidden = true; }, 250);
   }
 
   /* ---------- Header ---------- */
@@ -73,7 +65,7 @@
     onScroll();
   }
 
-  /* ---------- Drawers (menu mobile + panier) ---------- */
+  /* ---------- Drawers (mobile menu + cart) ---------- */
 
   var openDrawer = null;
 
@@ -118,10 +110,12 @@
       }
     });
     if (overlay) overlay.addEventListener('click', closeAllDrawers);
-    trapEscape(closeAllDrawers);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAllDrawers();
+    });
   }
 
-  /* ---------- Recherche prédictive ---------- */
+  /* ---------- Predictive search ---------- */
 
   function initSearchPanel() {
     var toggle = document.querySelector('[data-search-toggle]');
@@ -159,22 +153,7 @@
     });
   }
 
-  /* ---------- Barre d'annonces rotative ---------- */
-
-  function initAnnouncementBar() {
-    var bar = document.querySelector('[data-announcement-rotate]');
-    if (!bar) return;
-    var items = bar.querySelectorAll('.announcement-bar__item');
-    if (items.length < 2) return;
-    var index = 0;
-    setInterval(function () {
-      items[index].setAttribute('data-hidden', '');
-      index = (index + 1) % items.length;
-      items[index].removeAttribute('data-hidden');
-    }, 4500);
-  }
-
-  /* ---------- Quantités ---------- */
+  /* ---------- Quantity inputs ---------- */
 
   function initQuantityInputs(scope) {
     scope.querySelectorAll('.qty').forEach(function (qty) {
@@ -193,7 +172,7 @@
     });
   }
 
-  /* ---------- Panier AJAX ---------- */
+  /* ---------- AJAX cart ---------- */
 
   function refreshCart(openAfter) {
     return fetch(window.routes.root_url + '?sections=cart-drawer')
@@ -248,8 +227,10 @@
           .then(function () { return refreshCart(true); })
           .then(function () {
             if (btn) {
+              btn.classList.add('is-added');
               btn.textContent = (window.theme.strings && window.theme.strings.added) || '✓';
               setTimeout(function () {
+                btn.classList.remove('is-added');
                 btn.textContent = label;
                 btn.removeAttribute('aria-disabled');
               }, 1600);
@@ -257,7 +238,7 @@
           })
           .catch(function (err) {
             if (btn) { btn.textContent = label; btn.removeAttribute('aria-disabled'); }
-            alert((err && err.description) || 'Une erreur est survenue. Merci de réessayer.');
+            alert((err && err.description) || 'Something went wrong. Please try again.');
           });
       });
     });
@@ -299,7 +280,7 @@
     initQuantityInputs(page);
   }
 
-  /* ---------- Page produit ---------- */
+  /* ---------- Product page ---------- */
 
   function initProduct() {
     var root = document.querySelector('[data-product-root]');
@@ -310,10 +291,9 @@
     var idInput = root.querySelector('input[name="id"]');
     var priceWrap = root.querySelector('[data-product-price]');
     var atcBtn = root.querySelector('[data-atc-button]');
-    var stockEl = root.querySelector('[data-stock-status]');
     var stickyPrice = document.querySelector('[data-sticky-price]');
 
-    /* Sélection de variante */
+    /* Variant selection */
     root.querySelectorAll('[data-option-input]').forEach(function (input) {
       input.addEventListener('change', onOptionChange);
     });
@@ -339,7 +319,6 @@
         var html = '<span class="price__current">' + formatMoney(match.price) + '</span>';
         if (match.compare_at_price && match.compare_at_price > match.price) {
           html += ' <s class="price__compare">' + formatMoney(match.compare_at_price) + '</s>';
-          html += ' <span class="price__badge">-' + Math.round((match.compare_at_price - match.price) / match.compare_at_price * 100) + '%</span>';
         }
         priceWrap.querySelector('.price').innerHTML = html;
       }
@@ -354,7 +333,6 @@
           atcBtn.textContent = window.theme.strings.soldOut;
         }
       }
-      if (stockEl) stockEl.hidden = !match.available;
 
       if (match.featured_media && match.featured_media.position) {
         selectMedia(match.featured_media.position - 1);
@@ -365,7 +343,7 @@
       window.history.replaceState({}, '', url.toString());
     }
 
-    /* Galerie */
+    /* Gallery */
     var mainImg = root.querySelector('[data-main-image]');
     var thumbs = root.querySelectorAll('[data-thumb]');
 
@@ -383,22 +361,22 @@
       thumb.addEventListener('click', function () { selectMedia(i); });
     });
 
-    /* Zoom (survol desktop, tap mobile) */
+    /* Zoom (hover on desktop, tap on mobile) */
     var mediaWrap = root.querySelector('[data-zoom-container]');
-    if (mediaWrap && mainImg) {
+    if (mediaWrap && mainImg && !reducedMotion) {
       var zoomed = false;
-      function applyZoom(e) {
+      var applyZoom = function (e) {
         var rect = mediaWrap.getBoundingClientRect();
         var x = ((e.clientX - rect.left) / rect.width) * 100;
         var y = ((e.clientY - rect.top) / rect.height) * 100;
         mainImg.style.transformOrigin = x + '% ' + y + '%';
-        mainImg.style.transform = 'scale(1.9)';
-      }
-      function resetZoom() {
+        mainImg.style.transform = 'scale(1.8)';
+      };
+      var resetZoom = function () {
         mainImg.style.transform = '';
         mediaWrap.classList.remove('is-zoomed');
         zoomed = false;
-      }
+      };
       var isTouch = window.matchMedia('(hover: none)').matches;
       if (isTouch) {
         mediaWrap.addEventListener('click', function (e) {
@@ -416,7 +394,7 @@
       }
     }
 
-    /* Barre d'achat mobile fixe */
+    /* Fixed mobile buy bar */
     var sticky = document.querySelector('[data-sticky-atc]');
     var buyBlock = root.querySelector('.product__buy');
     if (sticky && buyBlock && 'IntersectionObserver' in window) {
@@ -433,7 +411,7 @@
       }
     }
 
-    /* Recommandations produit */
+    /* Product recommendations */
     var reco = document.querySelector('[data-recommendations]');
     if (reco) {
       var url = reco.getAttribute('data-url');
@@ -446,7 +424,6 @@
             reco.innerHTML = inner.innerHTML;
             initReveal();
             initAjaxAddForms(reco);
-            initSliders();
           } else {
             var section = reco.closest('.section');
             if (section) section.remove();
@@ -455,39 +432,18 @@
     }
   }
 
-  /* ---------- Sliders (flèches sur rails scroll-snap) ---------- */
-
-  function initSliders() {
-    document.querySelectorAll('[data-slider]').forEach(function (slider) {
-      if (slider.dataset.bound) return;
-      slider.dataset.bound = 'true';
-      var track = slider.querySelector('[data-slider-track]');
-      if (!track) return;
-      slider.querySelectorAll('[data-slider-prev]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
-        });
-      });
-      slider.querySelectorAll('[data-slider-next]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
-        });
-      });
-    });
-  }
-
-  /* ---------- Apparition au scroll ---------- */
+  /* ---------- Scroll reveal ---------- */
 
   function initReveal() {
     var els = document.querySelectorAll('.reveal:not(.is-visible)');
-    if (!('IntersectionObserver' in window)) {
+    if (!('IntersectionObserver' in window) || reducedMotion) {
       els.forEach(function (el) { el.classList.add('is-visible'); });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry, i) {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = Math.min(i * 60, 240) + 'ms';
+          entry.target.style.transitionDelay = Math.min(i * 70, 280) + 'ms';
           entry.target.classList.add('is-visible');
           io.unobserve(entry.target);
         }
@@ -496,52 +452,27 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- Pop-up newsletter ---------- */
+  /* ---------- Page transitions (gentle fade between internal pages) ---------- */
 
-  function initPopup() {
-    var popup = document.getElementById('NewsletterPopup');
-    if (!popup) return;
-    var key = 'skinclair-popup-dismissed';
-    var days = parseInt(popup.getAttribute('data-frequency') || '7', 10);
-    var delay = parseInt(popup.getAttribute('data-delay') || '6', 10) * 1000;
-
-    var dismissedAt = null;
-    try { dismissedAt = localStorage.getItem(key); } catch (e) { /* stockage indisponible */ }
-    if (dismissedAt && Date.now() - parseInt(dismissedAt, 10) < days * 86400000) return;
-    if (/customer_posted=true/.test(window.location.search)) { dismiss(); return; }
-
-    function dismiss() {
-      popup.classList.remove('is-open');
-      try { localStorage.setItem(key, Date.now().toString()); } catch (e) { /* ignore */ }
-    }
-
-    setTimeout(function () {
-      if (document.body.classList.contains('drawer-open')) return;
-      popup.classList.add('is-open');
-    }, delay);
-
-    popup.querySelectorAll('[data-popup-close]').forEach(function (btn) {
-      btn.addEventListener('click', dismiss);
+  function initPageTransitions() {
+    if (reducedMotion) return;
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.defaultPrevented) return;
+      if (link.target === '_blank' || link.hasAttribute('download')) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      var url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.hash) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function () { window.location.href = link.href; }, 160);
     });
-    var form = popup.querySelector('form');
-    if (form) {
-      form.addEventListener('submit', function () {
-        try { localStorage.setItem(key, Date.now().toString()); } catch (e) { /* ignore */ }
-      });
-    }
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && popup.classList.contains('is-open')) dismiss();
+    /* Restore state when returning via back/forward cache */
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) document.body.classList.remove('is-leaving');
     });
-  }
-
-  /* ---------- Confirmation inscription newsletter ---------- */
-
-  function initNewsletterSuccess() {
-    if (!/customer_posted=true/.test(window.location.search)) return;
-    var target = document.querySelector('[data-newsletter-success]');
-    if (target) {
-      target.hidden = false;
-      target.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    }
   }
 })();

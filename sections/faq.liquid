@@ -1,4 +1,4 @@
-<section class="section{% if section.settings.background == 'soft' %} section--soft{% elsif section.settings.background == 'surface' %} section--surface{% endif %}" id="faq">
+<section class="section{% if section.settings.background == 'soft' %} section--soft{% endif %}" id="faq">
   <div class="page-width">
     <div class="section-header reveal">
       {%- if section.settings.eyebrow != blank -%}
@@ -53,8 +53,7 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Need help?"
+      "label": "Eyebrow"
     },
     {
       "type": "text",
@@ -71,16 +70,15 @@
       "type": "checkbox",
       "id": "open_first",
       "label": "Open the first question",
-      "default": true
+      "default": false
     },
     {
       "type": "select",
       "id": "background",
       "label": "Background",
       "options": [
-        { "value": "default", "label": "Ivory" },
-        { "value": "soft", "label": "Soft pink" },
-        { "value": "surface", "label": "White" }
+        { "value": "default", "label": "White" },
+        { "value": "soft", "label": "Light gray" }
       ],
       "default": "default"
     }
@@ -94,13 +92,13 @@
           "type": "text",
           "id": "question",
           "label": "Question",
-          "default": "What are the shipping times?"
+          "default": "How long does delivery take?"
         },
         {
           "type": "richtext",
           "id": "answer",
           "label": "Answer",
-          "default": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days. Free shipping on orders over $50.</p>"
+          "default": "<p>Delivery times and costs are detailed in our shipping policy, and confirmed at checkout before you pay.</p>"
         }
       ]
     }
@@ -110,9 +108,8 @@
       "name": "FAQ",
       "blocks": [
         { "type": "question" },
-        { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested, free from harsh fragrance and controversial ingredients. If in doubt, patch-test on a small area first and check the full ingredient list on each product page.</p>" } },
-        { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Absolutely. You have 30 days after delivery to change your mind. The product must be unopened; refunds are processed within 5 days of us receiving the return.</p>" } },
-        { "type": "question", "settings": { "question": "Are payments secure?", "answer": "<p>Yes, all transactions are encrypted (SSL) and processed by PCI-DSS certified providers: credit card, PayPal, Apple Pay, and Google Pay.</p>" } }
+        { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Our return conditions and timelines are described in our refund policy. Contact us and we'll guide you through the process.</p>" } },
+        { "type": "question", "settings": { "question": "How can I contact you?", "answer": "<p>Through our contact page — we answer every message.</p>" } }
       ]
     }
   ]

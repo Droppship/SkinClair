@@ -14,21 +14,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
     <style>
       :root {
         --c-bg: {{ settings.color_background }};
-        --c-surface: {{ settings.color_surface }};
-        --c-soft: {{ settings.color_soft }};
         --c-text: {{ settings.color_text }};
         --c-muted: {{ settings.color_muted }};
-        --c-accent: {{ settings.color_accent }};
-        --c-button: {{ settings.color_button }};
-        --c-button-text: {{ settings.color_button_text }};
-        --c-gold: {{ settings.color_gold }};
+        --c-soft: {{ settings.color_soft }};
         --c-line: {{ settings.color_line }};
         --page-width: {{ settings.page_width }}px;
       }
@@ -45,7 +40,6 @@
       };
       window.theme = {
         moneyFormat: {{ shop.money_format | json }},
-        freeShippingThreshold: {{ settings.free_shipping_threshold | times: 100 }},
         strings: {
           addToCart: {{ 'products.add_to_cart' | t | json }},
           soldOut: {{ 'products.sold_out' | t | json }},
@@ -70,7 +64,6 @@
 
     {% section 'footer' %}
     {% section 'cart-drawer' %}
-    {% section 'popup-newsletter' %}
 
     <div class="page-overlay" data-overlay hidden></div>
   </body>

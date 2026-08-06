@@ -1,6 +1,20 @@
-<section class="hero{% if section.settings.height == 'small' %} hero--small{% endif %}{% if section.settings.alignment == 'center' %} hero--center{% endif %}">
-  <div class="hero__media">
-    {%- if section.settings.image != blank -%}
+{%- liquid
+  assign height_class = ''
+  if section.settings.height == 'small'
+    assign height_class = ' hero--small'
+  endif
+  assign style_class = ''
+  if section.settings.image != blank and section.settings.text_style == 'light'
+    assign style_class = ' hero--light hero--overlay'
+  endif
+  assign align_class = ''
+  if section.settings.alignment == 'center'
+    assign align_class = ' hero--center'
+  endif
+-%}
+<section class="hero{{ height_class }}{{ style_class }}{{ align_class }}">
+  {%- if section.settings.image != blank -%}
+    <div class="hero__media">
       <img
         src="{{ section.settings.image | image_url: width: 1800 }}"
         srcset="{{ section.settings.image | image_url: width: 750 }} 750w, {{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
@@ -10,27 +24,29 @@
         height="{{ 1800 | divided_by: section.settings.image.aspect_ratio | round }}"
         fetchpriority="high"
       >
-    {%- else -%}
-      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-    {%- endif -%}
-  </div>
+    </div>
+  {%- else -%}
+    <div class="hero__media">
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+
   <div class="page-width" style="width: 100%;">
     <div class="hero__content">
       {%- if section.settings.eyebrow != blank -%}
-        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <span class="eyebrow reveal">{{ section.settings.eyebrow }}</span>
       {%- endif -%}
-      <h1 class="hero__title">{{ section.settings.heading }}</h1>
+      <h1 class="hero__title reveal">{{ section.settings.heading }}</h1>
       {%- if section.settings.text != blank -%}
-        <p class="hero__text">{{ section.settings.text }}</p>
+        <p class="hero__text reveal">{{ section.settings.text }}</p>
       {%- endif -%}
-      <div class="hero__actions">
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--light">{{ section.settings.button_label }}</a>
-        {%- endif -%}
-        {%- if section.settings.button_label_2 != blank -%}
-          <a href="{{ section.settings.button_link_2 }}" class="btn btn--secondary" style="color: #fff; border-color: rgba(255,255,255,0.7);">{{ section.settings.button_label_2 }}</a>
-        {%- endif -%}
-      </div>
+      {%- if section.settings.button_label != blank -%}
+        <div class="reveal">
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn">
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -42,57 +58,48 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background image",
-      "info": "2400 × 1400 px recommended — a real, bright photo (product or model), natural light. Avoid illustrations for a premium, non-generic feel."
+      "label": "Image",
+      "info": "A clean, high-quality image. 2400 × 1400 px recommended."
     },
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Essential care, visible results"
+      "label": "Eyebrow text"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Reveal your skin's natural glow"
+      "default": "Beauty, made simple"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Gentle, effective formulas designed for your daily ritual. Because your skin deserves the essentials, nothing more."
+      "default": "Thoughtfully designed essentials for an effortless, natural look."
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Primary button",
-      "default": "Shop our treatments"
+      "label": "Button label",
+      "default": "Shop Now"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Primary button link"
-    },
-    {
-      "type": "text",
-      "id": "button_label_2",
-      "label": "Secondary button"
-    },
-    {
-      "type": "url",
-      "id": "button_link_2",
-      "label": "Secondary button link"
+      "label": "Button link",
+      "info": "Defaults to the all-products page."
     },
     {
       "type": "select",
-      "id": "height",
-      "label": "Height",
+      "id": "text_style",
+      "label": "Text style over image",
       "options": [
-        { "value": "large", "label": "Large" },
-        { "value": "small", "label": "Compact" }
+        { "value": "light", "label": "Light text (dark overlay)" },
+        { "value": "dark", "label": "Dark text (no overlay)" }
       ],
-      "default": "large"
+      "default": "light",
+      "info": "Choose dark text if your image is light and text stays readable without an overlay."
     },
     {
       "type": "select",
@@ -103,10 +110,18 @@
         { "value": "center", "label": "Center" }
       ],
       "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        { "value": "large", "label": "Large" },
+        { "value": "small", "label": "Small" }
+      ],
+      "default": "large"
     }
   ],
-  "presets": [
-    { "name": "Hero" }
-  ]
+  "presets": [{ "name": "Hero" }]
 }
 {% endschema %}

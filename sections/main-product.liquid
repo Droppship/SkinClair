@@ -36,7 +36,7 @@
                 class="{% if forloop.first %}is-active{% endif %}"
                 aria-label="View image {{ forloop.index }}"
               >
-                <img src="{{ media | image_url: width: 144 }}" alt="{{ media.alt | escape }}" width="72" height="72" loading="lazy">
+                <img src="{{ media | image_url: width: 136 }}" alt="{{ media.alt | escape }}" width="68" height="68" loading="lazy">
               </button>
             {%- endfor -%}
           </div>
@@ -54,16 +54,6 @@
             {%- when 'title' -%}
               <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
 
-            {%- when 'rating' -%}
-              {%- if block.settings.rating_count != blank -%}
-                <div class="product__rating" {{ block.shopify_attributes }}>
-                  <span class="stars" role="img" aria-label="4.8 out of 5 stars">
-                    {%- for i in (1..5) -%}{% render 'icon', name: 'star', size: 15 %}{%- endfor -%}
-                  </span>
-                  <a href="#reviews">{{ block.settings.rating_count }}</a>
-                </div>
-              {%- endif -%}
-
             {%- when 'price' -%}
               <div class="product__price" data-product-price {{ block.shopify_attributes }}>
                 {% render 'price', item: current_variant %}
@@ -75,21 +65,29 @@
                 <p class="product__short-desc" {{ block.shopify_attributes }}>{{ short }}</p>
               {%- endif -%}
 
-            {%- when 'benefits' -%}
-              <ul class="product__benefits" role="list" {{ block.shopify_attributes }}>
-                {%- if block.settings.benefit_1 != blank -%}
-                  <li>{% render 'icon', name: block.settings.icon_1, size: 18 %} {{ block.settings.benefit_1 }}</li>
-                {%- endif -%}
-                {%- if block.settings.benefit_2 != blank -%}
-                  <li>{% render 'icon', name: block.settings.icon_2, size: 18 %} {{ block.settings.benefit_2 }}</li>
-                {%- endif -%}
-                {%- if block.settings.benefit_3 != blank -%}
-                  <li>{% render 'icon', name: block.settings.icon_3, size: 18 %} {{ block.settings.benefit_3 }}</li>
-                {%- endif -%}
-                {%- if block.settings.benefit_4 != blank -%}
-                  <li>{% render 'icon', name: block.settings.icon_4, size: 18 %} {{ block.settings.benefit_4 }}</li>
-                {%- endif -%}
-              </ul>
+            {%- when 'details' -%}
+              {%- liquid
+                assign has_detail = false
+                if block.settings.detail_1 != blank or block.settings.detail_2 != blank or block.settings.detail_3 != blank or block.settings.detail_4 != blank
+                  assign has_detail = true
+                endif
+              -%}
+              {%- if has_detail -%}
+                <ul class="product__details" role="list" {{ block.shopify_attributes }}>
+                  {%- if block.settings.detail_1 != blank -%}
+                    <li>{% render 'icon', name: block.settings.icon_1, size: 17 %} {{ block.settings.detail_1 }}</li>
+                  {%- endif -%}
+                  {%- if block.settings.detail_2 != blank -%}
+                    <li>{% render 'icon', name: block.settings.icon_2, size: 17 %} {{ block.settings.detail_2 }}</li>
+                  {%- endif -%}
+                  {%- if block.settings.detail_3 != blank -%}
+                    <li>{% render 'icon', name: block.settings.icon_3, size: 17 %} {{ block.settings.detail_3 }}</li>
+                  {%- endif -%}
+                  {%- if block.settings.detail_4 != blank -%}
+                    <li>{% render 'icon', name: block.settings.icon_4, size: 17 %} {{ block.settings.detail_4 }}</li>
+                  {%- endif -%}
+                </ul>
+              {%- endif -%}
 
             {%- when 'buy_buttons' -%}
               <div {{ block.shopify_attributes }}>
@@ -119,23 +117,7 @@
                     </div>
                   {%- endunless -%}
 
-                  {%- comment -%} Subtle urgency: real low stock only {%- endcomment -%}
-                  {%- if settings.show_low_stock
-                    and current_variant.inventory_management == 'shopify'
-                    and current_variant.inventory_quantity > 0
-                    and current_variant.inventory_quantity <= settings.low_stock_threshold -%}
-                    <p class="product__stock product__stock--low" data-stock-status>
-                      <span class="stock-dot stock-dot--pulse"></span>
-                      {{ 'products.low_stock' | t: count: current_variant.inventory_quantity }}
-                    </p>
-                  {%- elsif current_variant.available -%}
-                    <p class="product__stock product__stock--in" data-stock-status>
-                      <span class="stock-dot"></span>
-                      {{ 'products.in_stock' | t }}
-                    </p>
-                  {%- endif -%}
-
-                  <div class="product__buy" style="margin-top: 16px;">
+                  <div class="product__buy">
                     <div class="qty">
                       <button type="button" data-qty-change="-1" aria-label="{{ 'products.decrease' | t }}">{% render 'icon', name: 'minus', size: 15 %}</button>
                       <input type="number" name="quantity" value="1" min="1" aria-label="{{ 'products.quantity' | t }}">
@@ -160,21 +142,6 @@
                     {{ form | payment_button }}
                   {%- endif -%}
                 {%- endform -%}
-
-                <div class="product__trust">
-                  <span>{% render 'icon', name: 'lock', size: 15 %} 100% secure payment</span>
-                  <span>{% render 'icon', name: 'truck', size: 15 %} Ships in 48–72 h</span>
-                  <span>{% render 'icon', name: 'return', size: 15 %} 30-day returns</span>
-                </div>
-              </div>
-
-            {%- when 'guarantee' -%}
-              <div class="product__guarantee" {{ block.shopify_attributes }}>
-                {% render 'icon', name: 'shield', size: 24 %}
-                <div>
-                  <strong>{{ block.settings.title }}</strong>
-                  <p>{{ block.settings.text }}</p>
-                </div>
               </div>
 
             {%- when 'description' -%}
@@ -266,20 +233,6 @@
       "settings": []
     },
     {
-      "type": "rating",
-      "name": "Rating (stars)",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "rating_count",
-          "label": "Review link text",
-          "info": "E.g. \"127 reviews\". Leave blank to hide. Automatically replaced if you install a review app (Judge.me, Loox…).",
-          "default": "★ 4.8 — read reviews"
-        }
-      ]
-    },
-    {
       "type": "price",
       "name": "Price",
       "limit": 1,
@@ -294,24 +247,23 @@
           "type": "textarea",
           "id": "text",
           "label": "Fallback text",
-          "info": "Used when the custom.short_description metafield is empty.",
-          "default": "A daily treatment that transforms your routine: visibly smoother, hydrated, and glowing skin within the first weeks."
+          "info": "Used when the custom.short_description metafield is empty. Describe the product in one honest sentence."
         }
       ]
     },
     {
-      "type": "benefits",
-      "name": "Benefits (icons)",
+      "type": "details",
+      "name": "Key details (icons)",
       "limit": 1,
       "settings": [
-        { "type": "select", "id": "icon_1", "label": "Icon 1", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "leaf" },
-        { "type": "text", "id": "benefit_1", "label": "Benefit 1", "default": "97% naturally derived ingredients" },
-        { "type": "select", "id": "icon_2", "label": "Icon 2", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "drop" },
-        { "type": "text", "id": "benefit_2", "label": "Benefit 2", "default": "24-hour hydration" },
-        { "type": "select", "id": "icon_3", "label": "Icon 3", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "rabbit" },
-        { "type": "text", "id": "benefit_3", "label": "Benefit 3", "default": "Cruelty-free & vegan" },
-        { "type": "select", "id": "icon_4", "label": "Icon 4", "options": [{ "value": "leaf", "label": "Leaf" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "lab" },
-        { "type": "text", "id": "benefit_4", "label": "Benefit 4", "default": "Dermatologist-tested" }
+        { "type": "select", "id": "icon_1", "label": "Icon 1", "options": [{ "value": "check", "label": "Check" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "leaf", "label": "Leaf" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "check" },
+        { "type": "text", "id": "detail_1", "label": "Detail 1", "info": "Real product facts only — e.g. \"Waterproof formula\"." },
+        { "type": "select", "id": "icon_2", "label": "Icon 2", "options": [{ "value": "check", "label": "Check" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "leaf", "label": "Leaf" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "check" },
+        { "type": "text", "id": "detail_2", "label": "Detail 2" },
+        { "type": "select", "id": "icon_3", "label": "Icon 3", "options": [{ "value": "check", "label": "Check" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "leaf", "label": "Leaf" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "check" },
+        { "type": "text", "id": "detail_3", "label": "Detail 3" },
+        { "type": "select", "id": "icon_4", "label": "Icon 4", "options": [{ "value": "check", "label": "Check" }, { "value": "drop", "label": "Drop" }, { "value": "sparkle", "label": "Sparkle" }, { "value": "leaf", "label": "Leaf" }, { "value": "rabbit", "label": "Rabbit" }, { "value": "lab", "label": "Lab" }, { "value": "heart", "label": "Heart" }], "default": "check" },
+        { "type": "text", "id": "detail_4", "label": "Detail 4" }
       ]
     },
     {
@@ -328,25 +280,6 @@
       ]
     },
     {
-      "type": "guarantee",
-      "name": "Guarantee callout",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "30-day satisfaction guarantee"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Text",
-          "default": "Shop with peace of mind: if this treatment isn't right for you, we'll refund you."
-        }
-      ]
-    },
-    {
       "type": "description",
       "name": "Description (accordion)",
       "limit": 1,
@@ -355,7 +288,7 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Description & benefits"
+          "default": "Description"
         }
       ]
     },
@@ -367,13 +300,12 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Ingredients"
+          "default": "How to use"
         },
         {
           "type": "richtext",
           "id": "content",
-          "label": "Content",
-          "default": "<p>Add the full INCI ingredient list here, or any content you'd like.</p>"
+          "label": "Content"
         },
         {
           "type": "text",

@@ -3,32 +3,30 @@
     "main": {
       "type": "faq",
       "settings": {
-        "eyebrow": "Help center",
+        "eyebrow": "Help",
         "heading": "Frequently asked questions",
-        "subtext": "Shipping, returns, products, payment: all the answers to your questions.",
-        "open_first": true,
+        "subtext": "Shipping, returns, products, payment: the essentials.",
+        "open_first": false,
         "background": "default"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What are the shipping times and costs?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days within the continental US. Free shipping on orders over $50; below that, a flat $4.90 fee applies.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Do you ship internationally?", "answer": "<p>Yes, we ship to Canada, the UK, and the EU. Delivery times range from 4 to 8 business days depending on the destination.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "How can I track my order?", "answer": "<p>As soon as your order ships, you'll receive an email with a real-time tracking link. Be sure to check your spam folder.</p>" } },
-        "q4": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested and developed at a skin-friendly pH. The full INCI ingredient list is on every product page.</p>" } },
-        "q5": { "type": "question", "settings": { "question": "Are your products tested on animals?", "answer": "<p>Never. All our formulas are cruelty-free, and most are vegan (noted on each product page).</p>" } },
-        "q6": { "type": "question", "settings": { "question": "How does the satisfaction guarantee work?", "answer": "<p>You have 30 days after delivery to change your mind. Contact us with your order number: we'll arrange the return and refund you within 5 days of receiving it.</p>" } },
-        "q7": { "type": "question", "settings": { "question": "What payment methods do you accept?", "answer": "<p>Credit card (Visa, Mastercard, Amex), PayPal, Apple Pay, and Google Pay. All transactions are encrypted and secure.</p>" } },
-        "q8": { "type": "question", "settings": { "question": "How do I use my promo code?", "answer": "<p>Enter your code in the dedicated field at checkout. Only one code can be used per order.</p>" } }
+        "q1": { "type": "question", "settings": { "question": "How long does delivery take?", "answer": "<p>Processing and delivery times depend on your destination. They are detailed in our shipping policy and confirmed at checkout before you pay.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "How can I track my order?", "answer": "<p>As soon as your order ships, you'll receive an email with a tracking link.</p>" } },
+        "q3": { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Return conditions and timelines are described in our refund policy. Contact us with your order number and we'll guide you through the process.</p>" } },
+        "q4": { "type": "question", "settings": { "question": "What payment methods do you accept?", "answer": "<p>All payment methods shown at checkout. Every transaction is encrypted and processed through Shopify's secure checkout.</p>" } },
+        "q5": { "type": "question", "settings": { "question": "How can I contact you?", "answer": "<p>Through our contact page — we answer every message.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"]
+      "block_order": ["q1", "q2", "q3", "q4", "q5"]
     },
     "contact_cta": {
-      "type": "guarantee",
+      "type": "rich-text",
       "settings": {
+        "eyebrow": "",
         "heading": "Didn't find your answer?",
-        "text": "Our team is happy to help — we respond within 24 business hours.",
+        "text": "<p>Send us a message — we're happy to help.</p>",
         "button_label": "Contact us",
         "button_link": "shopify://pages/contact",
-        "small_print": ""
+        "background": "soft"
       }
     }
   },

@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "SkinClair",
-    "theme_version": "1.0.0",
+    "theme_version": "2.0.0",
     "theme_author": "SkinClair Studio",
     "theme_documentation_url": "https://github.com/droppship/skinclair",
     "theme_support_url": "https://github.com/droppship/skinclair"
@@ -13,62 +13,32 @@
       {
         "type": "color",
         "id": "color_background",
-        "label": "Page background (ivory)",
-        "default": "#FBF7F2"
-      },
-      {
-        "type": "color",
-        "id": "color_surface",
-        "label": "Surfaces (cards, panels)",
+        "label": "Background",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
-        "id": "color_soft",
-        "label": "Soft background (alternating sections)",
-        "default": "#F4E8E3"
-      },
-      {
-        "type": "color",
         "id": "color_text",
-        "label": "Main text",
-        "default": "#3D2E33"
+        "label": "Text",
+        "default": "#111111"
       },
       {
         "type": "color",
         "id": "color_muted",
         "label": "Secondary text",
-        "default": "#8A7076"
+        "default": "#6E6E6E"
       },
       {
         "type": "color",
-        "id": "color_accent",
-        "label": "Accent (powder pink)",
-        "default": "#D8A7A0"
-      },
-      {
-        "type": "color",
-        "id": "color_button",
-        "label": "Buttons (deep plum)",
-        "default": "#5E3E47"
-      },
-      {
-        "type": "color",
-        "id": "color_button_text",
-        "label": "Button text",
-        "default": "#FFF9F5"
-      },
-      {
-        "type": "color",
-        "id": "color_gold",
-        "label": "Gold (stars, details)",
-        "default": "#C7A17A"
+        "id": "color_soft",
+        "label": "Light gray (alternate sections)",
+        "default": "#F7F7F6"
       },
       {
         "type": "color",
         "id": "color_line",
         "label": "Borders and dividers",
-        "default": "#EADDD6"
+        "default": "#E9E9E7"
       }
     ]
   },
@@ -83,7 +53,7 @@
         "max": 1440,
         "step": 20,
         "unit": "px",
-        "default": 1240
+        "default": 1280
       },
       {
         "type": "image_picker",
@@ -94,45 +64,8 @@
     ]
   },
   {
-    "name": "Cart & shipping",
+    "name": "Product cards",
     "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_free_shipping_bar",
-        "label": "Show free shipping progress bar",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "free_shipping_threshold",
-        "label": "Free shipping threshold",
-        "min": 0,
-        "max": 200,
-        "step": 5,
-        "unit": "$",
-        "default": 50
-      }
-    ]
-  },
-  {
-    "name": "Product pages",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_low_stock",
-        "label": "Show low stock alert",
-        "info": "Subtle urgency: only shown when inventory tracking is on and stock is under the threshold.",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "low_stock_threshold",
-        "label": "Low stock threshold",
-        "min": 1,
-        "max": 20,
-        "step": 1,
-        "default": 5
-      },
       {
         "type": "checkbox",
         "id": "show_quick_add",

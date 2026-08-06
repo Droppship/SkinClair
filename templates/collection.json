@@ -5,16 +5,7 @@
       "settings": {
         "products_per_page": 24
       }
-    },
-    "guarantee": {
-      "type": "guarantee",
-      "settings": {
-        "heading": "30-day satisfaction guarantee",
-        "text": "Shop with confidence: if a treatment isn't right for you, we'll refund you in full.",
-        "button_label": "",
-        "small_print": ""
-      }
     }
   },
-  "order": ["main", "guarantee"]
+  "order": ["main"]
 }

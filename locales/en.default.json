@@ -13,7 +13,7 @@
     },
     "search": {
       "title": "Search",
-      "placeholder": "Search for a treatment, a product…",
+      "placeholder": "Search for a product…",
       "submit": "Search",
       "results_count": {
         "one": "{{ count }} result for \"{{ terms }}\"",
@@ -31,7 +31,7 @@
       "label": "Email address",
       "placeholder": "Your email address",
       "submit": "Sign up",
-      "success": "Thank you! Your subscription is confirmed. Keep an eye on your inbox ✨"
+      "success": "Thank you! Your subscription is confirmed."
     },
     "social": {
       "follow_instagram": "Follow us on Instagram",
@@ -41,9 +41,9 @@
     },
     "404": {
       "title": "Page not found",
-      "subtitle": "This page has vanished… but your glow never will.",
+      "subtitle": "The page you're looking for doesn't exist or has been moved.",
       "back_home": "Back to home",
-      "browse": "Shop our treatments"
+      "browse": "Shop our products"
     },
     "password": {
       "title": "Coming soon",
@@ -55,38 +55,29 @@
   "products": {
     "add_to_cart": "Add to cart",
     "adding": "Adding…",
-    "added": "Added to cart ✓",
+    "added": "Added ✓",
     "sold_out": "Sold out",
     "unavailable": "Unavailable",
-    "on_sale": "Sale",
-    "new": "New",
     "from": "From",
     "quantity": "Quantity",
     "decrease": "Decrease quantity",
     "increase": "Increase quantity",
     "choose_options": "Choose options",
     "view_details": "View product",
-    "low_stock": "Only {{ count }} left in stock — order soon",
-    "in_stock": "In stock, ships within 24 h",
-    "vendor": "Brand",
-    "reviews_count": {
-      "one": "{{ count }} review",
-      "other": "{{ count }} reviews"
-    }
+    "view_all": "View all",
+    "vendor": "Brand"
   },
   "cart": {
     "title": "Your cart",
     "empty": "Your cart is empty",
-    "empty_text": "Your beauty routine starts here.",
-    "continue_shopping": "Shop our treatments",
+    "empty_text": "Discover our products to get started.",
+    "continue_shopping": "Shop our products",
     "subtotal": "Subtotal",
     "checkout": "Checkout",
     "view_cart": "View cart",
     "remove": "Remove",
     "note_label": "Add a note to your order",
     "taxes_shipping": "Taxes and shipping calculated at checkout.",
-    "free_shipping_remaining": "Only {{ amount }} away from free shipping 🎁",
-    "free_shipping_unlocked": "You've unlocked free shipping! 🎉",
     "update": "Update",
     "quantity_error": "You cannot add more than {{ quantity }} of this item."
   },
@@ -99,7 +90,7 @@
     "phone": "Phone (optional)",
     "message": "Your message",
     "send": "Send message",
-    "success": "Thank you for your message! We'll get back to you within 24 business hours."
+    "success": "Thank you for your message! We'll get back to you as soon as possible."
   },
   "blog": {
     "read_more": "Read article",

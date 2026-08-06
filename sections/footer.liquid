@@ -35,27 +35,6 @@
             </div>
         {%- endcase -%}
       {%- endfor -%}
-
-      <div class="site-footer__newsletter">
-        <h4>{{ section.settings.newsletter_heading }}</h4>
-        <p>{{ section.settings.newsletter_text }}</p>
-        {%- form 'customer', id: 'FooterNewsletter' -%}
-          <input type="hidden" name="contact[tags]" value="newsletter">
-          {%- if form.posted_successfully? -%}
-            <p class="form-message form-message--success" data-newsletter-success>{{ 'general.newsletter.success' | t }}</p>
-          {%- else -%}
-            <input
-              type="email"
-              name="contact[email]"
-              placeholder="{{ 'general.newsletter.placeholder' | t }}"
-              aria-label="{{ 'general.newsletter.label' | t }}"
-              autocomplete="email"
-              required
-            >
-            <button type="submit" class="btn btn--card">{{ 'general.newsletter.submit' | t }}</button>
-          {%- endif -%}
-        {%- endform -%}
-      </div>
     </div>
 
     <div class="site-footer__bottom">
@@ -88,19 +67,7 @@
       "type": "text",
       "id": "brand_text",
       "label": "Brand text",
-      "default": "Essential skincare, formulated with rigor, to reveal your skin's natural glow."
-    },
-    {
-      "type": "text",
-      "id": "newsletter_heading",
-      "label": "Newsletter heading",
-      "default": "Join the circle"
-    },
-    {
-      "type": "text",
-      "id": "newsletter_text",
-      "label": "Newsletter text",
-      "default": "Get 10% off your first order, our beauty tips and private offers."
+      "default": "Beauty essentials, made simple. Thoughtfully designed products for a natural look."
     },
     {
       "type": "checkbox",
@@ -125,7 +92,8 @@
           "type": "link_list",
           "id": "menu",
           "label": "Menu",
-          "default": "footer"
+          "default": "footer",
+          "info": "Recommended links: Contact, FAQ, Privacy policy, Terms of service, Refund policy, Shipping policy."
         }
       ]
     }
@@ -133,7 +101,7 @@
   "default": {
     "blocks": [
       { "type": "link_list", "settings": { "heading": "Shop" } },
-      { "type": "link_list", "settings": { "heading": "Information" } }
+      { "type": "link_list", "settings": { "heading": "Help" } }
     ]
   }
 }

@@ -8,35 +8,37 @@
     <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
-        font-family: 'Jost', sans-serif; font-weight: 300;
-        background: {{ settings.color_background | default: '#FBF7F2' }};
-        color: {{ settings.color_text | default: '#3D2E33' }};
+        font-family: 'Inter', sans-serif;
+        background: {{ settings.color_soft | default: '#F7F7F6' }};
+        color: {{ settings.color_text | default: '#111111' }};
         display: flex; align-items: center; justify-content: center;
         min-height: 100vh; padding: 24px;
       }
       .card {
-        background: #fff; border-radius: 24px; padding: 48px 40px;
+        background: #fff; border: 1px solid {{ settings.color_line | default: '#E9E9E7' }}; border-radius: 2px;
+        padding: 48px 40px;
         max-width: 460px; width: 100%; text-align: center;
-        box-shadow: 0 14px 40px rgba(61, 46, 51, 0.14);
       }
-      h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 28px; margin-bottom: 8px; }
-      .balance { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; margin: 20px 0 6px; }
+      h1 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 26px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+      .balance { font-family: 'Marcellus', serif; font-size: 48px; margin: 20px 0 6px; }
       .code {
         display: inline-block; margin: 18px 0 26px; padding: 14px 28px;
-        border: 1.5px dashed {{ settings.color_accent | default: '#D8A7A0' }};
-        border-radius: 999px; font-size: 20px; letter-spacing: 3px;
+        border: 1px dashed {{ settings.color_line | default: '#E9E9E7' }};
+        border-radius: 2px; font-size: 20px; letter-spacing: 3px;
       }
       .btn {
-        display: inline-block; padding: 15px 34px; border-radius: 999px;
-        background: {{ settings.color_button | default: '#5E3E47' }};
-        color: {{ settings.color_button_text | default: '#FFF9F5' }};
-        text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 13px;
+        display: inline-block; padding: 15px 34px; border: 1px solid {{ settings.color_text | default: '#111111' }}; border-radius: 2px;
+        background: {{ settings.color_text | default: '#111111' }};
+        color: #fff;
+        text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 12px;
+        transition: background 0.25s ease, color 0.25s ease;
       }
-      .muted { color: #8A7076; font-size: 14px; margin-top: 18px; }
+      .btn:hover { background: transparent; color: {{ settings.color_text | default: '#111111' }}; }
+      .muted { color: {{ settings.color_muted | default: '#6E6E6E' }}; font-size: 14px; margin-top: 18px; }
       img { max-width: 100%; margin: 0 auto 16px; }
     </style>
   </head>

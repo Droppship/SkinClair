@@ -5,34 +5,32 @@
       "blocks": {
         "vendor": { "type": "vendor", "settings": {} },
         "title": { "type": "title", "settings": {} },
-        "rating": { "type": "rating", "settings": { "rating_count": "★ 4.8 — read reviews" } },
         "price": { "type": "price", "settings": {} },
         "short_description": { "type": "short_description", "settings": {} },
-        "benefits": { "type": "benefits", "settings": {} },
+        "details": { "type": "details", "settings": {} },
         "buy": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true } },
-        "guarantee": { "type": "guarantee", "settings": {} },
-        "description": { "type": "description", "settings": { "title": "Description & benefits" } },
-        "ingredients": {
-          "type": "accordion",
-          "settings": {
-            "title": "Ingredients",
-            "content": "<p>Add the full INCI ingredient list here, or create a custom.ingredients product metafield to automate it.</p>",
-            "metafield_key": "custom.ingredients"
-          }
-        },
+        "description": { "type": "description", "settings": { "title": "Description" } },
         "usage": {
           "type": "accordion",
           "settings": {
             "title": "How to use",
-            "content": "<p>Apply morning and evening on clean, dry skin, gently massaging until fully absorbed.</p>",
+            "content": "",
             "metafield_key": "custom.usage"
+          }
+        },
+        "ingredients": {
+          "type": "accordion",
+          "settings": {
+            "title": "Ingredients",
+            "content": "",
+            "metafield_key": "custom.ingredients"
           }
         },
         "shipping": {
           "type": "accordion",
           "settings": {
             "title": "Shipping & returns",
-            "content": "<p><strong>Shipping:</strong> ships within 24 h, delivered in 2 to 4 business days. Free on orders over $50.<br><strong>Returns:</strong> 30 days to change your mind, full refund.</p>",
+            "content": "<p>Shipping times and costs are shown at checkout. For returns, see our refund policy or contact us.</p>",
             "metafield_key": ""
           }
         }
@@ -40,65 +38,23 @@
       "block_order": [
         "vendor",
         "title",
-        "rating",
         "price",
         "short_description",
-        "benefits",
+        "details",
         "buy",
-        "guarantee",
         "description",
-        "ingredients",
         "usage",
+        "ingredients",
         "shipping"
       ]
     },
     "recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "eyebrow": "Cross-sell",
-        "heading": "Complete your routine",
-        "products_count": 4
-      }
-    },
-    "reviews": {
-      "type": "testimonials",
-      "settings": {
-        "eyebrow": "Customer reviews",
-        "heading": "Customers love it",
-        "subtext": "Connect a review app (Judge.me, Loox) to display real product reviews — this section shows your best feedback in the meantime.",
-        "background": "soft"
-      },
-      "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "Melts into skin, absorbs fast, and my complexion looks visibly brighter. Highly recommend.", "author": "Julia R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "I've been using it for a month: my skin is plumper and redness has faded.", "author": "Leah T.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 4, "quote": "Great product, subtle and elegant scent. The pump bottle is super convenient.", "author": "Megan D.", "verified": true } }
-      },
-      "block_order": ["t1", "t2", "t3"]
-    },
-    "faq": {
-      "type": "faq",
-      "settings": {
-        "eyebrow": "Frequently asked questions",
-        "heading": "Everything to know before ordering",
-        "open_first": false,
-        "background": "default"
-      },
-      "blocks": {
-        "q1": { "type": "question", "settings": { "question": "When will I receive my order?", "answer": "<p>Your order ships within 24 hours and is delivered in 2 to 4 business days. You'll get a tracking link by email as soon as it ships.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Is this product right for my skin type?", "answer": "<p>Our formulas are designed for all skin types, including sensitive skin. Check the full ingredient list above, and reach out if you're unsure: we're happy to advise you personally.</p>" } },
-        "q3": { "type": "question", "settings": { "question": "What if this product doesn't work for me?", "answer": "<p>You're covered by our 30-day satisfaction guarantee: return the product and we'll refund you in full.</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3"]
-    },
-    "guarantee": {
-      "type": "guarantee",
-      "settings": {
-        "heading": "Try it risk-free for 30 days",
-        "text": "If this treatment doesn't transform your routine, we'll refund you in full. No questions, no friction.",
-        "button_label": "",
-        "small_print": "See our return policy for details."
+        "heading": "You may also like",
+        "products_count": 3
       }
     }
   },
-  "order": ["main", "recommendations", "reviews", "faq", "guarantee"]
+  "order": ["main", "recommendations"]
 }

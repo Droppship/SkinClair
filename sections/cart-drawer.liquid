@@ -9,23 +9,18 @@
   {%- if cart.item_count == 0 -%}
     <div class="drawer__body">
       <div class="cart-drawer__empty">
-        {% render 'icon', name: 'flower', size: 44 %}
         <h3>{{ 'cart.empty' | t }}</h3>
-        <p class="text-muted" style="margin: 8px 0 24px;">{{ 'cart.empty_text' | t }}</p>
+        <p class="text-muted">{{ 'cart.empty_text' | t }}</p>
         <a href="{{ routes.all_products_collection_url }}" class="btn" data-drawer-close>{{ 'cart.continue_shopping' | t }}</a>
       </div>
     </div>
   {%- else -%}
     <div class="drawer__body">
-      {%- if settings.show_free_shipping_bar -%}
-        {% render 'free-shipping-bar' %}
-      {%- endif -%}
-
       {%- for item in cart.items -%}
         <div class="cart-line">
           <a href="{{ item.url }}" class="cart-line__media">
             {%- if item.image -%}
-              <img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.image.alt | escape }}" width="84" height="84" loading="lazy">
+              <img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.image.alt | escape }}" width="84" height="104" loading="lazy">
             {%- endif -%}
           </a>
           <div class="cart-line__info">
@@ -70,14 +65,9 @@
       <p class="cart-drawer__note">{{ 'cart.taxes_shipping' | t }}</p>
       <form action="{{ routes.cart_url }}" method="post">
         <button type="submit" name="checkout" class="btn btn--full">
-          {% render 'icon', name: 'lock', size: 15 %}
           {{ 'cart.checkout' | t }}
         </button>
       </form>
-      <div class="trust-row" style="margin-top: 14px;">
-        <span class="trust-row__item">{% render 'icon', name: 'lock', size: 15 %} Secure payment</span>
-        <span class="trust-row__item">{% render 'icon', name: 'return', size: 15 %} 30-day returns</span>
-      </div>
     </div>
   {%- endif -%}
 </aside>
