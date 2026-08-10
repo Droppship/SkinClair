@@ -24,6 +24,16 @@
       },
       "block_order": ["r1", "r3", "r4"]
     },
+    "best_sellers": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "The essentials",
+        "heading": "Our best-sellers",
+        "subtext": "Our customers' favorite treatments, loved every day.",
+        "products_count": 8,
+        "button_label": "View full collection"
+      }
+    },
     "collections": {
       "type": "featured-collections",
       "settings": {
@@ -126,6 +136,7 @@
   "order": [
     "hero",
     "reassurance",
+    "best_sellers",
     "collections",
     "why_us",
     "testimonials",

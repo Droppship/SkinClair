@@ -19,8 +19,11 @@
         {%- liquid
           assign collection = section.settings.collection
           assign limit = section.settings.products_count
+          if collection == blank or collection.products.size == 0
+            assign collection = collections.all
+          endif
         -%}
-        {%- if collection != blank and collection.products.size > 0 -%}
+        {%- if collection.products.size > 0 -%}
           {%- for product in collection.products limit: limit -%}
             {% render 'product-card', card_product: product %}
           {%- endfor -%}
