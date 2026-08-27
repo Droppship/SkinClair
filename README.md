@@ -4,6 +4,20 @@ Thème Shopify **Online Store 2.0** complet, construit sur mesure pour une marqu
 
 ---
 
+## Mise à jour « professionnalisation » (26 août 2026)
+
+Passe de correction visant à retirer tout élément susceptible de nuire à la crédibilité de la boutique :
+
+- **Fausse preuve sociale retirée.** Le bandeau « Loved by 10,000+ Customers » et les faux témoignages (accueil + page produit, faux prénoms + badge « Verified buyer ») ont été supprimés — ils n'étaient adossés à aucune donnée réelle et exposent à un risque au titre de la Loi sur la concurrence. Le bandeau de réassurance sous le hero affiche maintenant 4 engagements vérifiables (livraison gratuite, garantie 30 jours, cruelty-free, paiement sécurisé), conformément à l'intention d'origine du thème.
+- **Fausse note produit corrigée.** Le bloc « Note (étoiles) » de la fiche produit affichait ★ 4.8 codé en dur dans le *code*, peu importe ce que vous saisissiez — il reste maintenant masqué tant que vous n'entrez pas une vraie moyenne (idéalement via Judge.me/Loox).
+- **Incohérence Canada/États-Unis corrigée.** La FAQ et la fiche produit mentionnaient « continental US » sur un domaine `.ca` — remplacé par « across Canada », et la section « livraison internationale » a été inversée (le Canada est maintenant le marché national, US/UK/EU en international).
+- **Accueil : produits enfin visibles.** La section « Best-sellers » (avec ajout rapide au panier) est désormais active sur la page d'accueil, entre les collections et « Pourquoi nous ». **Vous devez lui assigner une collection dans l'éditeur de thème**, sinon elle affiche des produits de démonstration à 29,90 $.
+- **Français ajouté** (`locales/fr.json`) comme langue secondaire complète, pour la conformité avec la Loi 96 si vous ciblez le Québec — à activer via *Réglages → Langues* dans l'admin Shopify.
+- **Deux bugs corrigés** : le badge « Nouveau » ne se déclenchait que sur le tag français `nouveau` (invisible sur une boutique en anglais taguée `New`) ; le texte « Verified buyer » était codé en dur au lieu de passer par les traductions.
+- **Code promo unifié** sur `WELCOME10` (le README mentionnait à tort `BIENVENUE10`).
+
+---
+
 ## Installation
 
 1. **Créer le ZIP du thème** (à la racine du dépôt) :
@@ -25,8 +39,8 @@ Thème Shopify **Online Store 2.0** complet, construit sur mesure pour une marqu
 | 3 | Paramètres → Politiques | Renseigner remboursement, livraison, confidentialité, CGV — elles s'affichent automatiquement dans le footer |
 | 4 | Éditeur de thème | Remplacer les images de démonstration (hero, collections, galerie Instagram) par vos visuels |
 | 5 | Réglages du thème → Réseaux sociaux | Renseigner vos liens Instagram / TikTok |
-| 6 | Paramètres → Expédition | Créer la règle « livraison gratuite dès 50 € » (le seuil de la barre de progression se règle dans **Réglages du thème → Panier et livraison**) |
-| 7 | Marketing | Créer le code promo `BIENVENUE10` (-10 %) promis par le pop-up et la barre d'annonces |
+| 6 | Paramètres → Expédition | Créer la règle « livraison gratuite dès 50 $ » (le seuil de la barre de progression se règle dans **Réglages du thème → Panier et livraison**) |
+| 7 | Marketing | Créer le code promo `WELCOME10` (-10 %) promis par le pop-up et la barre d'annonces (le nom du code est identique dans les deux fichiers — vérifiez qu'il n'y en a qu'un seul dans Shopify) |
 
 ### Métachamps produit recommandés (optionnels)
 

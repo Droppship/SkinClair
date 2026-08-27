@@ -72,7 +72,8 @@
     "reviews_count": {
       "one": "{{ count }} review",
       "other": "{{ count }} reviews"
-    }
+    },
+    "verified_buyer": "Verified buyer"
   },
   "cart": {
     "title": "Your cart",

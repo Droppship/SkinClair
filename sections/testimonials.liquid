@@ -23,7 +23,7 @@
             <figcaption class="testimonial-card__author">
               {{ block.settings.author }}
               {%- if block.settings.verified -%}
-                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} Verified buyer</span>
+                <span class="testimonial-card__verified">{% render 'icon', name: 'check', size: 13 %} {{ 'products.verified_buyer' | t }}</span>
               {%- endif -%}
             </figcaption>
           </figure>

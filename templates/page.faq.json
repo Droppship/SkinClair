@@ -10,8 +10,8 @@
         "background": "default"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What are the shipping times and costs?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days within the continental US. Free shipping on orders over $50; below that, a flat $4.90 fee applies.</p>" } },
-        "q2": { "type": "question", "settings": { "question": "Do you ship internationally?", "answer": "<p>Yes, we ship to Canada, the UK, and the EU. Delivery times range from 4 to 8 business days depending on the destination.</p>" } },
+        "q1": { "type": "question", "settings": { "question": "What are the shipping times and costs?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days across Canada. Free shipping on orders over $50; below that, a flat $4.90 fee applies.</p>" } },
+        "q2": { "type": "question", "settings": { "question": "Do you ship internationally?", "answer": "<p>Yes, we ship to the United States, the UK, and the EU. Delivery times range from 4 to 8 business days depending on the destination.</p>" } },
         "q3": { "type": "question", "settings": { "question": "How can I track my order?", "answer": "<p>As soon as your order ships, you'll receive an email with a real-time tracking link. Be sure to check your spam folder.</p>" } },
         "q4": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested and developed at a skin-friendly pH. The full INCI ingredient list is on every product page.</p>" } },
         "q5": { "type": "question", "settings": { "question": "Are your products tested on animals?", "answer": "<p>Never. All our formulas are cruelty-free, and most are vegan (noted on each product page).</p>" } },

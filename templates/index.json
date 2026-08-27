@@ -18,11 +18,12 @@
         "background": "surface"
       },
       "blocks": {
-        "r1": { "type": "column", "settings": { "icon": "sparkle", "title": "Loved by 10,000+ Customers", "text": "Real reviews, real results" } },
+        "r1": { "type": "column", "settings": { "icon": "truck", "title": "Free shipping over $50", "text": "On all orders across Canada" } },
+        "r2": { "type": "column", "settings": { "icon": "return", "title": "30-day guarantee", "text": "Full refund, no questions asked" } },
         "r3": { "type": "column", "settings": { "icon": "rabbit", "title": "Cruelty-free & vegan", "text": "Never tested on animals" } },
         "r4": { "type": "column", "settings": { "icon": "lock", "title": "Secure payment", "text": "Credit card, PayPal, Apple Pay" } }
       },
-      "block_order": ["r1", "r3", "r4"]
+      "block_order": ["r1", "r2", "r3", "r4"]
     },
     "collections": {
       "type": "featured-collections",
@@ -38,6 +39,16 @@
         "c3": { "type": "collection", "settings": { "title": "Wellness" } }
       },
       "block_order": ["c1", "c2", "c3"]
+    },
+    "best_sellers": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "The essentials",
+        "heading": "Our best-sellers",
+        "subtext": "Our customers' favorite treatments, loved every day.",
+        "products_count": 8,
+        "button_label": "View full collection"
+      }
     },
     "why_us": {
       "type": "image-with-text",
@@ -58,20 +69,6 @@
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },
-    "testimonials": {
-      "type": "testimonials",
-      "settings": {
-        "eyebrow": "Trusted by our customers",
-        "heading": "What our customers say",
-        "background": "default"
-      },
-      "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "My skin has never been this soft. I noticed a real difference after three weeks of use.", "author": "Emily R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Finally a brand that keeps its promises. Gorgeous textures, subtle scents, and super fast shipping.", "author": "Sarah M.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 5, "quote": "I replaced my entire routine. The serum is now my can't-live-without morning step.", "author": "Ava B.", "verified": true } }
-      },
-      "block_order": ["t1", "t2", "t3"]
-    },
     "guarantee": {
       "type": "guarantee",
       "settings": {
@@ -90,7 +87,7 @@
         "background": "surface"
       },
       "blocks": {
-        "q1": { "type": "question", "settings": { "question": "What are the shipping times?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days. Free shipping on orders over $50.</p>" } },
+        "q1": { "type": "question", "settings": { "question": "What are the shipping times?", "answer": "<p>Your order is prepared within 24 hours and delivered in 2 to 4 business days across Canada. Free shipping on orders over $50.</p>" } },
         "q2": { "type": "question", "settings": { "question": "Are your products suitable for sensitive skin?", "answer": "<p>Yes. Our formulas are dermatologist-tested, free from harsh fragrance and controversial ingredients. If in doubt, patch-test on a small area first and check the full ingredient list on each product page.</p>" } },
         "q3": { "type": "question", "settings": { "question": "Can I return a product?", "answer": "<p>Absolutely. You have 30 days after delivery to change your mind. The product must be unopened; refunds are processed within 5 days of us receiving the return.</p>" } },
         "q4": { "type": "question", "settings": { "question": "Are payments secure?", "answer": "<p>Yes, all transactions are encrypted (SSL) and processed by PCI-DSS certified providers: credit card, PayPal, Apple Pay, and Google Pay.</p>" } }
@@ -127,8 +124,8 @@
     "hero",
     "reassurance",
     "collections",
+    "best_sellers",
     "why_us",
-    "testimonials",
     "guarantee",
     "faq",
     "social",

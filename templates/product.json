@@ -5,7 +5,7 @@
       "blocks": {
         "vendor": { "type": "vendor", "settings": {} },
         "title": { "type": "title", "settings": {} },
-        "rating": { "type": "rating", "settings": { "rating_count": "★ 4.8 — read reviews" } },
+        "rating": { "type": "rating", "settings": {} },
         "price": { "type": "price", "settings": {} },
         "short_description": { "type": "short_description", "settings": {} },
         "benefits": { "type": "benefits", "settings": {} },
@@ -32,7 +32,7 @@
           "type": "accordion",
           "settings": {
             "title": "Shipping & returns",
-            "content": "<p><strong>Shipping:</strong> ships within 24 h, delivered in 2 to 4 business days. Free on orders over $50.<br><strong>Returns:</strong> 30 days to change your mind, full refund.</p>",
+            "content": "<p><strong>Shipping:</strong> ships within 24 h, delivered in 2 to 4 business days across Canada. Free on orders over $50.<br><strong>Returns:</strong> 30 days to change your mind, full refund.</p>",
             "metafield_key": ""
           }
         }
@@ -60,21 +60,6 @@
         "products_count": 4
       }
     },
-    "reviews": {
-      "type": "testimonials",
-      "settings": {
-        "eyebrow": "Customer reviews",
-        "heading": "Customers love it",
-        "subtext": "Connect a review app (Judge.me, Loox) to display real product reviews — this section shows your best feedback in the meantime.",
-        "background": "soft"
-      },
-      "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "Melts into skin, absorbs fast, and my complexion looks visibly brighter. Highly recommend.", "author": "Julia R.", "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "I've been using it for a month: my skin is plumper and redness has faded.", "author": "Leah T.", "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "rating": 4, "quote": "Great product, subtle and elegant scent. The pump bottle is super convenient.", "author": "Megan D.", "verified": true } }
-      },
-      "block_order": ["t1", "t2", "t3"]
-    },
     "faq": {
       "type": "faq",
       "settings": {
@@ -100,5 +85,5 @@
       }
     }
   },
-  "order": ["main", "recommendations", "reviews", "faq", "guarantee"]
+  "order": ["main", "recommendations", "faq", "guarantee"]
 }

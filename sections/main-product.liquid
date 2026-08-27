@@ -55,9 +55,9 @@
               <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
 
             {%- when 'rating' -%}
-              {%- if block.settings.rating_count != blank -%}
+              {%- if block.settings.rating_value != blank and block.settings.rating_count != blank -%}
                 <div class="product__rating" {{ block.shopify_attributes }}>
-                  <span class="stars" role="img" aria-label="4.8 out of 5 stars">
+                  <span class="stars" role="img" aria-label="{{ block.settings.rating_value }} out of 5 stars">
                     {%- for i in (1..5) -%}{% render 'icon', name: 'star', size: 15 %}{%- endfor -%}
                   </span>
                   <a href="#reviews">{{ block.settings.rating_count }}</a>
@@ -272,10 +272,16 @@
       "settings": [
         {
           "type": "text",
+          "id": "rating_value",
+          "label": "Average rating (e.g. 4.8)",
+          "info": "Real average from your review app. Leave blank to hide — don't display a rating you can't back up with actual reviews."
+        },
+        {
+          "type": "text",
           "id": "rating_count",
           "label": "Review link text",
-          "info": "E.g. \"127 reviews\". Leave blank to hide. Automatically replaced if you install a review app (Judge.me, Loox…).",
-          "default": "★ 4.8 — read reviews"
+          "info": "E.g. \"127 reviews\". Leave blank to hide. Both fields are automatically populated if you install a review app (Judge.me, Loox…).",
+          "default": ""
         }
       ]
     },
